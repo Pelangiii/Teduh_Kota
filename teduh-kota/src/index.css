@@ -1,0 +1,16 @@
+/* 1. Import Font WAJIB ditaruh di paling atas! */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* 2. Import Tailwind CSS v4 */
+@import "tailwindcss";
+
+/* 3. Konfigurasi Warna & Font Custom */
+@theme {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+  --color-brand-green: #88AB61;
+  --color-brand-orange: #EE8F48;
+  --color-brand-bg: #FDF9F0;
+  --color-brand-card: #F2ECDC;
+  --color-brand-accent: #E29B38;
+}
