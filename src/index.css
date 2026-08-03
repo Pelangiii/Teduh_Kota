@@ -1,12 +1,9 @@
-/* 1. Import Font WAJIB ditaruh di paling atas! */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
-/* 2. Import Tailwind CSS v4 */
 @import "tailwindcss";
 
-/* 3. Konfigurasi Warna & Font Custom */
+/* Konfigurasi Warna dan Font Custom */
 @theme {
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-sans: 'Nunito Sans', sans-serif;
+  --font-header: 'Madimi One', sans-serif;
 
   --color-brand-green: #88AB61;
   --color-brand-orange: #EE8F48;
