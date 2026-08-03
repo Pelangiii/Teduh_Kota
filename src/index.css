@@ -2,9 +2,11 @@
 
 /* Konfigurasi Warna dan Font Custom */
 @theme {
+  /* Font */
   --font-sans: 'Nunito Sans', sans-serif;
   --font-header: 'Madimi One', sans-serif;
 
+  /* Warna Utama */
   --color-brand-green: #88AB61;
   --color-brand-orange: #EE8F48;
   --color-brand-bg: #FDF9F0;
