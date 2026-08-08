@@ -8,8 +8,10 @@ import About from './components/About';
 import Features from './components/Features';
 import FooterSection from './components/FooterSection';
 
-// Import halaman About yang baru dibuat
+// Import halaman
 import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import SolusiPage from './pages/SolusiPage';
 
 // Komponen gabungan khusus untuk Landing Page (Home)
 function HomePage() {
@@ -34,6 +36,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/solusi-teduh" element={<SolusiPage />} />
           </Routes>
         </main>
 
