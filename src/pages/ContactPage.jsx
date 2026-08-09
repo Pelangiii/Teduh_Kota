@@ -19,21 +19,21 @@ export default function ContactPage() {
 
   return (
     /* Ditambahkan py-24 md:py-32 untuk memberi ruang bernapas lebih luas di bagian atas & bawah */
-    <div className="bg-[#FAF8F5] min-h-screen py-24 md:py-32 px-6">
+    <div className="bg-brand-bg min-h-screen py-24 md:py-32 px-6">
       <div className="max-w-6xl mx-auto space-y-20 md:space-y-28">
         
         {/* Header Section */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 pt-6">
           <div className="space-y-6 max-w-lg">
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
-              Punya <span className="text-[#8BC34A]">Pertanyaan?</span>
+              Punya <span className="text-brand-green">Pertanyaan?</span>
             </h1>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed">
               Ada pertanyaan, saran, atau ingin bekerja sama? Tim Teduh Kota siap membantu.
             </p>
           </div>
           <div className="w-full md:w-1/2 flex justify-center">
-            <div className="bg-[#FFE082] rounded-full p-10 w-80 h-40 flex items-center justify-center shadow-xs">
+            <div className="bg-brand-accent rounded-full p-10 w-80 h-40 flex items-center justify-center shadow-xs">
               <span className="text-7xl">💻🪴</span>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function ContactPage() {
                   onChange={handleChange}
                   placeholder="Masukkan nama mu"
                   required
-                  className="w-full px-4 py-3.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#8BC34A] focus:ring-1 focus:ring-[#8BC34A] transition"
+                  className="w-full px-4 py-3.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition"
                 />
               </div>
 
@@ -75,7 +75,7 @@ export default function ContactPage() {
                   onChange={handleChange}
                   placeholder="Masukkan email aktif mu"
                   required
-                  className="w-full px-4 py-3.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#8BC34A] focus:ring-1 focus:ring-[#8BC34A] transition"
+                  className="w-full px-4 py-3.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition"
                 />
               </div>
 
@@ -90,13 +90,13 @@ export default function ContactPage() {
                   onChange={handleChange}
                   placeholder="Tulis pesan yang ingin kamu sampaikan"
                   required
-                  className="w-full px-4 py-3.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#8BC34A] focus:ring-1 focus:ring-[#8BC34A] transition resize-none"
+                  className="w-full px-4 py-3.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition resize-none"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="bg-[#FF8A65] hover:bg-[#ff7043] text-white font-medium px-8 py-3.5 rounded-xl text-sm transition flex items-center gap-2 shadow-xs"
+                className="bg-brand-orange hover:bg-brand-orange text-white font-medium px-8 py-3.5 rounded-xl text-sm transition flex items-center gap-2 shadow-xs"
               >
                 Kirim Pesan <span>➤</span>
               </button>
@@ -106,7 +106,7 @@ export default function ContactPage() {
           {/* Info Kontak & Map Placeholder */}
           <div className="md:col-span-5 space-y-8 pt-2">
             <h3 className="text-xl md:text-2xl font-bold text-gray-800">
-              Kami disini untuk <span className="text-[#8BC34A]">membantu!</span>
+              Kami disini untuk <span className="text-brand-green">membantu!</span>
             </h3>
 
             <div className="space-y-5 text-sm text-gray-600">

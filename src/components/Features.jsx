@@ -41,13 +41,13 @@ export default function Features() {
   ];
 
   return (
-    <div className="bg-[#FAF8F5] py-16 px-6 space-y-24">
+    <div className="bg-brand-bg py-16 px-6 space-y-24">
       
       {/* SECTION 1: Mengapa Teduh Kota? */}
       <section className="max-w-6xl mx-auto text-center space-y-12">
         <div className="space-y-3">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800">
-            Mengapa <span className="text-[#8BC34A]">Teduh Kota?</span>
+            Mengapa <span className="text-brand-green">Teduh Kota?</span>
           </h2>
           <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
             Teduh Kota hadir untuk membantu kamu menemukan solusi penghijauan yang tepat, cepat dan mudah.
@@ -61,7 +61,7 @@ export default function Features() {
               key={index} 
               className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-300"
             >
-              <div className="w-16 h-16 bg-[#FBE9E7] rounded-2xl flex items-center justify-center text-3xl">
+              <div className="w-16 h-16 bg-brand-card rounded-2xl flex items-center justify-center text-3xl">
                 {item.icon}
               </div>
               <h3 className="text-lg font-bold text-gray-800">{item.title}</h3>
@@ -77,7 +77,7 @@ export default function Features() {
       <section className="max-w-6xl mx-auto text-center space-y-12">
         <div className="space-y-3">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800">
-            Cara Kerja <span className="text-[#8BC34A]">Teduh Kota?</span>
+            Cara Kerja <span className="text-brand-green">Teduh Kota?</span>
           </h2>
           <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
             Ikuti tiga langkah mudah untuk mendapatkan rekomendasi penghijauan yang sesuai dengan kebutuhanmu.
@@ -93,7 +93,7 @@ export default function Features() {
               <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 w-full flex flex-col items-center text-center space-y-4 flex-1">
                 
                 {/* Step Number Badge */}
-                <div className="bg-[#FFB74D] text-white font-bold text-sm px-4 py-1.5 rounded-xl shadow-xs">
+                <div className="bg-brand-accent text-white font-bold text-sm px-4 py-1.5 rounded-xl shadow-xs">
                   {item.step}
                 </div>
 
@@ -103,7 +103,7 @@ export default function Features() {
                 </p>
 
                 {/* Card Mockup Graphic Container */}
-                <div className="w-full bg-[#FBE9E7] rounded-2xl p-4 mt-2 flex items-center justify-center min-h-[140px]">
+                <div className="w-full bg-brand-card rounded-2xl p-4 mt-2 flex items-center justify-center min-h-[140px]">
                   <div className="bg-white rounded-xl p-3 w-full shadow-xs text-xs text-gray-600 text-left space-y-2">
                     <span className="font-semibold block text-gray-800 text-[11px]">{item.mockupText}</span>
                     <div className="h-2 bg-gray-100 rounded-full w-3/4"></div>

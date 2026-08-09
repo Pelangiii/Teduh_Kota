@@ -7,9 +7,13 @@
   --font-header: 'Madimi One', sans-serif;
 
   /* Warna Utama */
-  --color-brand-green: #88AB61;
-  --color-brand-orange: #EE8F48;
-  --color-brand-bg: #FDF9F0;
+  --color-brand-green: #92BF4A;
+  --color-brand-orange: #FB8E3D;
+  --color-brand-light-orange: #FEC74C;
+  --color-brand-bg: #FFF9F0;
   --color-brand-card: #F2ECDC;
   --color-brand-accent: #E29B38;
+  --color-brand-dark: #4E4B48;
+  --color-brand-gray: #CAC5BE;
+
 }

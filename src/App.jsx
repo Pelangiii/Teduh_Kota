@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Features from './components/Features';
-import FooterSection from './components/FooterSection';
+import FooterSection from './components/Footer';
 
 // Import halaman
 import AboutPage from './pages/AboutPage';
@@ -28,7 +28,7 @@ function HomePage() {
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-[#FAF8F5] text-gray-800 font-sans flex flex-col justify-between">
+      <div className="min-h-screen bg-brand-bg text-gray-800 font-sans flex flex-col justify-between">
         {/* Navbar tampil di semua halaman */}
         <Navbar />
 
