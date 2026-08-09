@@ -12,6 +12,7 @@ import FooterSection from './components/FooterSection';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import SolusiPage from './pages/SolusiPage';
+import CekKondisiPage from './pages/CekKondisiPage';
 
 // Komponen gabungan khusus untuk Landing Page (Home)
 function HomePage() {
@@ -38,6 +39,7 @@ export default function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/solusi-teduh" element={<SolusiPage />} />
+            <Route path="/cek-kondisi" element={<CekKondisiPage />} />
           </Routes>
         </main>
 
