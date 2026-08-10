@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Hero() {
   return (
     <section className="bg-brand-bg pt-12 pb-20 px-8 relative overflow-hidden">
@@ -13,9 +15,9 @@ export default function Hero() {
             Temukan rekomendasi penghijauan berdasarkan kondisi area di sekitarmu melalui sistem rekomendasi yang sederhana dan mudah digunakan.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
-            <button className="bg-brand-orange hover:bg-brand-orange text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 shadow-sm transition">
+            <Link to="/cek-kondisi-form" className="bg-brand-orange hover:bg-brand-orange text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2 shadow-sm transition">
               Mulai Analisis <span>→</span>
-            </button>
+            </Link>
             <button className="border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-6 py-3 rounded-xl font-medium transition">
               Lihat lebih lanjut
             </button>

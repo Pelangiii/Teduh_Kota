@@ -43,7 +43,7 @@ export default function FooterSection() {
             <li><a href="#tentang" className="hover:text-brand-green transition">Tentang</a></li>
             <li><a href="#cek-kondisi" className="hover:text-brand-green transition">Cek Kondisi</a></li>
             <li><a href="#solusi" className="hover:text-brand-green transition">Solusi Teduh</a></li>
-            <li><a href="#contact" className="hover:text-brand-green transition">Contact</a></li>
+            <li><a href="#contact" className="hover:text-brand-green transition">Kontak</a></li>
           </ul>
         </div>
 
@@ -68,8 +68,7 @@ export default function FooterSection() {
             <input
               type="email"
               placeholder="Masukkan email"
-              className="w-full bg-white border border-brand-orange rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-brand-orange text-brand-dark font-medium"
-            />
+              className="w-full bg-white border border-brand-orange rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-brand-orange text-brand-dark font-medium" />
             <button className="bg-brand-orange hover:bg-brand-orange text-white px-4 py-2 rounded-xl text-xs font-bold transition">
               ➢
             </button>

@@ -12,6 +12,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import SolusiPage from './pages/SolusiPage';
 import CekKondisiPage from './pages/CekKondisiPage';
+import CekKondisiFormPage from './pages/CekKondisiFormPage';
 import TamanPotFleksibelPage from './pages/TamanPotFleksibelPage';
 import TamanVertikalBertrellisPage from './pages/TamanVertikalBertrellisPage';
 import BedengTanamTinggiPage from './pages/BedengTanamTinggiPage';
@@ -45,6 +46,7 @@ export default function App() {
             <Route path="/kontak" element={<ContactPage />} />
             <Route path="/solusi-teduh" element={<SolusiPage />} />
             <Route path="/cek-kondisi" element={<CekKondisiPage />} />
+            <Route path="/cek-kondisi-form" element={<CekKondisiFormPage />} />
             <Route path="/solusi-teduh/taman-pot-fleksibel" element={<TamanPotFleksibelPage />} />
             <Route path="/solusi-teduh/taman-vertikal-bertrellis" element={<TamanVertikalBertrellisPage />} />
             <Route path="/solusi-teduh/bedeng-tanam-tinggi" element={<BedengTanamTinggiPage />} />

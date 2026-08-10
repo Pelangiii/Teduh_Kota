@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import cekKondisiImg from '../assets/images/cek-kondisi.svg';
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
 
@@ -20,9 +21,11 @@ export default function CekKondisiPage() {
           </p>
 
           <div className="pt-2 flex">
-            <button className="bg-brand-orange hover:bg-[#e87f2e] text-white font-sans font-medium text-sm lg:text-base px-6 py-3 rounded-xl transition-all shadow-sm flex items-center gap-2">
-              Mulai Analisis <span>&rarr;</span>
-            </button>
+            <Link to="/cek-kondisi-form">
+              <button className="bg-brand-orange hover:bg-[#e87f2e] text-white font-sans font-medium text-sm lg:text-base px-6 py-3 rounded-xl transition-all shadow-sm flex items-center gap-2">
+                Mulai Analisis <span>&rarr;</span>
+              </button>
+            </Link>
           </div>
         </div>
 
