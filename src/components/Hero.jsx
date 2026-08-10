@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Hero() {
   return (
     <section className="bg-brand-bg pt-12 pb-20 px-8 relative overflow-hidden">

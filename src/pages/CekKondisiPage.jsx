@@ -1,4 +1,3 @@
-import React from 'react';
 import cekKondisiImg from '../assets/images/cek-kondisi.svg';
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
 
@@ -16,12 +15,12 @@ export default function CekKondisiPage() {
             <span className="text-brand-green block">Dapatkan Solusi</span>
           </h1>
 
-          <p className="text-brand-dark/70 font-sans font-medium text-sm lg:text-base leading-relaxed max-w-[420px]">
+          <p className="text-brand-dark/70 font-sans font-medium text-sm lg:text-base leading-relaxed max-w-105">
             Lengkapkan informasi mengenai area yang kamu ingin hijaukan jawaban mu akan membantu kami untuk memberikan hasil yang sesuai.
           </p>
 
           <div className="pt-2 flex">
-            <button className="bg-brand-orange hover:bg-[#e87f2e] text-white font-sans font-medium text-sm lg:text-base px-6 py-3 rounded-[12px] transition-all shadow-sm flex items-center gap-2">
+            <button className="bg-brand-orange hover:bg-[#e87f2e] text-white font-sans font-medium text-sm lg:text-base px-6 py-3 rounded-xl transition-all shadow-sm flex items-center gap-2">
               Mulai Analisis <span>&rarr;</span>
             </button>
           </div>
@@ -32,7 +31,7 @@ export default function CekKondisiPage() {
           <img
             src={cekKondisiImg}
             alt="Cek Kondisi"
-            className="w-full max-w-[400px] lg:max-w-[600px] object-contain z-10"
+            className="w-full max-w-100 lg:max-w-150 object-contain z-10"
           />
         </div>
 

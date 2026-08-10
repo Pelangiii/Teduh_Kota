@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function About() {
   return (
     <section className="bg-brand-bg py-16 px-8">

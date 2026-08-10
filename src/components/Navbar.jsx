@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logoTeduhKota from '../assets/images/logo-teduhkota.svg';
 
@@ -22,16 +21,16 @@ export default function Navbar() {
         <div className="flex items-center gap-8 font-medium text-gray-600 text-sm">
           <Link
             to="/"
-            className={`transition ${isActive('/') ? 'text-brand-green font-semibold border-b-2 border-brand-green pb-0.5' : 'hover:text-brand-green'}`}
+            className={`transition ${isActive('/beranda') ? 'text-brand-green font-semibold border-b-2 border-brand-green pb-0.5' : 'hover:text-brand-green'}`}
           >
-            Home
+            Beranda
           </Link>
 
           <Link
-            to="/about"
-            className={`transition ${isActive('/about') ? 'text-brand-green font-semibold border-b-2 border-brand-green pb-0.5' : 'hover:text-brand-green'}`}
+            to="/tentang"
+            className={`transition ${isActive('/tentang') ? 'text-brand-green font-semibold border-b-2 border-brand-green pb-0.5' : 'hover:text-brand-green'}`}
           >
-            About
+            Tentang
           </Link>
 
           <Link
@@ -51,7 +50,7 @@ export default function Navbar() {
 
         {/* Button Contact */}
         <Link
-          to="/contact"
+          to="/kontak"
           className="bg-brand-light-orange text-white px-6 py-2.5 rounded-[10px] font-medium text-sm shadow-xs inline-block">
           Kontak
         </Link>
