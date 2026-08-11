@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
 /* Konfigurasi Warna dan Font Custom */
 @theme {
   /* Font */
@@ -15,5 +18,4 @@
   --color-brand-accent: #E29B38;
   --color-brand-dark: #4E4B48;
   --color-brand-gray: #CAC5BE;
-
 }

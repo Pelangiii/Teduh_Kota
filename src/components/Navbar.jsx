@@ -4,20 +4,20 @@ import logoTeduhKota from '../assets/images/logo-teduhkota.svg';
 export default function Navbar() {
   const location = useLocation();
 
-  // Helper function untuk cek route aktif
+  
   const isActive = (path) => location.pathname === path;
 
   return (
     <header className="w-full bg-white sticky top-0 z-50 shadow-xs">
       <nav className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
 
-        {/* Brand Logo */}
+       
         <Link to="/" className="flex items-center gap-3">
           <img src={logoTeduhKota} alt="Logo Teduh Kota" className="w-10 h-10" />
           <span className="font-header text-xl text-gray-800">Teduh Kota</span>
         </Link>
 
-        {/* Navigation Links */}
+    
         <div className="flex items-center gap-8 font-medium text-gray-600 text-sm">
           <Link
             to="/"

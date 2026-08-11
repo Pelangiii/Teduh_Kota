@@ -1,6 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-// Import komponen-komponen utama
+// Import komponen-komponen utama (punya temenmu)
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -13,6 +13,8 @@ import ContactPage from './pages/ContactPage';
 import SolusiPage from './pages/SolusiPage';
 import CekKondisiPage from './pages/CekKondisiPage';
 import CekKondisiFormPage from './pages/CekKondisiFormPage';
+
+// Import Halaman Detail Solusi (punya temenmu)
 import TamanPotFleksibelPage from './pages/TamanPotFleksibelPage';
 import TamanVertikalBertrellisPage from './pages/TamanVertikalBertrellisPage';
 import BedengTanamTinggiPage from './pages/BedengTanamTinggiPage';
@@ -20,7 +22,11 @@ import TamanTanamLangsungPage from './pages/TamanTanamLangsungPage';
 import PohonPeneduhPage from './pages/PohonPeneduhPage';
 import TamanResapanPage from './pages/TamanResapanPage';
 import TamanAtapPage from './pages/TamanAtapPage';
-// Komponen gabungan khusus untuk Landing Page (Home)
+
+// --- LANDING PAGE PUNYAMU ---
+import LandingPage from './pages/LandingPage'; 
+
+// Komponen gabungan khusus untuk Landing Page versi lama (Punya temenmu)
 function HomePage() {
   return (
     <>
@@ -41,7 +47,16 @@ export default function App() {
         {/* Bagian utama yang berubah tergantung URL */}
         <main className="grow">
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            {/* 1. KETIKA BUKA http://localhost:5173/ OTO-MATIS REDIRECT KE /landing */}
+            <Route path="/" element={<Navigate to="/landing" replace />} />
+
+            {/* 2. ROUTE UTAMA LANDING PAGE PUNYAMU */}
+            <Route path="/landing" element={<LandingPage />} /> 
+
+            {/* Optional: Jika halaman lama temanmu masih ingin diakses melalui /home */}
+            <Route path="/home" element={<HomePage />} /> 
+
+            {/* Route Halaman Lainnya */}
             <Route path="/tentang" element={<AboutPage />} />
             <Route path="/kontak" element={<ContactPage />} />
             <Route path="/solusi-teduh" element={<SolusiPage />} />

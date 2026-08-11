@@ -32,7 +32,7 @@ export default function Hero() {
               Sebelum
             </span>
             <img 
-              src="https://via.placeholder.com/300x400?text=Sebelum" 
+              src="asssets/images/Sebelum.svg" 
               alt="Sebelum" 
               className="w-full h-80 object-cover"
             />
@@ -49,7 +49,7 @@ export default function Hero() {
               Sesudah
             </span>
             <img 
-              src="https://via.placeholder.com/300x400?text=Sesudah" 
+              src="asssets/images/Sesudah.svg" 
               alt="Sesudah" 
               className="w-full h-80 object-cover"
             />
