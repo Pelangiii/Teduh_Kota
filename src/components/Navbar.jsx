@@ -21,7 +21,7 @@ export default function Navbar() {
         <div className="flex items-center gap-8 font-medium text-gray-600 text-sm">
           <Link
             to="/"
-            className={`transition ${isActive('/beranda') ? 'text-brand-green font-semibold border-b-2 border-brand-green pb-0.5' : 'hover:text-brand-green'}`}
+            className={`transition ${isActive('/berandag') ? 'text-brand-green font-semibold border-b-2 border-brand-green pb-0.5' : 'hover:text-brand-green'}`}
           >
             Beranda
           </Link>
