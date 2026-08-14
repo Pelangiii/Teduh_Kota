@@ -1,21 +1,62 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+// Import Assets
 import ilustrasiSolusiTeduh from '../assets/images/ilustrasi-solusi-teduh.svg';
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
+
+// --- Variants Animasi Framer Motion ---
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] },
+  },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.9, y: 20 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: 'easeOut' },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+};
 
 export default function SolusiPage() {
   const sliderRef = useRef(null);
 
   const scrollLeft = () => {
     if (sliderRef.current) {
-      // Scroll by exactly the container width (2 cards)
       sliderRef.current.scrollBy({ left: -sliderRef.current.offsetWidth, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (sliderRef.current) {
-      // Scroll by exactly the container width (2 cards)
       sliderRef.current.scrollBy({ left: sliderRef.current.offsetWidth, behavior: 'smooth' });
     }
   };
@@ -33,7 +74,6 @@ export default function SolusiPage() {
     }
   };
 
-  // Data disesuaikan persis dengan gambar referensi & permintaan
   const solutions = [
     {
       title: "Taman Pot Fleksibel",
@@ -94,45 +134,65 @@ export default function SolusiPage() {
   ];
 
   return (
-    <div className="bg-brand-bg min-h-screen relative overflow-hidden flex flex-col justify-start pt-20">
+    <div className="bg-brand-bg min-h-screen relative overflow-hidden flex flex-col justify-start pt-20 font-sans">
 
       {/* Header Section */}
-      <div className="max-w-7xl mx-auto px-8 lg:px-16 w-full relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16 md:mb-24">
-
+      <motion.div 
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        className="max-w-7xl mx-auto px-8 lg:px-16 w-full relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16 md:mb-24"
+      >
         {/* Kiri: Teks Header */}
         <div className="space-y-6 text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-header text-brand-dark leading-[1.1] tracking-tight">
+          <motion.h1 
+            variants={fadeInUp}
+            className="text-3xl md:text-4xl lg:text-5xl font-header text-brand-dark leading-[1.1] tracking-tight"
+          >
             Solusi <span className="text-brand-green block md:inline">Teduh Kota</span>
-          </h1>
-          <p className="text-brand-dark/70 font-sans font-medium text-sm lg:text-base leading-relaxed max-w-105 mx-auto md:mx-0">
+          </motion.h1>
+          
+          <motion.p 
+            variants={fadeInUp}
+            className="text-brand-dark/70 font-sans font-medium text-sm lg:text-base leading-relaxed max-w-105 mx-auto md:mx-0"
+          >
             Temukan berbagai pilihan konsep penghijauan cerdas yang sudah disesuaikan dengan kebutuhan dan ukuran area kamu.
-          </p>
+          </motion.p>
         </div>
 
-        {/* Kanan: Ilustrasi Header (Tanpa drop-shadow) */}
-        <div className="relative flex justify-center lg:justify-end items-center mt-8 md:mt-0">
+        {/* Kanan: Ilustrasi Header */}
+        <motion.div 
+          variants={imageVariants}
+          className="relative flex justify-center lg:justify-end items-center mt-8 md:mt-0"
+        >
           <img
             src={ilustrasiSolusiTeduh}
             alt="Ilustrasi Solusi Teduh"
             className="w-full max-w-80 lg:max-w-112.5 object-contain z-10"
           />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Slider Cards Section (Geser 2-2) */}
       <div className="max-w-7xl mx-auto px-4 lg:px-8 w-full relative z-10 pb-48 md:pb-72">
         <div className="relative px-12 md:px-20">
 
           {/* Tombol Kiri */}
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             onClick={scrollLeft}
-            className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-brand-dark hover:bg-brand-orange text-white rounded-full flex items-center justify-center transition"
+            className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-brand-dark hover:bg-brand-orange text-white rounded-full flex items-center justify-center transition shadow-md cursor-pointer"
           >
             ❮
-          </button>
+          </motion.button>
 
           {/* Container Scroll */}
-          <div
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={containerVariants}
             ref={sliderRef}
             className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 pt-4 w-full"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -145,8 +205,10 @@ export default function SolusiPage() {
             `}</style>
 
             {solutions.map((item, idx) => (
-              <div
+              <motion.div
                 key={idx}
+                variants={cardVariants}
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 className="w-full md:w-[calc(50%-0.75rem)] flex-none snap-start bg-white rounded-3xl p-4 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-brand-gray/30 flex flex-col h-full"
               >
                 {/* Image & Badge */}
@@ -176,33 +238,46 @@ export default function SolusiPage() {
                   {/* Button */}
                   <Link
                     to={item.link}
-                    className="w-full py-3 rounded-xl border border-brand-orange text-brand-orange bg-white font-sans font-bold text-sm hover:bg-brand-orange hover:text-white transition-all flex items-center justify-center gap-2 mt-auto"
+                    className="w-full"
                   >
-                    Lihat Detail <span className="text-lg font-normal leading-none">&rarr;</span>
+                    <motion.div 
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full py-3 rounded-xl border border-brand-orange text-brand-orange bg-white font-sans font-bold text-sm hover:bg-brand-orange hover:text-white transition-all flex items-center justify-center gap-2 mt-auto cursor-pointer"
+                    >
+                      Lihat Detail <span className="text-lg font-normal leading-none">&rarr;</span>
+                    </motion.div>
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Tombol Kanan */}
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             onClick={scrollRight}
-            className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-brand-dark hover:bg-brand-orange text-white rounded-full flex items-center justify-center transition"
+            className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-brand-dark hover:bg-brand-orange text-white rounded-full flex items-center justify-center transition shadow-md cursor-pointer"
           >
             ❯
-          </button>
+          </motion.button>
         </div>
       </div>
 
       {/* Background Ilustrasi Rumput Bawah */}
-      <div className="absolute bottom-0 left-0 w-full z-0 pointer-events-none">
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="absolute bottom-0 left-0 w-full z-0 pointer-events-none"
+      >
         <img
           src={ilustrasiRumputPanjang}
           alt="Ilustrasi Rumput Panjang"
           className="w-full h-auto object-cover object-bottom transform scale-110 md:scale-125 origin-bottom"
         />
-      </div>
+      </motion.div>
 
     </div>
   );
