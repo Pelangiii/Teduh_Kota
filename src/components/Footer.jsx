@@ -1,21 +1,22 @@
+import { Link } from 'react-router-dom';
 import logoTeduhKota from '../assets/images/logo-teduhkota.svg';
 import ilustrasiFooter from '../assets/images/ilustrasi-footer.svg';
 
 export default function FooterSection() {
   return (
     <footer className="bg-white dark:bg-mode-dark pt-12 pb-0 relative overflow-hidden transition-colors duration-300 border-t border-gray-100 dark:border-line-dark">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 px-6 relative z-10">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 pb-12 px-6 sm:px-8 relative z-10">
 
         {/* Col 1: Brand & Socials */}
-        <div className="space-y-4">
+        <div className="col-span-2 md:col-span-1 space-y-4">
           <div className="flex items-center gap-3">
             <img src={logoTeduhKota} alt="Logo Teduh Kota" className="w-9 h-9" />
-            <span className="font-header text-xl text-brand-dark dark:text-white">Teduh Kota</span>
+            <span className="font-header text-xl text-brand-dark dark:text-white font-medium">Teduh Kota</span>
           </div>
-          <p className="font-sans text-brand-dark dark:text-gray-300 font-medium text-xs leading-relaxed">
+          <p className="font-sans text-brand-dark dark:text-gray-300 font-medium text-xs leading-relaxed max-w-sm">
             Teduh Kota membantu kamu menemukan solusi penghijauan yang tepat, cepat dan mudah berdasarkan kondisi area.
           </p>
-          <div className="flex gap-3 pt-2">
+          <div className="flex gap-3 pt-1">
             {/* Facebook */}
             <span className="w-8 h-8 rounded-full bg-brand-gray/20 dark:bg-card-dark-mode flex items-center justify-center cursor-pointer hover:bg-[#1877F2] text-[#1877F2] hover:text-white transition">
               <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" /></svg>
@@ -36,40 +37,41 @@ export default function FooterSection() {
         </div>
 
         {/* Col 2: Menu */}
-        <div className="space-y-3">
-          <h4 className="font-header font-medium text-brand-dark dark:text-white text-sm">Menu</h4>
-          <ul className="space-y-2 text-xs text-brand-dark dark:text-gray-300 font-medium">
-            <li><a href="#beranda" className="hover:text-brand-green dark:hover:text-brand-green transition">Beranda</a></li>
-            <li><a href="#tentang" className="hover:text-brand-green dark:hover:text-brand-green transition">Tentang</a></li>
-            <li><a href="#cek-kondisi" className="hover:text-brand-green dark:hover:text-brand-green transition">Cek Kondisi</a></li>
-            <li><a href="#solusi" className="hover:text-brand-green dark:hover:text-brand-green transition">Solusi Teduh</a></li>
-            <li><a href="#contact" className="hover:text-brand-green dark:hover:text-brand-green transition">Kontak</a></li>
+        <div className="col-span-1 space-y-3">
+          <h4 className="font-sans font-bold text-brand-dark dark:text-white text-sm sm:text-base">Menu</h4>
+          <ul className="space-y-2 text-xs sm:text-sm text-brand-dark dark:text-gray-300 font-medium">
+            <li><Link to="/beranda" className="hover:text-brand-green dark:hover:text-brand-green transition">Beranda</Link></li>
+            <li><Link to="/tentang" className="hover:text-brand-green dark:hover:text-brand-green transition">Tentang</Link></li>
+            <li><Link to="/cek-kondisi" className="hover:text-brand-green dark:hover:text-brand-green transition">Cek Kondisi</Link></li>
+            <li><Link to="/solusi-teduh" className="hover:text-brand-green dark:hover:text-brand-green transition">Solusi Teduh</Link></li>
+            <li><Link to="/kontak" className="hover:text-brand-green dark:hover:text-brand-green transition">Kontak</Link></li>
           </ul>
         </div>
 
         {/* Col 3: Informasi */}
-        <div className="space-y-3">
-          <h4 className="font-header font-medium text-brand-dark dark:text-white text-sm">Informasi</h4>
-          <ul className="space-y-2 text-xs text-brand-dark dark:text-gray-300 font-medium">
-            <li><a href="#tentang" className="hover:text-brand-green dark:hover:text-brand-green transition">Tentang kami</a></li>
-            <li><a href="#cara-kerja" className="hover:text-brand-green dark:hover:text-brand-green transition">Cara Kerja</a></li>
-            <li><a href="#faq" className="hover:text-brand-green dark:hover:text-brand-green transition">FAQ</a></li>
-            <li><a href="#privasi" className="hover:text-brand-green dark:hover:text-brand-green transition">Kebijakan Privasi</a></li>
+        <div className="col-span-1 space-y-3">
+          <h4 className="font-sans font-bold text-brand-dark dark:text-white text-sm sm:text-base">Informasi</h4>
+          <ul className="space-y-2 text-xs sm:text-sm text-brand-dark dark:text-gray-300 font-medium">
+            <li><Link to="/tentang" className="hover:text-brand-green dark:hover:text-brand-green transition">Tentang Kami</Link></li>
+            <li><Link to="/cek-kondisi" className="hover:text-brand-green dark:hover:text-brand-green transition">Cara Kerja</Link></li>
+            <li><Link to="/kontak" className="hover:text-brand-green dark:hover:text-brand-green transition">FAQ</Link></li>
+            <li><Link to="/kontak" className="hover:text-brand-green dark:hover:text-brand-green transition">Kebijakan Privasi</Link></li>
           </ul>
         </div>
 
         {/* Col 4: Newsletter */}
-        <div className="space-y-3">
-          <h4 className="font-header font-medium text-brand-dark dark:text-white text-sm">Dapatkan Update</h4>
-          <p className="text-brand-dark dark:text-gray-300 font-medium text-xs">
-            Butuh bantuan? hubungi kami jika ada yang ingin ditanyakan.
+        <div className="col-span-2 md:col-span-1 space-y-3">
+          <h4 className="font-sans font-bold text-brand-dark dark:text-white text-sm sm:text-base">Dapatkan Update</h4>
+          <p className="text-brand-dark dark:text-gray-300 font-medium text-xs sm:text-sm">
+            Butuh bantuan? Hubungi kami jika ada yang ingin ditanyakan.
           </p>
           <div className="flex gap-2">
             <input
               type="email"
               placeholder="Masukkan email"
-              className="w-full bg-white dark:bg-card-dark-mode border border-brand-orange dark:border-line-dark rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-brand-orange text-brand-dark dark:text-white font-medium" />
-            <button className="bg-brand-orange hover:bg-brand-orange text-white px-4 py-2 rounded-xl text-xs font-bold transition">
+              className="w-full bg-white dark:bg-card-dark-mode border border-brand-orange dark:border-line-dark rounded-xl px-3 py-2.5 text-xs sm:text-sm focus:outline-none focus:ring-1 focus:ring-brand-orange text-brand-dark dark:text-white font-medium" 
+            />
+            <button className="bg-brand-orange hover:bg-[#e87f2e] text-white px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition shrink-0 cursor-pointer">
               ➢
             </button>
           </div>
@@ -77,18 +79,17 @@ export default function FooterSection() {
 
       </div>
 
-      {/* Copyright */}
-      <div className="max-w-6xl mx-auto border-t border-brand-gray/50 dark:border-line-dark pt-6 pb-6 px-6 flex justify-between items-end text-xs text-brand-dark dark:text-gray-300 font-bold relative z-10">
+      {/* Copyright Bar */}
+      <div className="max-w-6xl mx-auto border-t border-brand-gray/50 dark:border-line-dark pt-6 pb-6 px-6 sm:px-8 flex flex-col sm:flex-row justify-between items-center sm:items-end gap-3 text-xs text-brand-dark dark:text-gray-300 font-bold relative z-10">
         <p>© 2026 Teduh Kota. All Rights Reserved</p>
 
-        {/* Ilustrasi Footer */}
+        {/* Ilustrasi Footer (Dikecilkan & digeser agar tidak bertabrakan dengan tombol scroll melayang) */}
         <img
           src={ilustrasiFooter}
           alt="Ilustrasi Footer"
-          className="absolute right-0 md:right-8 bottom-0 h-10 md:h-14 object-contain pointer-events-none"
+          className="absolute right-16 sm:right-20 md:right-24 bottom-0 h-6 sm:h-10 md:h-12 object-contain pointer-events-none opacity-80 sm:opacity-100"
         />
       </div>
     </footer>
-
   );
 }

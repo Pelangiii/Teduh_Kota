@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import logoTeduhKota from '../assets/images/logo-teduhkota.svg';
 import ThemeToggle from './ThemeToggle';
 
@@ -27,8 +28,8 @@ export default function Navbar() {
           <span className="font-header text-2xl text-brand-dark dark:text-white font-medium">Teduh Kota</span>
         </Link>
 
-        {/* DESKTOP NAV LINKS (Tampil hanya di layar sedang/besar) */}
-        <div className="hidden md:flex items-center gap-8 font-medium text-gray-600 dark:text-gray-300 text-base">
+        {/* DESKTOP NAV LINKS (Tampil hanya di layar besar/desktop >=1024px) */}
+        <div className="hidden lg:flex items-center gap-8 font-medium text-gray-600 dark:text-gray-300 text-base">
           <Link
             to="/"
             className={`transition ${isActive('/') ? 'text-brand-green font-semibold border-b-2 border-brand-green pb-0.5' : 'hover:text-brand-green dark:hover:text-brand-green'}`}
@@ -59,7 +60,7 @@ export default function Navbar() {
         </div>
 
         {/* BUTTON CONTACT & DARK MODE TOGGLE DESKTOP */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           <Link
             to="/kontak"
             className="bg-brand-light-orange hover:bg-brand-orange text-white px-6 py-2.5 rounded-[10px] font-medium text-base shadow-xs transition inline-block"
@@ -69,72 +70,105 @@ export default function Navbar() {
           <ThemeToggle />
         </div>
 
-        {/* MOBILE RIGHT CONTROLS: ThemeToggle + Hamburger */}
-        <div className="flex items-center gap-3 md:hidden">
+        {/* MOBILE & TABLET RIGHT CONTROLS: ThemeToggle + Hamburger (<1024px) */}
+        <div className="flex items-center gap-3 lg:hidden">
           <ThemeToggle />
           <button
             onClick={toggleMenu}
-            className="p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition"
+            className="p-2 rounded-xl text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-all duration-200 active:scale-95 cursor-pointer"
             aria-label="Toggle Menu"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <motion.svg 
+              animate={{ rotate: isMenuOpen ? 90 : 0 }}
+              transition={{ duration: 0.2 }}
+              className="w-6 h-6" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
               {isMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               ) : (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
               )}
-            </svg>
+            </motion.svg>
           </button>
         </div>
 
       </nav>
 
-      {/* DROPDOWN MENU MOBILE / TABLET */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-card-dark-mode border-t border-gray-100 dark:border-line-dark px-6 py-5 space-y-4 text-base font-medium text-gray-700 dark:text-gray-200 shadow-md">
-          <Link
-            to="/"
-            onClick={closeMenu}
-            className={`block py-2 ${isActive('/') ? 'text-brand-green font-semibold' : 'hover:text-brand-green dark:hover:text-brand-green'}`}
+      {/* DROPDOWN MENU MOBILE & TABLET WITH ANIMATION */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:hidden overflow-hidden bg-white dark:bg-card-dark-mode border-t border-gray-100 dark:border-line-dark shadow-lg"
           >
-            Beranda
-          </Link>
+            <div className="px-6 py-5 space-y-3 text-base font-medium text-gray-700 dark:text-gray-200">
+              <Link
+                to="/"
+                onClick={closeMenu}
+                className={`block py-2.5 px-3 rounded-xl transition-all ${
+                  isActive('/') 
+                    ? 'text-brand-green bg-brand-green/10 dark:bg-brand-green/20 font-semibold' 
+                    : 'hover:text-brand-green dark:hover:text-brand-green hover:bg-gray-50 dark:hover:bg-gray-800/50'
+                }`}
+              >
+                Beranda
+              </Link>
 
-          <Link
-            to="/tentang"
-            onClick={closeMenu}
-            className={`block py-2 ${isActive('/tentang') ? 'text-brand-green font-semibold' : 'hover:text-brand-green dark:hover:text-brand-green'}`}
-          >
-            Tentang
-          </Link>
+              <Link
+                to="/tentang"
+                onClick={closeMenu}
+                className={`block py-2.5 px-3 rounded-xl transition-all ${
+                  isActive('/tentang') 
+                    ? 'text-brand-green bg-brand-green/10 dark:bg-brand-green/20 font-semibold' 
+                    : 'hover:text-brand-green dark:hover:text-brand-green hover:bg-gray-50 dark:hover:bg-gray-800/50'
+                }`}
+              >
+                Tentang
+              </Link>
 
-          <Link
-            to="/cek-kondisi"
-            onClick={closeMenu}
-            className={`block py-2 ${isActive('/cek-kondisi') ? 'text-brand-green font-semibold' : 'hover:text-brand-green dark:hover:text-brand-green'}`}
-          >
-            Cek Kondisi
-          </Link>
+              <Link
+                to="/cek-kondisi"
+                onClick={closeMenu}
+                className={`block py-2.5 px-3 rounded-xl transition-all ${
+                  isActive('/cek-kondisi') 
+                    ? 'text-brand-green bg-brand-green/10 dark:bg-brand-green/20 font-semibold' 
+                    : 'hover:text-brand-green dark:hover:text-brand-green hover:bg-gray-50 dark:hover:bg-gray-800/50'
+                }`}
+              >
+                Cek Kondisi
+              </Link>
 
-          <Link
-            to="/solusi-teduh"
-            onClick={closeMenu}
-            className={`block py-2 ${isActive('/solusi-teduh') ? 'text-brand-green font-semibold' : 'hover:text-brand-green dark:hover:text-brand-green'}`}
-          >
-            Solusi Teduh
-          </Link>
+              <Link
+                to="/solusi-teduh"
+                onClick={closeMenu}
+                className={`block py-2.5 px-3 rounded-xl transition-all ${
+                  isActive('/solusi-teduh') 
+                    ? 'text-brand-green bg-brand-green/10 dark:bg-brand-green/20 font-semibold' 
+                    : 'hover:text-brand-green dark:hover:text-brand-green hover:bg-gray-50 dark:hover:bg-gray-800/50'
+                }`}
+              >
+                Solusi Teduh
+              </Link>
 
-          <div className="pt-2">
-            <Link
-              to="/kontak"
-              onClick={closeMenu}
-              className="block text-center bg-brand-light-orange text-white py-3 rounded-[10px] font-medium shadow-xs"
-            >
-              Kontak
-            </Link>
-          </div>
-        </div>
-      )}
+              <div className="pt-2">
+                <Link
+                  to="/kontak"
+                  onClick={closeMenu}
+                  className="block text-center bg-brand-light-orange hover:bg-brand-orange text-white py-3 rounded-xl font-medium shadow-xs transition cursor-pointer"
+                >
+                  Kontak
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

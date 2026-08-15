@@ -45,8 +45,8 @@ export default function ContactBanner() {
           </div>
 
           <div>
-            <Link to="/kontak" className="font-sans inline-block bg-brand-orange hover:bg-brand-accent text-white px-8 py-3.5 rounded-2xl font-medium text-base transition shadow-xs">
-              Hubungi Kami &rarr;
+            <Link to="/kontak" className="font-sans inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-[#e87f2e] text-white px-5 py-2.5 sm:px-8 sm:py-3.5 rounded-xl sm:rounded-2xl font-medium text-xs sm:text-sm md:text-base transition shadow-xs whitespace-nowrap cursor-pointer">
+              Hubungi Kami <span>&rarr;</span>
             </Link>
           </div>
         </div>

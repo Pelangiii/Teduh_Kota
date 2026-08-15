@@ -49,11 +49,25 @@ export default function CekKondisiPage() {
     <div className="bg-brand-bg dark:bg-mode-dark min-h-screen relative overflow-hidden flex flex-col justify-center pt-20 font-sans transition-colors duration-300">
 
       {/* Konten Utama */}
-      <div className="max-w-7xl mx-auto px-8 lg:px-16 w-full relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center pb-40 md:pb-56">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 w-full relative z-10 flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center pb-40 md:pb-56">
 
-        {/* Kolom Kiri: Teks Konten (Stagger Animation) */}
+        {/* Foto Cek Kondisi (Di ATAS pada HP/Tablet <md, di KANAN pada Desktop >=md) */}
         <motion.div
-          className="space-y-6 text-left"
+          initial="hidden"
+          animate="visible"
+          variants={imageVariants}
+          className="w-full flex justify-center md:justify-end items-center order-first md:order-last mt-4 md:mt-0"
+        >
+          <img
+            src={cekKondisiImg}
+            alt="Cek Kondisi"
+            className="w-full max-w-sm sm:max-w-md lg:max-w-xl object-contain z-10"
+          />
+        </motion.div>
+
+        {/* Teks Konten (Di BAWAH pada HP/Tablet <md, di KIRI pada Desktop >=md) */}
+        <motion.div
+          className="space-y-6 text-center md:text-left order-last md:order-first w-full"
           initial="hidden"
           animate="visible"
           variants={contentContainerVariants}
@@ -62,18 +76,18 @@ export default function CekKondisiPage() {
             variants={fadeInUp}
             className="text-3xl md:text-4xl lg:text-5xl font-header leading-[1.15] tracking-tight"
           >
-            <span className="text-brand-dark dark:text-white block mb-2">Jawab Pertanyaan, dan</span>
+            <span className="text-brand-dark dark:text-white block mb-2">Jawab Pertanyaan,&nbsp;dan</span>
             <span className="text-brand-green block">Dapatkan Solusi</span>
           </motion.h1>
 
           <motion.p
             variants={fadeInUp}
-            className="text-brand-text dark:text-gray-300 font-sans text-base md:text-lg leading-relaxed max-w-xl"
+            className="text-brand-text dark:text-gray-300 font-sans text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0"
           >
             Lengkapkan informasi mengenai area yang kamu ingin hijaukan, jawabanmu akan membantu kami untuk memberikan hasil yang sesuai.
           </motion.p>
 
-          <motion.div variants={fadeInUp} className="pt-2 flex">
+          <motion.div variants={fadeInUp} className="pt-2 flex justify-center md:justify-start">
             <Link
               to="/cek-kondisi-form"
               className="font-sans inline-flex items-center gap-2 bg-brand-orange hover:bg-[#e87f2e] text-white px-8 py-4 rounded-2xl font-medium text-base transition shadow-xs cursor-pointer"
@@ -81,18 +95,6 @@ export default function CekKondisiPage() {
               Mulai Analisis <span>&rarr;</span>
             </Link>
           </motion.div>
-        </motion.div>
-
-        {/* Kolom Kanan: Foto Cek Kondisi (Hero & Floating Animation) */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={imageVariants}
-          className="relative flex justify-center lg:justify-end items-center mt-8 md:mt-0">
-          <img
-            src={cekKondisiImg}
-            alt="Cek Kondisi"
-            className="w-full max-w-md lg:max-w-xl object-contain z-10" />
         </motion.div>
 
       </div>

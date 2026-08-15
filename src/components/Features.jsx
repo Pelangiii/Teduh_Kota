@@ -51,11 +51,11 @@ export default function Features() {
 
   return (
     <div className="bg-brand-bg dark:bg-mode-dark py-16 md:py-24 px-6 space-y-28 md:space-y-36 relative overflow-hidden transition-colors duration-300">
-      {/* Polkadot Decoration Top Right Flush on Screen Right Edge */}
+      {/* Polkadot Top Right - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
       <img 
         src={polkadotImg} 
         alt="Dekorasi Polkadot" 
-        className="absolute top-12 right-0 translate-x-1/3 md:translate-x-1/4 w-28 md:w-36 opacity-90 pointer-events-none z-0" 
+        className="hidden md:block absolute top-12 right-0 translate-x-1/4 w-28 md:w-36 opacity-80 pointer-events-none z-0" 
       />
 
       {/* SECTION 1: Mengapa Teduh Kota? */}
@@ -88,12 +88,12 @@ export default function Features() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
           {whyUsData.map((item, index) => (
             <div key={index} className="relative h-full">
-              {/* Polkadot Decoration Bottom Left Flush on Screen Left Edge */}
+              {/* Polkadot Bottom Left - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
               {index === 0 && (
                 <img 
                   src={polkadotImg} 
                   alt="Dekorasi Polkadot" 
-                  className="absolute -bottom-8 left-0 -translate-x-1/2 md:-translate-x-1/3 w-28 md:w-36 opacity-90 pointer-events-none z-0" 
+                  className="hidden md:block absolute -bottom-8 left-0 -translate-x-1/3 w-28 md:w-36 opacity-80 pointer-events-none z-0" 
                 />
               )}
 

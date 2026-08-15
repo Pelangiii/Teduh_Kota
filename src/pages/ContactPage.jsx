@@ -40,17 +40,40 @@ export default function ContactPage() {
     <div className="bg-brand-bg dark:bg-mode-dark min-h-screen pt-28 md:pt-36 pb-0 overflow-x-hidden font-sans relative flex flex-col justify-between transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-8 lg:px-16 space-y-12 md:space-y-16 relative w-full">
 
-        {/* Polkadot 1: Pojok Kanan Atas (Cut in half on edge) */}
+        {/* Polkadot 1: Pojok Kanan Atas - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
         <img
           src={polkadotImg}
           alt="Dekorasi Polkadot Kanan Atas"
-          className="absolute -top-10 -right-12 md:-right-16 w-24 md:w-32 opacity-80 pointer-events-none z-0"
+          className="hidden md:block absolute -top-10 -right-12 md:-right-16 w-24 md:w-32 opacity-80 pointer-events-none z-0"
         />
 
         {/* 1. HEADER SECTION */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-2 relative z-10">
+          {/* GAMBAR HEADER (Di ATAS pada HP/Tablet <md) */}
           <motion.div
-            className="space-y-3 max-w-lg text-center md:text-left z-10"
+            className="w-full md:w-1/2 flex justify-center md:justify-end z-10 order-first md:order-last"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {/* Gambar Versi Light (Hilang pas Dark Mode) */}
+            <motion.img
+              src={headerIllustration}
+              alt="Ilustrasi Laptop Light"
+              className="w-full max-w-lg md:max-w-xl h-auto object-contain dark:hidden"
+            />
+
+            {/* Gambar Versi Dark (Tampil HANYA pas Dark Mode) */}
+            <motion.img
+              src={headerIllustrationDark}
+              alt="Ilustrasi Laptop Dark"
+              className="w-full max-w-lg md:max-w-xl h-auto object-contain hidden dark:block"
+            />
+          </motion.div>
+
+          {/* TEKS HEADER (Di BAWAH pada HP/Tablet <md) */}
+          <motion.div
+            className="space-y-3 max-w-lg text-center md:text-left z-10 order-last md:order-first w-full"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -62,45 +85,23 @@ export default function ContactPage() {
               Ada pertanyaan, saran, atau ingin bekerja sama? Tim Teduh Kota siap membantu.
             </p>
           </motion.div>
-
-          {/* 2. SWITCHER GAMBAR HEADER (LIGHT VS DARK) */}
-          <motion.div
-            className="w-full md:w-1/2 flex justify-center md:justify-end z-10"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {/* Gambar Versi Light (Hilang pas Dark Mode) */}
-            <motion.img
-              src={headerIllustration}
-              alt="Ilustrasi Laptop Light"
-              className="w-full max-w-lg md:max-w-xl h-auto object-contain drop-shadow-md dark:hidden"
-            />
-
-            {/* Gambar Versi Dark (Tampil HANYA pas Dark Mode) */}
-            <motion.img
-              src={headerIllustrationDark}
-              alt="Ilustrasi Laptop Dark"
-              className="w-full max-w-lg md:max-w-xl h-auto object-contain drop-shadow-md hidden dark:block"
-            />
-          </motion.div>
         </div>
 
         {/* 3. FORM CARD SECTION */}
         <div className="relative">
 
-          {/* Polkadot 2: Kiri Tengah Card (DI LUAR CARD) */}
+          {/* Polkadot 2: Kiri Tengah Card - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
           <img
             src={polkadotImg}
             alt="Dekorasi Polkadot Kiri"
-            className="absolute top-1/2 -left-12 md:-left-16 -translate-y-1/2 w-20 md:w-28 opacity-80 pointer-events-none z-0"
+            className="hidden md:block absolute top-1/2 -left-12 md:-left-16 -translate-y-1/2 w-20 md:w-28 opacity-80 pointer-events-none z-0"
           />
 
-          {/* Polkadot 3: Kanan Bawah Card (DI LUAR CARD) */}
+          {/* Polkadot 3: Kanan Bawah Card - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
           <img
             src={polkadotImg}
             alt="Dekorasi Polkadot Kanan Bawah"
-            className="absolute -bottom-6 -right-12 md:-right-16 w-20 md:w-28 opacity-80 pointer-events-none z-0"
+            className="hidden md:block absolute -bottom-6 -right-12 md:-right-16 w-20 md:w-28 opacity-80 pointer-events-none z-0"
           />
 
           {/* Card Utama */}

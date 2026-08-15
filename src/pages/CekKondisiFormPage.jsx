@@ -320,7 +320,7 @@ export default function CekKondisiFormPage() {
         <div className="w-full max-w-5xl flex flex-col lg:flex-row gap-8 items-start">
 
           {/* Form Content */}
-          <div className="w-full lg:w-2/3 bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-10 shadow-sm border border-transparent dark:border-line-dark flex flex-col gap-8 transition-colors duration-300">
+          <div className="w-full lg:w-2/3 bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-10 shadow-sm border border-transparent dark:border-line-dark flex flex-col gap-8 transition-colors duration-300 order-last lg:order-first">
 
             <AnimatePresence mode="wait">
 
@@ -732,10 +732,10 @@ export default function CekKondisiFormPage() {
             </AnimatePresence>
 
             {/* Navigation Buttons */}
-            <div className="flex items-center justify-between pt-6 border-t border-brand-gray/20 dark:border-line-dark">
+            <div className="flex flex-row items-center justify-between gap-3 pt-6 border-t border-brand-gray/20 dark:border-line-dark w-full">
               <button
                 onClick={handleBack}
-                className="px-6 py-3 rounded-full text-brand-dark dark:text-white font-bold text-sm bg-brand-gray/20 dark:bg-gray-700 hover:bg-brand-gray/30 transition-all"
+                className="px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-brand-dark dark:text-white font-bold text-xs sm:text-sm bg-brand-gray/20 dark:bg-gray-700 hover:bg-brand-gray/30 border border-gray-200 dark:border-gray-600 transition-all whitespace-nowrap shrink-0 cursor-pointer"
               >
                 {currentStep === 1 ? 'Batal' : 'Kembali'}
               </button>
@@ -746,7 +746,7 @@ export default function CekKondisiFormPage() {
                   whileTap={{ scale: isNextDisabled() ? 1 : 0.97 }}
                   onClick={handleNext}
                   disabled={isNextDisabled()}
-                  className={`px-8 py-3 rounded-full font-bold text-sm transition-all
+                  className={`px-5 py-2.5 sm:px-8 sm:py-3 rounded-full font-bold text-xs sm:text-sm transition-all whitespace-nowrap shrink-0 cursor-pointer
                     ${isNextDisabled()
                       ? 'bg-brand-gray/40 text-white cursor-not-allowed'
                       : 'bg-brand-green text-white hover:bg-brand-green/90 shadow-md'}`}
@@ -758,8 +758,8 @@ export default function CekKondisiFormPage() {
 
           </div>
 
-          {/* Right Column: Information Sidebar Panels */}
-          <div className="w-full lg:w-1/3 flex flex-col gap-6">
+          {/* Right Column: Information Sidebar Panels (Di ATAS pada HP/Tablet <lg, di KANAN pada Desktop >=lg) */}
+          <div className="w-full lg:w-1/3 flex flex-col gap-6 order-first lg:order-last">
 
             {/* Card 1: Tips Sebelum Menjawab */}
             <div className="bg-[#FFFBF5] dark:bg-card-dark-mode rounded-[32px] p-7 shadow-sm border border-brand-gray/20 dark:border-line-dark space-y-6 transition-colors duration-300">

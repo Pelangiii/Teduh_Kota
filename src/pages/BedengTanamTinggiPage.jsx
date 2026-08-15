@@ -47,11 +47,11 @@ export default function BedengTanamTinggiPage() {
   return (
     <div className="relative overflow-hidden min-h-screen bg-brand-bg dark:bg-mode-dark font-sans transition-colors duration-300">
       
-      {/* Background Polkadots (Floating) */}
-      <motion.img animate={floatingAnimation} src={polkadotImg} alt="" className="absolute top-48 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" />
-      <motion.img animate={floatingAnimation} src={polkadotImg} alt="" className="absolute top-1/3 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" />
-      <motion.img animate={floatingAnimation} src={polkadotImg} alt="" className="absolute bottom-1/3 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" />
-      <motion.img animate={floatingAnimation} src={polkadotImg} alt="" className="absolute bottom-16 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" />
+      {/* Background Polkadots */}
+      <img src={polkadotImg} alt="" className="absolute top-48 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" />
+      <img src={polkadotImg} alt="" className="absolute top-1/3 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" />
+      <img src={polkadotImg} alt="" className="absolute bottom-1/3 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" />
+      <img src={polkadotImg} alt="" className="absolute bottom-16 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" />
 
       <div className="pt-12 pb-48 md:pb-64 px-8 lg:px-16 max-w-7xl mx-auto relative">
         

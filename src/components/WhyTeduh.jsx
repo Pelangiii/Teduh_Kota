@@ -39,7 +39,7 @@ export default function About() {
             Melalui proses analisis yang sederhana, Teduh Kota memberikan rekomendasi tanaman beserta solusi penghijauan yang praktis tanpa harus memiliki pengetahuan khusus tentang tanaman.
           </p>
           <div>
-            <Link to="/tentang" className="font-sans inline-flex items-center gap-2 bg-brand-orange text-white px-8 py-3.5 rounded-2xl font-medium text-base hover:bg-[#e87f2e] transition shadow-xs">
+            <Link to="/tentang" className="font-sans inline-flex items-center justify-center gap-2 bg-brand-orange text-white px-5 py-2.5 sm:px-8 sm:py-3.5 rounded-xl sm:rounded-2xl font-medium text-xs sm:text-sm md:text-base hover:bg-[#e87f2e] transition shadow-xs whitespace-nowrap cursor-pointer">
               Lihat lebih Detail <span>&rarr;</span>
             </Link>
           </div>

@@ -112,23 +112,10 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto px-8 lg:px-16 space-y-36 md:space-y-48 relative z-10 w-full">
 
         {/* 1. HEADER / HERO SECTION */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-8 md:pt-12">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center pt-8 md:pt-12">
+          {/* Kanan: Ilustrasi Header (Di ATAS pada HP/Tablet <md) */}
           <motion.div
-            className="space-y-6 max-w-xl text-center md:text-left"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h1 className="font-header text-4xl md:text-5xl lg:text-6xl font-normal text-brand-dark dark:text-white leading-[1.15] tracking-tight">
-              Apa itu <span className="text-brand-green">Teduh Kota?</span>
-            </h1>
-            <p className="font-sans color-brand-text dark:text-gray-300 text-base md:text-lg leading-relaxed">
-              Platform rekomendasi penghijauan yang membantu siapa saja menemukan solusi tanaman sesuai kondisi area mereka.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="w-full flex justify-center lg:justify-end"
+            className="w-full flex justify-center lg:justify-end order-first md:order-last"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -143,6 +130,21 @@ export default function AboutPage() {
               alt="Ilustrasi Solusi Teduh Dark"
               className="w-full max-w-md lg:max-w-xl object-contain z-10 hidden dark:block"
             />
+          </motion.div>
+
+          {/* Kiri: Teks Header (Di BAWAH pada HP/Tablet <md) */}
+          <motion.div
+            className="space-y-6 max-w-xl text-center md:text-left order-last md:order-first"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h1 className="font-header text-4xl md:text-5xl lg:text-6xl font-normal text-brand-dark dark:text-white leading-[1.15] tracking-tight">
+              Apa itu <span className="text-brand-green">Teduh Kota?</span>
+            </h1>
+            <p className="font-sans color-brand-text dark:text-gray-300 text-base md:text-lg leading-relaxed">
+              Platform rekomendasi penghijauan yang membantu siapa saja menemukan solusi tanaman sesuai kondisi area mereka.
+            </p>
           </motion.div>
         </div>
 
@@ -176,11 +178,11 @@ export default function AboutPage() {
 
         {/* 3. PROBLEM SECTION */}
         <div className="space-y-12 text-center relative">
-          {/* Polkadot Kanan Atas Section */}
+          {/* Polkadot Kanan Atas - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
           <img
             src={polkadotImg}
             alt=""
-            className="absolute -top-12 -right-12 md:-right-20 w-24 md:w-32 opacity-80 pointer-events-none z-0"
+            className="hidden md:block absolute -top-12 -right-12 md:-right-20 w-24 md:w-32 opacity-80 pointer-events-none z-0"
           />
 
           <div className="relative inline-block">
@@ -254,11 +256,11 @@ export default function AboutPage() {
 
         {/* 5. TARGET PENGGUNA SECTION */}
         <div className="space-y-12 text-center relative">
-          {/* Polkadot Kiri Section */}
+          {/* Polkadot Kiri Section - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
           <img
             src={polkadotImg}
             alt=""
-            className="absolute top-1/2 -left-12 md:-left-20 -translate-y-1/2 w-24 md:w-32 opacity-80 pointer-events-none z-0"
+            className="hidden md:block absolute top-1/2 -left-12 md:-left-20 -translate-y-1/2 w-24 md:w-32 opacity-80 pointer-events-none z-0"
           />
 
           <div className="relative inline-block">

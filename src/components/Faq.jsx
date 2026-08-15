@@ -46,25 +46,25 @@ export default function Faq() {
   return (
     <div className="w-full bg-brand-bg dark:bg-mode-dark relative overflow-hidden py-16 md:py-20 transition-colors duration-300">
 
-      {/* Polkadot Top Left - Full Screen Edge Cut in Half */}
+      {/* Polkadot Top Left - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
       <img 
         src={polkadotImg} 
         alt="Dekorasi Polkadot" 
-        className="absolute top-8 -left-14 md:-left-18 w-32 md:w-40 opacity-90 pointer-events-none z-0" 
+        className="hidden md:block absolute top-8 -left-14 md:-left-18 w-32 md:w-40 opacity-80 pointer-events-none z-0" 
       />
 
-      {/* Polkadot Middle Right - Full Screen Edge Cut in Half */}
+      {/* Polkadot Middle Right - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
       <img 
         src={polkadotImg} 
         alt="Dekorasi Polkadot" 
-        className="absolute top-1/2 -translate-y-1/2 -right-14 md:-right-18 w-32 md:w-40 opacity-90 pointer-events-none z-0" 
+        className="hidden md:block absolute top-1/2 -translate-y-1/2 -right-14 md:-right-18 w-32 md:w-40 opacity-80 pointer-events-none z-0" 
       />
 
-      {/* Polkadot Bottom Left - Full Screen Edge Cut in Half */}
+      {/* Polkadot Bottom Left - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
       <img 
         src={polkadotImg} 
         alt="Dekorasi Polkadot" 
-        className="absolute -bottom-8 -left-14 md:-left-18 w-32 md:w-40 opacity-90 pointer-events-none z-0" 
+        className="hidden md:block absolute -bottom-8 -left-14 md:-left-18 w-32 md:w-40 opacity-80 pointer-events-none z-0" 
       />
 
       <motion.section 
