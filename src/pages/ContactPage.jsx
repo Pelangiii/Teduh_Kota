@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-// Import Gambar Header & Dekorasi
+// 1. Import Gambar Header (Versi Light & Dark Terpisah)
 import headerIllustration from '../assets/images/ilustrasi-meja-laptop.svg';
+import headerIllustrationDark from '../assets/images/ilustrasi-meja-laptop-dark.svg';
+
+// Import Dekorasi Polkadot
 import polkadotImg from '../assets/images/polkadot.svg';
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
 
@@ -38,10 +41,10 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-8 lg:px-16 space-y-12 md:space-y-16 relative w-full">
 
         {/* Polkadot 1: Pojok Kanan Atas (Cut in half on edge) */}
-        <img 
-          src={polkadotImg} 
-          alt="Dekorasi Polkadot Kanan Atas" 
-          className="absolute -top-10 -right-12 md:-right-16 w-24 md:w-32 opacity-80 pointer-events-none z-0" 
+        <img
+          src={polkadotImg}
+          alt="Dekorasi Polkadot Kanan Atas"
+          className="absolute -top-10 -right-12 md:-right-16 w-24 md:w-32 opacity-80 pointer-events-none z-0"
         />
 
         {/* 1. HEADER SECTION */}
@@ -52,47 +55,57 @@ export default function ContactPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="font-header text-4xl md:text-5xl font-normal text-brand-dark leading-tight">
+            <h1 className="font-header text-4xl md:text-5xl font-normal text-brand-dark dark:text-white leading-tight">
               Punya <span className="text-brand-green">Pertanyaan?</span>
             </h1>
-            <p className="font-sans text-gray-600 text-sm md:text-base leading-relaxed">
+            <p className="font-sans text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed">
               Ada pertanyaan, saran, atau ingin bekerja sama? Tim Teduh Kota siap membantu.
             </p>
           </motion.div>
 
-          {/* Ilustrasi Header */}
+          {/* 2. SWITCHER GAMBAR HEADER (LIGHT VS DARK) */}
           <motion.div
             className="w-full md:w-1/2 flex justify-center md:justify-end z-10"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
+            {/* Gambar Versi Light (Hilang pas Dark Mode) */}
             <motion.img
               src={headerIllustration}
-              alt="Ilustrasi Laptop dan Jendela"
-              className="w-full max-w-lg md:max-w-xl h-auto object-contain drop-shadow-md"
+              alt="Ilustrasi Laptop Light"
+              className="w-full max-w-lg md:max-w-xl h-auto object-contain drop-shadow-md dark:hidden"
+            />
+
+            {/* Gambar Versi Dark (Tampil HANYA pas Dark Mode) */}
+            <motion.img
+              src={headerIllustrationDark}
+              alt="Ilustrasi Laptop Dark"
+              className="w-full max-w-lg md:max-w-xl h-auto object-contain drop-shadow-md hidden dark:block"
             />
           </motion.div>
         </div>
 
-        {/* 2. FORM CARD SECTION */}
+        {/* 3. FORM CARD SECTION */}
         <div className="relative">
-          {/* Polkadot 2: Kiri Tengah Card */}
-          <img 
-            src={polkadotImg} 
-            alt="Dekorasi Polkadot Kiri" 
-            className="absolute top-1/2 -left-12 md:-left-16 -translate-y-1/2 w-20 md:w-28 opacity-80 pointer-events-none z-0" 
+
+          {/* Polkadot 2: Kiri Tengah Card (DI LUAR CARD) */}
+          <img
+            src={polkadotImg}
+            alt="Dekorasi Polkadot Kiri"
+            className="absolute top-1/2 -left-12 md:-left-16 -translate-y-1/2 w-20 md:w-28 opacity-80 pointer-events-none z-0"
           />
 
-          {/* Polkadot 3: Kanan Bawah Card */}
-          <img 
-            src={polkadotImg} 
-            alt="Dekorasi Polkadot Kanan Bawah" 
-            className="absolute -bottom-6 -right-12 md:-right-16 w-20 md:w-28 opacity-80 pointer-events-none z-0" 
+          {/* Polkadot 3: Kanan Bawah Card (DI LUAR CARD) */}
+          <img
+            src={polkadotImg}
+            alt="Dekorasi Polkadot Kanan Bawah"
+            className="absolute -bottom-6 -right-12 md:-right-16 w-20 md:w-28 opacity-80 pointer-events-none z-0"
           />
 
+          {/* Card Utama */}
           <motion.div
-            className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 grid grid-cols-1 md:grid-cols-12 gap-10 items-start relative z-10"
+            className="bg-white dark:bg-card-dark-mode rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 dark:border-card-dark-mode grid grid-cols-1 md:grid-cols-12 gap-10 items-start relative z-10 transition-colors duration-300"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -106,7 +119,7 @@ export default function ContactPage() {
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-1.5">
-                  <label className="block text-sm font-semibold text-gray-700 font-sans">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 font-sans">
                     Nama Lengkap
                   </label>
                   <input
@@ -114,14 +127,14 @@ export default function ContactPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Masukkan nama"
+                    placeholder="Masukkan nama mu"
                     required
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition bg-white font-sans"
+                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-line-dark text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="block text-sm font-semibold text-gray-700 font-sans">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 font-sans">
                     Email
                   </label>
                   <input
@@ -129,14 +142,14 @@ export default function ContactPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="Masukkan email aktif"
+                    placeholder="Masukkan email aktif mu"
                     required
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition bg-white font-sans"
+                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-line-dark text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="block text-sm font-semibold text-gray-700 font-sans">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 font-sans">
                     Pesan
                   </label>
                   <textarea
@@ -146,7 +159,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Tulis pesan yang ingin kamu sampaikan"
                     required
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition resize-none bg-white font-sans"
+                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-line-dark text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition resize-none bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans"
                   ></textarea>
                 </div>
 
@@ -164,32 +177,32 @@ export default function ContactPage() {
             </div>
 
             {/* Info Kontak & Embedded Google Maps */}
-            <div className="md:col-span-5 md:border-l md:border-gray-100 md:pl-10 space-y-6">
-              <h3 className="font-header text-xl md:text-2xl font-normal text-brand-dark leading-snug">
+            <div className="md:col-span-5 md:border-l md:border-gray-100 dark:md:border-line-dark md:pl-10 space-y-6">
+              <h3 className="font-header text-xl md:text-2xl font-normal text-brand-dark dark:text-white leading-snug">
                 Kami disini untuk
                 <span className="text-brand-green"> membantu!</span>
               </h3>
 
-              <div className="space-y-3 text-sm text-gray-600 font-sans">
+              <div className="space-y-3 text-sm text-gray-600 dark:text-gray-400 font-sans">
                 <div>
-                  <p className="font-bold text-gray-800">Email</p>
-                  <p className="text-gray-500">hai@teduhkota.id</p>
+                  <p className="font-bold text-gray-800 dark:text-gray-200">Email</p>
+                  <p className="text-gray-500 dark:text-gray-400">hai@teduhkota.id</p>
                 </div>
 
                 <div>
-                  <p className="font-bold text-gray-800">Number</p>
-                  <p className="text-gray-500">0811-0018-3210</p>
+                  <p className="font-bold text-gray-800 dark:text-gray-200">Number</p>
+                  <p className="text-gray-500 dark:text-gray-400">0811-0018-3210</p>
                 </div>
 
                 <div>
-                  <p className="font-bold text-gray-800">Lokasi</p>
-                  <p className="text-gray-500">Jakarta, Indonesia</p>
+                  <p className="font-bold text-gray-800 dark:text-gray-200">Lokasi</p>
+                  <p className="text-gray-500 dark:text-gray-400">Jakarta, Indonesia</p>
                 </div>
               </div>
 
               {/* Container Embedded Google Maps */}
               <motion.div
-                className="w-full h-48 md:h-52 rounded-2xl overflow-hidden border border-gray-100 shadow-xs"
+                className="w-full h-48 md:h-52 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-xs dark:brightness-90"
               >
                 <iframe
                   title="Peta Lokasi Teduh Kota"
@@ -210,9 +223,9 @@ export default function ContactPage() {
       </div>
 
       {/* Rumput Panjang Bawah (Setelah Form - Full Screen Width) */}
-      <div 
+      <div
         className="w-full h-24 md:h-32 lg:h-44 pointer-events-none relative z-10"
-        style={{ 
+        style={{
           backgroundImage: `url(${ilustrasiRumputPanjang})`,
           backgroundRepeat: 'repeat-x',
           backgroundPosition: 'bottom',
