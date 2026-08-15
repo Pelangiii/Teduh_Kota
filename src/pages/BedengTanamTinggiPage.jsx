@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 import bedengTanamTinggiImg from '../assets/images/bedeng-tanam-tinggi.svg';
 import polkadotImg from '../assets/images/polkadot.svg';
-import ilusPot from '../assets/images/ilus-pot.svg';
-import ilusCheck from '../assets/images/ilus-check.svg';
+import ilusPot from '../assets/images/ilus-pot.png';
+import ilusCheck from '../assets/images/ilus-check.png';
 import ilusStar from '../assets/images/ilus-star.svg';
 import ilusMenu from '../assets/images/ilus-menu.svg';
 import perhatikanIcon from '../assets/images/perhatikan.svg';
@@ -196,7 +196,7 @@ export default function BedengTanamTinggiPage() {
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-4">
                   <img src={perhatikanIcon} alt="Perhatikan" className="w-10 md:w-12 h-auto" />
-                  <h3 className="text-xl md:text-2xl font-header font-bold text-brand-dark">
+                  <h3 className="text-xl md:text-2xl font-header font-normal text-brand-dark">
                     Perhatikan
                   </h3>
                 </div>
@@ -223,11 +223,10 @@ export default function BedengTanamTinggiPage() {
               <span className="text-brand-dark">Contoh Penerapan</span> <span className="text-brand-green">Bedeng Tanam Tinggi</span>
             </h2>
             <div className="relative max-w-4xl mx-auto">
-              <motion.img 
-                animate={floatingAnimation}
+              <img 
                 src={circleStarImg} 
                 alt="" 
-                className="absolute -left-2 md:-left-4 -bottom-2 md:-bottom-4 w-6 md:w-8 z-20 pointer-events-none" 
+                className="absolute -left-6 md:-left-10 -bottom-2 md:-bottom-4 w-6 md:w-8 z-20 pointer-events-none" 
               />
               <div className="relative z-10 w-full aspect-video rounded-4xl overflow-hidden shadow-lg border-4 border-white bg-brand-gray/20">
                 <iframe 

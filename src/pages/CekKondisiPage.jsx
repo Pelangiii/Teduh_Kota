@@ -52,13 +52,13 @@ export default function CekKondisiPage() {
       <div className="max-w-7xl mx-auto px-8 lg:px-16 w-full relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center pb-40 md:pb-56">
 
         {/* Kolom Kiri: Teks Konten (Stagger Animation) */}
-        <motion.div 
+        <motion.div
           className="space-y-6 text-left"
           initial="hidden"
           animate="visible"
           variants={contentContainerVariants}
         >
-          <motion.h1 
+          <motion.h1
             variants={fadeInUp}
             className="text-3xl md:text-4xl lg:text-5xl font-header leading-[1.1] tracking-tight"
           >
@@ -66,50 +66,43 @@ export default function CekKondisiPage() {
             <span className="text-brand-green block">Dapatkan Solusi</span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             variants={fadeInUp}
-            className="text-brand-dark/70 font-sans font-medium text-sm lg:text-base leading-relaxed max-w-105"
+            className="text-brand-text font-sans font-medium text-sm lg:text-base leading-relaxed max-w-105"
           >
             Lengkapkan informasi mengenai area yang kamu ingin hijaukan, jawabanmu akan membantu kami untuk memberikan hasil yang sesuai.
           </motion.p>
 
           <motion.div variants={fadeInUp} className="pt-2 flex">
-            <Link to="/cek-kondisi-form">
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-brand-orange hover:bg-[#e87f2e] text-white font-sans font-medium text-sm lg:text-base px-6 py-3 rounded-xl transition-all shadow-sm hover:shadow-md flex items-center gap-2 cursor-pointer"
-              >
-                Mulai Analisis <span>&rarr;</span>
-              </motion.button>
+            <Link
+              to="/cek-kondisi-form"
+              className="font-sans inline-flex items-center gap-2 bg-brand-orange hover:bg-[#e87f2e] text-white px-8 py-3.5 rounded-2xl font-medium text-base transition shadow-xs cursor-pointer"
+            >
+              Mulai Analisis <span>&rarr;</span>
             </Link>
           </motion.div>
         </motion.div>
 
         {/* Kolom Kanan: Foto Cek Kondisi (Hero & Floating Animation) */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={imageVariants}
-          className="relative flex justify-center lg:justify-end items-center mt-8 md:mt-0"
-        >
-          <motion.img
-            animate={floatingAnimation}
+          className="relative flex justify-center lg:justify-end items-center mt-8 md:mt-0">
+          <img
             src={cekKondisiImg}
             alt="Cek Kondisi"
-            className="w-full max-w-100 lg:max-w-150 object-contain z-10"
-          />
+            className="w-full max-w-100 lg:max-w-150 object-contain z-10" />
         </motion.div>
 
       </div>
 
       {/* Background Rumput / Ilustrasi */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
-        className="absolute bottom-0 left-0 w-full z-0"
-      >
+        className="absolute bottom-0 left-0 w-full z-0">
         <img
           src={ilustrasiRumputPanjang}
           alt="Ilustrasi Rumput"

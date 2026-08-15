@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 // Import Assets
 import tamanPotImg from '../assets/images/taman-pot.svg';
 import polkadotImg from '../assets/images/polkadot.svg';
-import ilusPot from '../assets/images/ilus-pot.svg';
-import ilusCheck from '../assets/images/ilus-check.svg';
+import ilusPot from '../assets/images/ilus-pot.png';
+import ilusCheck from '../assets/images/ilus-check.png';
 import ilusStar from '../assets/images/ilus-star.svg';
 import ilusMenu from '../assets/images/ilus-menu.svg';
 import perhatikanIcon from '../assets/images/perhatikan.svg';
@@ -66,31 +66,19 @@ export default function TamanPotFleksibelPage() {
   return (
     <div className="relative overflow-hidden min-h-screen font-sans">
       {/* Background Polkadots dengan Efek Floating */}
-      <motion.img 
-        variants={floatPolkadot} 
-        animate="animate" 
-        src={polkadotImg} 
+      <img src={polkadotImg} 
         alt="" 
         className="absolute top-48 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" 
       />
-      <motion.img 
-        variants={floatPolkadot} 
-        animate="animate" 
-        src={polkadotImg} 
+      <img src={polkadotImg} 
         alt="" 
         className="absolute top-1/3 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" 
       />
-      <motion.img 
-        variants={floatPolkadot} 
-        animate="animate" 
-        src={polkadotImg} 
+      <img src={polkadotImg} 
         alt="" 
         className="absolute bottom-1/3 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" 
       />
-      <motion.img 
-        variants={floatPolkadot} 
-        animate="animate" 
-        src={polkadotImg} 
+      <img src={polkadotImg} 
         alt="" 
         className="absolute bottom-16 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" 
       />
@@ -241,7 +229,7 @@ export default function TamanPotFleksibelPage() {
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-4">
                   <img src={perhatikanIcon} alt="Perhatikan" className="w-10 md:w-12 h-auto" />
-                  <h3 className="text-xl md:text-2xl font-header font-bold text-brand-dark">
+                  <h3 className="text-xl md:text-2xl font-header font-normal text-brand-dark">
                     Perhatikan
                   </h3>
                 </div>
@@ -268,12 +256,9 @@ export default function TamanPotFleksibelPage() {
               <span className="text-brand-dark">Contoh Penerapan</span> <span className="text-brand-green">Taman Pot</span>
             </h2>
             <div className="relative max-w-4xl mx-auto">
-              <motion.img 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                src={circleStarImg} 
+              <img src={circleStarImg} 
                 alt="" 
-                className="absolute -left-2 md:-left-4 -bottom-2 md:-bottom-4 w-6 md:w-8 z-20 pointer-events-none" 
+                className="absolute -left-6 md:-left-10 -bottom-2 md:-bottom-4 w-6 md:w-8 z-20 pointer-events-none" 
               />
               <motion.div 
                 variants={zoomIn}

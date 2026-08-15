@@ -86,7 +86,7 @@ export default function Features() {
         {/* Feature Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
           {whyUsData.map((item, index) => (
-            <div key={index} className="relative">
+            <div key={index} className="relative h-full">
               {/* Polkadot Decoration Bottom Left Flush on Screen Left Edge */}
               {index === 0 && (
                 <img 
@@ -96,7 +96,7 @@ export default function Features() {
                 />
               )}
 
-              <div className="bg-white rounded-3xl p-8 shadow-card border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-200 relative z-10">
+              <div className="bg-white rounded-3xl p-8 shadow-card border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-200 relative z-10 h-full">
                 <img src={item.icon} alt={item.title} className="w-20 h-20 object-contain" />
                 <h3 className="font-sans text-lg font-extrabold text-brand-dark">{item.title}</h3>
                 <p className="font-sans text-brand-text text-xs leading-relaxed">

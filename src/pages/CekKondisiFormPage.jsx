@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { calculateRecommendations } from '../utils/recommendationEngine';
+import { GLOBAL_METADATA } from '../data/recommendationConfig';
 
 // Import Assets
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
@@ -10,6 +11,8 @@ import perkantoranIcon from '../assets/images/perkantoran.svg';
 import sekolahIcon from '../assets/images/sekolah.svg';
 import ruangPublikIcon from '../assets/images/ruang-publik.svg';
 import checkJawabanIcon from '../assets/images/check-jawaban.svg';
+import smileIcon from '../assets/images/smile.svg';
+import tanamanIcon from '../assets/images/tanaman.svg';
 
 // --- Variants Animasi ---
 const pageTransition = {
@@ -35,7 +38,7 @@ const RadioOption = ({ icon, label, desc, selectedValue, onChange, value }) => {
         ${isSelected ? 'border-brand-green bg-[#F9FDF5]' : 'border-brand-gray/30 hover:border-brand-gray/60 bg-white'}`}
     >
       {icon && (
-        <div className="w-12 h-12 bg-[#F2FBE9] rounded-xl flex items-center justify-center shrink-0 text-xl font-bold text-brand-green">
+        <div className="w-10 h-10 flex items-center justify-center shrink-0">
           {icon}
         </div>
       )}
@@ -146,6 +149,11 @@ export default function CekKondisiFormPage() {
     }
   }, []);
 
+  // Auto scroll to top instantly whenever step changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentStep]);
+
   const steps = [
     { num: 1, title: "Lokasi", desc: "Detail tentang lokasi" },
     { num: 2, title: "Kondisi Area", desc: "Detail tentang lahan" },
@@ -164,17 +172,14 @@ export default function CekKondisiFormPage() {
       localStorage.setItem('teduhkota_saved_result', JSON.stringify(result));
 
       setCurrentStep(4);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (currentStep < 4) {
       setCurrentStep(currentStep + 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
   const handleBack = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       setShowExitModal(true);
     }
@@ -330,17 +335,6 @@ export default function CekKondisiFormPage() {
                   </h2>
 
                   <div className="space-y-4">
-                    <div className="mb-6">
-                      <label className="block font-bold text-brand-dark text-base mb-2">Nama Tempat (Opsional)</label>
-                      <input 
-                        type="text" 
-                        placeholder="Misal: Halaman Belakang Rumah, Taman Sekolah" 
-                        value={locationName}
-                        onChange={(e) => setLocationName(e.target.value)}
-                        className="w-full bg-white border border-brand-gray/40 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-colors"
-                      />
-                    </div>
-
                     <RadioOption icon={<img src={rumahIcon} className="w-8 h-8 object-contain" alt="Rumah" />} label="Rumah" desc="Halaman taman atau area sekitar rumah." value="home" selectedValue={locationType} onChange={setLocationType} />
                     <RadioOption icon={<img src={perkantoranIcon} className="w-8 h-8 object-contain" alt="Perkantoran" />} label="Perkantoran" desc="Area kantor atau gedung komersial." value="office" selectedValue={locationType} onChange={setLocationType} />
                     <RadioOption icon={<img src={sekolahIcon} className="w-8 h-8 object-contain" alt="Sekolah" />} label="Sekolah / Kampus" desc="Taman belajar atau lapangan sekolah." value="school" selectedValue={locationType} onChange={setLocationType} />
@@ -559,27 +553,172 @@ export default function CekKondisiFormPage() {
                     </div>
                   </div>
 
-                  <div className="border border-brand-gray/30 rounded-2xl p-6 bg-white space-y-4">
-                    <h3 className="text-xl font-header text-brand-dark">Solusi Utama Terpilih:</h3>
-                    
-                    {recommendationResult.primarySolutions?.map((sol, index) => (
-                      <div key={index} className="p-4 bg-brand-bg rounded-xl border border-brand-green/30">
-                        <h4 className="font-bold text-brand-green text-lg">{sol.title || sol.name}</h4>
-                        <p className="text-xs text-brand-dark/70 mt-1">{sol.description}</p>
-                      </div>
-                    ))}
+                  {recommendationResult.primary ? (
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start group">
+                      <div className="md:col-span-7 space-y-6">
+                        <div>
+                          <div className="inline-block bg-gradient-to-r from-brand-green to-[#8BC34A] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm mb-3">
+                            {recommendationResult.isFallback ? "Solusi Potensial" : "Rekomendasi Utama"}
+                          </div>
+                          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight">{recommendationResult.primary.title}</h2>
+                        </div>
+        
+                        <div className="rounded-2xl overflow-hidden h-56 w-full shadow-inner relative">
+                          <img 
+                            src={recommendationResult.primary.image} 
+                            alt="Rekomendasi" 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
+                        </div>
+        
+                        <div className="mb-4">
+                          <span className="text-sm font-semibold text-gray-600">Skor Kecocokan:</span>
+                          <div className="flex items-center gap-3 mt-1">
+                            <div className="grow h-3 bg-gray-100 rounded-full overflow-hidden">
+                              <div 
+                                className="h-full bg-brand-green rounded-full transition-all duration-1000"
+                                style={{ width: `${recommendationResult.primary.score}%` }}
+                              />
+                            </div>
+                            <div className="flex flex-col items-end gap-1 shrink-0">
+                              <span className="text-brand-green font-bold text-lg leading-none">{recommendationResult.primary.score}/100</span>
+                              <span className="text-[10px] text-gray-500 font-medium bg-gray-100 px-2 py-0.5 rounded-md uppercase">{recommendationResult.primary.category}</span>
+                            </div>
+                          </div>
+                        </div>
 
-                    {recommendationResult.secondarySolutions?.length > 0 && (
-                      <div className="pt-4">
-                        <h4 className="font-bold text-brand-dark text-sm mb-2">Alternatif Solusi Lainnya:</h4>
-                        <ul className="list-disc pl-5 text-xs text-brand-dark/70 space-y-1">
-                          {recommendationResult.secondarySolutions.map((sol, index) => (
-                            <li key={index}>{sol.title || sol.name}</li>
-                          ))}
-                        </ul>
+                        {recommendationResult.primary.verificationMessage && (
+                          <div className="bg-amber-50/80 border border-amber-200/60 text-amber-800 text-sm p-4 rounded-xl font-medium flex items-start gap-3 shadow-sm">
+                            <svg className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                            <div>
+                              <span className="font-bold block mb-1">Perlu Perhatian:</span>
+                              <span className="text-amber-700 leading-relaxed">{recommendationResult.primary.verificationMessage}</span>
+                            </div>
+                          </div>
+                        )}
+        
+                        <div className="space-y-3 pt-2">
+                          <h3 className="font-bold text-gray-800 text-sm">Mengapa Direkomendasikan?</h3>
+                          <ul className="list-disc list-inside text-xs text-gray-600 space-y-1.5 leading-relaxed">
+                            {recommendationResult.primary.matchedReasons?.map((reason, i) => (
+                              <li key={i}>{reason}</li>
+                            ))}
+                          </ul>
+                        </div>
+        
+                        <div className="flex items-center gap-4 pt-4 flex-wrap">
+                          <Link 
+                            to={`/solusi-teduh/${recommendationResult.primary.link}`}
+                            className="bg-[#FF8A65] hover:bg-[#ff7043] text-white px-6 py-3 rounded-xl text-sm font-medium transition"
+                          >
+                            Lihat Solusi Ini →
+                          </Link>
+                        </div>
                       </div>
-                    )}
-                  </div>
+        
+                      {/* Sidebar Info Detail */}
+                      <div className="md:col-span-5 bg-[#FAF8F5] p-6 rounded-2xl space-y-4 border border-gray-200/60">
+                        <h4 className="font-bold text-gray-800 text-sm border-b pb-2 border-gray-200">Detail Estimasi</h4>
+                        <div className="space-y-3 text-xs text-gray-600">
+                          <div>
+                            <span className="font-semibold block text-gray-800">Estimasi Biaya:</span>
+                            <p>{recommendationResult.primary.estimasiBiaya}</p>
+                          </div>
+                          <div>
+                            <span className="font-semibold block text-gray-800">Kebutuhan Cahaya:</span>
+                            <p>{recommendationResult.primary.kebutuhanCahaya}</p>
+                          </div>
+                          <div>
+                            <span className="font-semibold block text-gray-800">Pemeliharaan:</span>
+                            <p>{recommendationResult.primary.pemeliharaan}</p>
+                          </div>
+                        </div>
+                        <p className="text-[10px] text-gray-400 mt-4 leading-tight italic">
+                          {GLOBAL_METADATA.costDisclaimer}
+                        </p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="bg-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-sm text-center">
+                      <h2 className="text-xl font-bold text-gray-800 mb-4">Belum ditemukan solusi yang cukup sesuai berdasarkan kondisi area yang kamu masukkan.</h2>
+                    </div>
+                  )}
+
+                  {/* Alternatif */}
+                  {recommendationResult.alternatives?.length > 0 && (
+                    <div className="pt-8">
+                      <h3 className="text-xl font-bold text-brand-dark mb-4 px-2">
+                        {recommendationResult.isFallback ? "Alternatif Potensial" : "Solusi Alternatif"}
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {recommendationResult.alternatives.map((alt, idx) => (
+                          <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
+                            <div>
+                              <div className="flex justify-between items-start mb-3 gap-2">
+                                <h4 className="font-bold text-gray-800 text-lg leading-tight group-hover:text-brand-green transition-colors">{alt.title}</h4>
+                                <span className="bg-[#F2FBE9] border border-brand-green/20 text-brand-green text-[10px] font-bold px-2.5 py-1 rounded-full shrink-0 shadow-sm whitespace-nowrap">Skor: {alt.score}/100</span>
+                              </div>
+                              <p className="text-xs text-gray-500 line-clamp-2 mb-4 leading-relaxed">{alt.matchedReasons?.[0]}</p>
+                              {alt.verificationMessage && (
+                                <div className="flex items-start gap-2 text-[11px] text-amber-700 bg-amber-50/80 border border-amber-100 p-2.5 rounded-lg mb-4">
+                                  <svg className="w-4 h-4 shrink-0 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                  </svg>
+                                  <span>{alt.verificationMessage}</span>
+                                </div>
+                              )}
+                            </div>
+                            <Link 
+                              to={`/solusi-teduh/${alt.link}`}
+                              className="text-brand-orange text-sm font-bold hover:text-[#e87f2e] transition-colors flex items-center gap-1 group/link"
+                            >
+                              Lihat Detail <span className="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </Link>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Conditional Suggestions */}
+                  {recommendationResult.conditionalSuggestions?.length > 0 && (
+                    <div className="pt-8">
+                      <h3 className="text-xl font-bold text-brand-dark mb-4 px-2">
+                        Ide Menarik Lainnya (Perlu Pengecekan Lanjut)
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {recommendationResult.conditionalSuggestions.map((sugg, idx) => (
+                          <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-300 to-amber-500 opacity-50"></div>
+                            <div>
+                              <div className="flex justify-between items-start mb-3 gap-2">
+                                <h4 className="font-bold text-gray-800 text-lg leading-tight group-hover:text-amber-600 transition-colors">{sugg.title}</h4>
+                                <span className="bg-amber-50 border border-amber-200/50 text-amber-600 text-[10px] font-bold px-2.5 py-1 rounded-full shrink-0 shadow-sm whitespace-nowrap">Skor: {sugg.score}/100</span>
+                              </div>
+                              <p className="text-xs text-gray-500 line-clamp-2 mb-4 leading-relaxed">{sugg.matchedReasons?.[0]}</p>
+                              {sugg.verificationMessage && (
+                                <div className="flex items-start gap-2 text-[11px] text-amber-700 bg-amber-50/80 border border-amber-100 p-2.5 rounded-lg mb-4">
+                                  <svg className="w-4 h-4 shrink-0 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                  </svg>
+                                  <span>{sugg.verificationMessage}</span>
+                                </div>
+                              )}
+                            </div>
+                            <Link 
+                              to={`/solusi-teduh/${sugg.link}`}
+                              className="text-amber-600 text-sm font-bold hover:text-amber-700 transition-colors flex items-center gap-1 group/link"
+                            >
+                              Lihat Detail <span className="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                            </Link>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
                   <button 
                     onClick={() => setShowResetModal(true)}
@@ -619,12 +758,65 @@ export default function CekKondisiFormPage() {
 
           </div>
 
-          {/* Right Column: Information Panel */}
-          <div className="w-full lg:w-1/3 bg-white rounded-[32px] p-8 shadow-sm flex flex-col gap-4">
-            <h3 className="font-header text-xl text-brand-dark">Mengapa Informasi Ini Penting?</h3>
-            <p className="text-brand-dark/70 text-xs md:text-sm leading-relaxed">
-              Setiap lokasi memiliki mikroiklim, jenis tanah, serta akses air yang berbeda. Jawabanmu membantu sistem merekomendasikan jenis tanaman dan solusi penghijauan yang paling bertahan lama dan efisien.
-            </p>
+          {/* Right Column: Information Sidebar Panels */}
+          <div className="w-full lg:w-1/3 flex flex-col gap-6">
+            
+            {/* Card 1: Tips Sebelum Menjawab */}
+            <div className="bg-[#FFFBF5] rounded-[32px] p-7 shadow-sm border border-brand-gray/20 space-y-6">
+              <h3 className="font-sans font-bold text-lg text-brand-dark">Tips Sebelum Menjawab</h3>
+              
+              <div className="space-y-5">
+                {/* Item 1 */}
+                <div className="flex items-start gap-4">
+                  <img src={tanamanIcon} alt="Jawab sesuai kondisi" className="w-9 h-9 shrink-0 object-contain mt-0.5" />
+                  <div>
+                    <h4 className="font-sans font-bold text-sm text-brand-dark">Jawab sesuai kondisi</h4>
+                    <p className="font-sans text-brand-text text-xs leading-relaxed mt-0.5">
+                      Berikan jawaban berdasarkan kondisi area saat ini.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Item 2 */}
+                <div className="flex items-start gap-4">
+                  <img src={smileIcon} alt="Tidak ada jawaban salah" className="w-9 h-9 shrink-0 object-contain mt-0.5" />
+                  <div>
+                    <h4 className="font-sans font-bold text-sm text-brand-dark">Tidak ada jawaban salah</h4>
+                    <p className="font-sans text-brand-text text-xs leading-relaxed mt-0.5">
+                      Semua jawaban akan membantu kami memberikan solusi terbaik.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Item 3 */}
+                <div className="flex items-start gap-4">
+                  <img src={checkJawabanIcon} alt="Periksa kembali jawaban" className="w-9 h-9 shrink-0 object-contain mt-0.5" />
+                  <div>
+                    <h4 className="font-sans font-bold text-sm text-brand-dark">Periksa kembali jawaban</h4>
+                    <p className="font-sans text-brand-text text-xs leading-relaxed mt-0.5">
+                      Pastikan untuk periksa kembali jawaban sebelum mengirim.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Butuh Bantuan? */}
+            <Link 
+              to="/kontak"
+              className="bg-white rounded-[32px] p-7 shadow-sm border border-gray-100 flex items-center justify-between gap-4 cursor-pointer"
+            >
+              <div className="space-y-1">
+                <h3 className="font-sans font-bold text-lg text-brand-dark">Butuh Bantuan?</h3>
+                <p className="font-sans text-brand-text text-xs leading-relaxed">
+                  Tim kami siap membantu kamu 24/7 untuk pertanyaan seputar booking
+                </p>
+              </div>
+              <span className="text-brand-dark text-2xl font-bold shrink-0">
+                &rsaquo;
+              </span>
+            </Link>
+
           </div>
 
         </div>

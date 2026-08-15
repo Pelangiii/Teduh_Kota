@@ -6,6 +6,8 @@ import Hero from './components/Hero';
 import WhyTeduh from './components/WhyTeduh';
 import Features from './components/Features';
 import FooterSection from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+import FloatingUpButton from './components/FloatingUpButton';
 
 // Import halaman
 import AboutPage from './pages/AboutPage';
@@ -40,6 +42,7 @@ function HomePage() {
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-brand-bg text-gray-800 font-sans flex flex-col justify-between">
         {/* Navbar tampil di semua halaman */}
         <Navbar />
@@ -74,6 +77,7 @@ export default function App() {
 
         {/* FooterSection tampil di semua halaman */}
         <FooterSection />
+        <FloatingUpButton />
       </div>
     </Router>
   );
