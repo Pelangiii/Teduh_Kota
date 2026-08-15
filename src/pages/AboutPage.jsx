@@ -6,7 +6,8 @@ import { motion } from 'framer-motion';
 import heroMejaImg from '../assets/images/ilustrasi-meja-laptop.svg';
 import tanamanLoveImg from '../assets/images/tanaman-love.svg';
 import tanamanTanyaImg from '../assets/images/tanaman-tanya.svg';
-import ilustrasiTujuan from '../assets/images/ilustrasi-tujuan.svg'; 
+import ilustrasiTujuan from '../assets/images/ilustrasi-tujuan.svg';
+import ilustrasiSolusiTeduh from '../assets/images/ilustrasi-solusi-teduh.svg';
 
 // Import Icon Problem & Target Pengguna
 import iconKacaPembesar from '../assets/images/icon-kaca-pembesar.svg';
@@ -21,10 +22,10 @@ import iconPublik from '../assets/images/icon-publik.svg';
 // Configuration Variasi Animasi
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] } 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }
   }
 };
 
@@ -41,11 +42,11 @@ const staggerContainer = {
 
 const scaleUpCard = {
   hidden: { opacity: 0, scale: 0.9, y: 30 },
-  visible: { 
-    opacity: 1, 
-    scale: 1, 
+  visible: {
+    opacity: 1,
+    scale: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 100, damping: 15 } 
+    transition: { type: "spring", stiffness: 100, damping: 15 }
   }
 };
 
@@ -105,61 +106,60 @@ export default function AboutPage() {
   return (
     <div className="bg-brand-bg min-h-screen pt-24 md:pt-32 pb-32 relative overflow-hidden font-sans">
       <div className="max-w-6xl mx-auto px-6 space-y-36 md:space-y-48 relative z-10">
-        
+
         {/* 1. HEADER / HERO SECTION */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 pt-8 md:pt-12">
-          <motion.div 
+          <motion.div
             className="space-y-4 max-w-lg text-center md:text-left"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="font-header text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+            <h1 className="font-header text-4xl md:text-5xl font-normal text-brand-dark leading-tight">
               Apa itu <span className="text-brand-green">Teduh Kota?</span>
             </h1>
-            <p className="font-sans text-gray-600 text-sm md:text-base leading-relaxed">
+            <p className="font-sans color-brand-text text-sm md:text-base leading-relaxed">
               Platform rekomendasi penghijauan yang membantu siapa saja menemukan solusi tanaman sesuai kondisi area mereka.
             </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="w-full md:w-1/2 flex justify-center lg:justify-end"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <motion.img 
-              animate={floatingAnimation}
-              src={heroMejaImg} 
-              alt="Ilustrasi Laptop dan Pot" 
-              className="w-full max-w-md object-contain drop-shadow-md" 
+            <motion.img
+              src={ilustrasiSolusiTeduh}
+              alt="Ilustrasi Solusi Teduh"
+              className="w-full max-w-80 lg:max-w-112.5 object-contain z-10"
             />
           </motion.div>
         </div>
 
         {/* 2. TENTANG TEDUH KOTA CARD */}
-        <motion.div 
-          className="bg-white rounded-3xl p-8 md:p-12 shadow-xs hover:shadow-xl border border-gray-100 flex flex-col md:flex-row items-center gap-8 md:gap-12 transition-all duration-300"
+        <motion.div
+          className="bg-white rounded-3xl p-10 md:p-14 border border-gray-100 shadow-card flex flex-col md:flex-row items-center gap-10 md:gap-14 hover:shadow-md transition duration-200"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUp}
         >
-          <motion.div className="w-36 md:w-44 shrink-0 flex justify-center" animate={floatingAnimation}>
-            <img 
-              src={tanamanLoveImg} 
-              alt="Tentang Teduh Kota" 
+          <motion.div className="w-36 md:w-44 shrink-0 flex justify-center">
+            <img
+              src={tanamanLoveImg}
+              alt="Tentang Teduh Kota"
               className="w-full h-auto object-contain"
             />
           </motion.div>
           <div className="space-y-4 text-center md:text-left">
-            <h2 className="font-header text-2xl md:text-3xl font-extrabold text-gray-900">
+            <h2 className="font-header text-2xl md:text-3xl font-normal text-brand-dark">
               Tentang <span className="text-brand-green">Teduh Kota</span>
             </h2>
-            <p className="font-sans text-gray-600 text-sm md:text-base leading-relaxed">
+            <p className="font-sans color-brand-text text-sm md:text-base leading-relaxed">
               Teduh Kota adalah website rekomendasi penghijauan yang dirancang untuk membantu masyarakat menentukan jenis tanaman yang paling sesuai berdasarkan kondisi area yang dimiliki, seperti pencahayaan, luas ruang, dan lokasi penanaman.
             </p>
-            <p className="font-sans text-gray-600 text-sm md:text-base leading-relaxed">
+            <p className="font-sans color-brand-text text-sm md:text-base leading-relaxed">
               Melalui proses analisis yang sederhana, Teduh Kota memberikan rekomendasi tanaman beserta solusi penghijauan yang praktis tanpa harus memiliki pengetahuan khusus tentang tanaman.
             </p>
           </div>
@@ -167,8 +167,8 @@ export default function AboutPage() {
 
         {/* 3. PROBLEM SECTION */}
         <div className="space-y-12 text-center">
-          <motion.h2 
-            className="font-header text-3xl md:text-4xl font-extrabold text-gray-900"
+          <motion.h2
+            className="font-header text-3xl md:text-4xl font-normal text-brand-dark"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
@@ -177,7 +177,7 @@ export default function AboutPage() {
             Problem yang <span className="text-brand-green">diangkat</span>
           </motion.h2>
 
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
             initial="hidden"
             whileInView="visible"
@@ -185,43 +185,43 @@ export default function AboutPage() {
             variants={staggerContainer}
           >
             {problems.map((item, idx) => (
-              <motion.div 
-                key={idx} 
+              <motion.div
+                key={idx}
                 variants={scaleUpCard}
-                whileHover={{ y: -10, transition: { duration: 0.2 } }}
-                className="bg-white rounded-3xl p-8 shadow-xs hover:shadow-xl border border-gray-100 flex flex-col items-center text-center space-y-4 transition-all duration-300"
+
+                className="bg-white rounded-3xl p-8 shadow-xs border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-200 relative z-10"
               >
-                <motion.div 
-                  whileHover={{ rotate: 10, scale: 1.1 }} 
-                  className="w-20 h-20 rounded-2xl bg-[#FFE4D6] flex items-center justify-center p-4 transition-transform"
+                <motion.div
+                  // {/* Memperbesar kontainer icon problem dari w-20 h-20 ke w-28 h-28 */}
+                  className="w-28 h-28 rounded-2xl flex items-center justify-center p-2 transition-transform"
                 >
                   <img src={item.icon} alt={item.title} className="w-full h-full object-contain" />
                 </motion.div>
-                <h3 className="font-header text-lg font-bold text-gray-800 pt-2">{item.title}</h3>
-                <p className="font-sans text-gray-500 text-xs md:text-sm leading-relaxed">{item.description}</p>
+                <h3 className="font-sans text-lg font-bold text-brand-dark pt-2">{item.title}</h3>
+                <p className="font-sans color-brand-text text-xs md:text-sm leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
 
         {/* 4. TUJUAN SECTION */}
-        <motion.div 
-          className="bg-white rounded-3xl p-8 md:p-12 shadow-xs hover:shadow-xl border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 transition-all duration-300"
+        <motion.div
+          className="bg-white rounded-3xl p-8 md:p-12 shadow-xs border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 hover:shadow-md transition duration-200 relative z-10"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUp}
         >
           <div className="space-y-4 max-w-xl text-center md:text-left">
-            <h2 className="font-header text-3xl font-extrabold text-gray-900">Tujuan</h2>
-            <p className="font-sans text-gray-600 text-sm md:text-base leading-relaxed">
+            <h2 className="font-header text-3xl font-normal text-brand-dark">Tujuan</h2>
+            <p className="font-sans color-brand-text text-sm md:text-base leading-relaxed">
               Teduh Kota bertujuan membantu masyarakat menemukan solusi penghijauan yang sesuai dengan kondisi area mereka melalui rekomendasi yang mudah dipahami, sehingga lebih banyak ruang dapat dimanfaatkan menjadi lingkungan yang hijau dan nyaman.
             </p>
           </div>
-          <motion.div className="w-44 md:w-56 shrink-0 flex justify-center items-center" animate={floatingAnimation}>
-            <img 
-              src={ilustrasiTujuan} 
-              alt="Ilustrasi Tujuan Penghijauan" 
+          <motion.div className="w-44 md:w-56 shrink-0 flex justify-center items-center" >
+            <img
+              src={ilustrasiTujuan}
+              alt="Ilustrasi Tujuan Penghijauan"
               className="w-full h-auto object-contain"
             />
           </motion.div>
@@ -229,8 +229,8 @@ export default function AboutPage() {
 
         {/* 5. TARGET PENGGUNA SECTION */}
         <div className="space-y-12 text-center">
-          <motion.h2 
-            className="font-header text-3xl md:text-4xl font-extrabold text-gray-900"
+          <motion.h2
+            className="font-header text-3xl md:text-4xl font-normal text-brand-dark"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
@@ -239,7 +239,7 @@ export default function AboutPage() {
             Target <span className="text-brand-green">Pengguna</span>
           </motion.h2>
 
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
             initial="hidden"
             whileInView="visible"
@@ -247,53 +247,53 @@ export default function AboutPage() {
             variants={staggerContainer}
           >
             {targetUsers.map((item, idx) => (
-              <motion.div 
-                key={idx} 
+              <motion.div
+                key={idx}
                 variants={scaleUpCard}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className="bg-white rounded-3xl p-8 shadow-xs hover:shadow-xl border border-gray-100 flex flex-col items-center text-center space-y-4 transition-all duration-300"
+                className="bg-white rounded-3xl p-8 shadow-xs border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-200 relative z-10"
               >
-                <motion.div 
-                  whileHover={{ rotate: -8, scale: 1.1 }} 
-                  className="w-20 h-20 rounded-2xl bg-[#FFE4D6] flex items-center justify-center p-4 transition-transform"
+                <motion.div
+                  // {/* Memperbesar kontainer icon target pengguna dari w-20 h-20 ke w-28 h-28 */}
+                  className="w-28 h-28 rounded-2xl flex items-center justify-center p-2 transition-transform"
                 >
                   <img src={item.icon} alt={item.title} className="w-full h-full object-contain" />
                 </motion.div>
-                <h3 className="font-header text-base font-bold text-gray-800 pt-1">{item.title}</h3>
-                <p className="font-sans text-gray-500 text-xs md:text-sm leading-relaxed">{item.description}</p>
+                <h3 className="font-sans text-base font-bold text-brand-dark pt-1">{item.title}</h3>
+                <p className="font-sans color-brand-text text-xs md:text-sm leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </motion.div>
         </div>
 
         {/* 6. BANNER CTA */}
-        <motion.div 
-          className="bg-[#FFEAD8] rounded-3xl p-8 md:p-12 border border-orange-100 flex flex-col md:flex-row items-center justify-start gap-8 md:gap-10 shadow-xs hover:shadow-md transition-all duration-300"
+        <motion.div
+          className="bg-[#FFEAD8] rounded-3xl p-8 md:p-12 border border-orange-100 flex flex-col md:flex-row items-center justify-start gap-8 md:gap-10 shadow-xs"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUp}
         >
-          <motion.div className="w-32 md:w-40 shrink-0 flex justify-center" animate={floatingAnimation}>
-            <img 
-              src={tanamanTanyaImg} 
-              alt="Siap Menghijaukan Area Kamu?" 
+          <motion.div className="w-32 md:w-40 shrink-0 flex justify-center">
+            <img
+              src={tanamanTanyaImg}
+              alt="Siap Menghijaukan Area Kamu?"
               className="w-full h-auto object-contain"
             />
           </motion.div>
           <div className="space-y-4 text-center md:text-left flex-1">
             <div className="space-y-1">
-              <h3 className="font-header text-2xl md:text-3xl font-extrabold text-gray-900">
+              <h3 className="font-header text-2xl md:text-3xl font-normal text-brand-dark">
                 Siap Menghijaukan Area Kamu?
               </h3>
-              <p className="font-sans text-gray-600 text-sm md:text-base">
+              <p className="font-sans color-brand-text text-sm md:text-base">
                 Mulai analisis untuk mencobanya langsung
               </p>
             </div>
             <div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
-                <Link 
-                  to="/cek-kondisi-form" 
+                <Link
+                  to="/cek-kondisi-form"
                   className="font-sans inline-flex items-center gap-2 bg-brand-orange hover:bg-[#e87f2e] text-white px-8 py-3.5 rounded-2xl font-medium text-base transition shadow-xs"
                 >
                   Mulai Analisis <span>&rarr;</span>
