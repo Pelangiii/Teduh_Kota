@@ -35,7 +35,7 @@ export default function ContactPage() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    
+
     // Clear error saat user mengetik
     if (errors[name]) {
       setErrors({ ...errors, [name]: '' });
@@ -78,29 +78,8 @@ export default function ContactPage() {
 
         {/* 1. HEADER SECTION */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-2 relative z-10">
-          {/* GAMBAR HEADER (Di ATAS pada HP/Tablet <md) */}
-          <motion.div
-            className="w-full md:w-1/2 flex justify-center md:justify-end z-10 order-first md:order-last"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {/* Gambar Versi Light (Hilang pas Dark Mode) */}
-            <motion.img
-              src={headerIllustration}
-              alt="Ilustrasi Laptop Light"
-              className="w-full max-w-lg md:max-w-xl h-auto object-contain dark:hidden"
-            />
-
-            {/* Gambar Versi Dark (Tampil HANYA pas Dark Mode) */}
-            <motion.img
-              src={headerIllustrationDark}
-              alt="Ilustrasi Laptop Dark"
-              className="w-full max-w-lg md:max-w-xl h-auto object-contain hidden dark:block"
-            />
-          </motion.div>
-
-          {/* TEKS HEADER (Di BAWAH pada HP/Tablet <md) */}
+          
+          {/* TEKS HEADER */}
           <motion.div
             className="space-y-3 max-w-lg text-center md:text-left z-10 order-last md:order-first w-full"
             initial={{ opacity: 0, x: -50 }}
@@ -115,24 +94,28 @@ export default function ContactPage() {
             </p>
           </motion.div>
 
-          {/* 2. SWITCHER GAMBAR HEADER (LIGHT VS DARK) */}
+          {/* GAMBAR HEADER (Single Container untuk Light & Dark Mode) */}
           <motion.div
-            className="w-full md:w-1/2 flex justify-center md:justify-end z-10"
+            className="w-full md:w-1/2 flex justify-center md:justify-end z-10 order-first md:order-last"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
+            {/* Gambar Light Mode */}
             <motion.img
               src={headerIllustration}
               alt="Ilustrasi Laptop Light"
-              className="w-full max-w-lg md:max-w-xl h-auto object-contain drop-shadow-md dark:hidden"
+              className="w-full max-w-lg md:max-w-xl h-auto object-contain dark:hidden drop-shadow-md"
             />
+
+            {/* Gambar Dark Mode */}
             <motion.img
               src={headerIllustrationDark}
               alt="Ilustrasi Laptop Dark"
-              className="w-full max-w-lg md:max-w-xl h-auto object-contain drop-shadow-md hidden dark:block"
+              className="w-full max-w-lg md:max-w-xl h-auto object-contain hidden dark:block drop-shadow-md"
             />
           </motion.div>
+
         </div>
 
         {/* 3. FORM CARD SECTION */}
@@ -176,9 +159,8 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Masukkan nama mu"
-                    className={`w-full px-4 py-3 rounded-2xl border ${
-                      errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 dark:border-line-dark focus:border-brand-green focus:ring-brand-green'
-                    } text-sm focus:outline-none focus:ring-1 transition bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans`}
+                    className={`w-full px-4 py-3 rounded-2xl border ${errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 dark:border-line-dark focus:border-brand-green focus:ring-brand-green'
+                      } text-sm focus:outline-none focus:ring-1 transition bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans`}
                   />
                   {errors.name && (
                     <p className="text-[11px] text-red-500 font-semibold pt-0.5">
@@ -198,9 +180,8 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Masukkan email aktif mu"
-                    className={`w-full px-4 py-3 rounded-2xl border ${
-                      errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 dark:border-line-dark focus:border-brand-green focus:ring-brand-green'
-                    } text-sm focus:outline-none focus:ring-1 transition bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans`}
+                    className={`w-full px-4 py-3 rounded-2xl border ${errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 dark:border-line-dark focus:border-brand-green focus:ring-brand-green'
+                      } text-sm focus:outline-none focus:ring-1 transition bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans`}
                   />
                   {errors.email && (
                     <p className="text-[11px] text-red-500 font-semibold pt-0.5">
@@ -220,9 +201,8 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tulis pesan yang ingin kamu sampaikan"
-                    className={`w-full px-4 py-3 rounded-2xl border ${
-                      errors.message ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 dark:border-line-dark focus:border-brand-green focus:ring-brand-green'
-                    } text-sm focus:outline-none focus:ring-1 transition resize-none bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans`}
+                    className={`w-full px-4 py-3 rounded-2xl border ${errors.message ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 dark:border-line-dark focus:border-brand-green focus:ring-brand-green'
+                      } text-sm focus:outline-none focus:ring-1 transition resize-none bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans`}
                   ></textarea>
                   {errors.message && (
                     <p className="text-[11px] text-red-500 font-semibold pt-0.5">
@@ -240,9 +220,9 @@ export default function ContactPage() {
                     className="bg-brand-orange hover:bg-[#e08316] text-white font-semibold px-8 py-3 rounded-2xl text-sm transition flex items-center justify-center gap-2 shadow-sm font-sans cursor-pointer"
                   >
                     <span>Kirim Pesan</span>
-                    <img 
-                      src={btnSendImg} 
-                      alt="Kirim Icon" 
+                    <img
+                      src={btnSendImg}
+                      alt="Kirim Icon"
                       className="w-4 h-4 object-contain inline-block"
                     />
                   </motion.button>

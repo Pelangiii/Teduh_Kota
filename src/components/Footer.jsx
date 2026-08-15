@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logoTeduhKota from '../assets/images/logo-teduhkota.svg';
@@ -124,11 +125,11 @@ export default function FooterSection() {
                   if (error) setError('');
                 }}
                 placeholder="Masukkan email"
-                className={`w-full bg-white border ${
-                  error ? 'border-red-500' : 'border-brand-orange'
+                className={`w-full bg-white dark:bg-card-dark-mode border ${
+                  error ? 'border-red-500' : 'border-brand-orange dark:border-line-dark'
                 } rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-1 ${
                   error ? 'focus:ring-red-500' : 'focus:ring-brand-orange'
-                } text-brand-dark font-medium transition`}
+                } text-brand-dark dark:text-white font-medium transition placeholder-gray-400`}
               />
               <button
                 type="submit"
@@ -157,11 +158,11 @@ export default function FooterSection() {
       <div className="max-w-6xl mx-auto border-t border-brand-gray/50 dark:border-line-dark pt-6 pb-6 px-6 sm:px-8 flex flex-col sm:flex-row justify-between items-center sm:items-end gap-3 text-xs text-brand-dark dark:text-gray-300 font-bold relative z-10">
         <p>© 2026 Teduh Kota. All Rights Reserved</p>
 
-        {/* Ilustrasi Footer (Dikecilkan & digeser agar tidak bertabrakan dengan tombol scroll melayang) */}
+        {/* Ilustrasi Footer (Sudah digeser pas presisi di bawah kolom Dapatkan Update / Email) */}
         <img
           src={ilustrasiFooter}
           alt="Ilustrasi Footer"
-          className="absolute right-16 sm:right-20 md:right-24 bottom-0 h-6 sm:h-10 md:h-12 object-contain pointer-events-none opacity-80 sm:opacity-100"
+          className="absolute right-6 sm:right-8 bottom-0 h-10 sm:h-12 md:h-14 object-contain pointer-events-none"
         />
       </div>
 
