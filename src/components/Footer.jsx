@@ -37,7 +37,7 @@ export default function FooterSection() {
 
         {/* Col 2: Menu */}
         <div className="space-y-3">
-          <h4 className="font-bold text-brand-dark text-sm">Menu</h4>
+          <h4 className="font-header font-medium text-brand-dark text-sm">Menu</h4>
           <ul className="space-y-2 text-xs text-brand-dark font-medium">
             <li><a href="#beranda" className="hover:text-brand-green transition">Beranda</a></li>
             <li><a href="#tentang" className="hover:text-brand-green transition">Tentang</a></li>
@@ -49,7 +49,7 @@ export default function FooterSection() {
 
         {/* Col 3: Informasi */}
         <div className="space-y-3">
-          <h4 className="font-bold text-brand-dark text-sm">Informasi</h4>
+          <h4 className="font-header font-medium text-brand-dark text-sm">Informasi</h4>
           <ul className="space-y-2 text-xs text-brand-dark font-medium">
             <li><a href="#tentang" className="hover:text-brand-green transition">Tentang kami</a></li>
             <li><a href="#cara-kerja" className="hover:text-brand-green transition">Cara Kerja</a></li>
@@ -60,7 +60,7 @@ export default function FooterSection() {
 
         {/* Col 4: Newsletter */}
         <div className="space-y-3">
-          <h4 className="font-bold text-brand-dark text-sm">Dapatkan Update</h4>
+          <h4 className="font-header font-medium text-brand-dark text-sm">Dapatkan Update</h4>
           <p className="text-brand-dark font-medium text-xs">
             Butuh bantuan? hubungi kami jika ada yang ingin ditanyakan.
           </p>

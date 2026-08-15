@@ -241,7 +241,7 @@ export default function TamanVertikalBertrellisPage() {
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-4">
                   <img src={perhatikanIcon} alt="Perhatikan" className="w-10 md:w-12 h-auto" />
-                  <h3 className="text-xl md:text-2xl font-bold text-brand-dark font-sans">
+                  <h3 className="text-xl md:text-2xl font-header font-bold text-brand-dark">
                     Perhatikan
                   </h3>
                 </div>

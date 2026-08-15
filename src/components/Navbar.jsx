@@ -6,7 +6,7 @@ export default function Navbar() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const isActive = (path) => location.pathname === path || (path === '/' && location.pathname === '/landing');
+  const isActive = (path) => location.pathname === path || (path === '/' && (location.pathname === '/beranda' || location.pathname === '/landing'));
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -23,7 +23,7 @@ export default function Navbar() {
         {/* LOGO */}
         <Link to="/" onClick={closeMenu} className="flex items-center gap-3 shrink-0">
           <img src={logoTeduhKota} alt="Logo Teduh Kota" className="w-9 h-9 md:w-10 md:h-10" />
-          <span className="font-header text-xl text-gray-800 font-extrabold">Teduh Kota</span>
+          <span className="font-header text-xl text-brand-dark font-medium">Teduh Kota</span>
         </Link>
 
         {/* DESKTOP NAV LINKS (Tampil hanya di layar sedang/besar) */}

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 // Import komponen-komponen utama (punya temenmu)
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
+import WhyTeduh from './components/WhyTeduh';
 import Features from './components/Features';
 import FooterSection from './components/Footer';
 
@@ -31,7 +31,7 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <About />
+      <WhyTeduh />
       <Features />
     </>
   );
@@ -47,11 +47,11 @@ export default function App() {
         {/* Bagian utama yang berubah tergantung URL */}
         <main className="grow">
           <Routes>
-            {/* 1. KETIKA BUKA http://localhost:5173/ OTO-MATIS REDIRECT KE /landing */}
-            <Route path="/" element={<Navigate to="/landing" replace />} />
+            {/* 1. KETIKA BUKA http://localhost:5173/ OTO-MATIS REDIRECT KE /beranda */}
+            <Route path="/" element={<Navigate to="/beranda" replace />} />
 
-            {/* 2. ROUTE UTAMA LANDING PAGE PUNYAMU */}
-            <Route path="/landing" element={<LandingPage />} /> 
+            {/* 2. ROUTE UTAMA LANDING PAGE */}
+            <Route path="/beranda" element={<LandingPage />} /> 
 
             {/* Optional: Jika halaman lama temanmu masih ingin diakses melalui /home */}
             <Route path="/home" element={<HomePage />} /> 

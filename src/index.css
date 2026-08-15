@@ -1,7 +1,6 @@
-@import "tailwindcss";
-
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import "tailwindcss";
 
 /* Konfigurasi Warna dan Font Custom */
 @theme {
@@ -15,7 +14,14 @@
   --color-brand-light-orange: #FEC74C;
   --color-brand-bg: #FFF9F0;
   --color-brand-card: #F2ECDC;
+  --color-brand-peach: #FFE7D9;
   --color-brand-accent: #E29B38;
   --color-brand-dark: #4E4B48;
+  --color-brand-text: #4E4B48;
   --color-brand-gray: #CAC5BE;
+  --color-brand-shadow: #9A6A39;
+
+  /* Shadow Soft Card */
+  --shadow-brand: 0 12px 35px -6px rgba(154, 106, 57, 0.18);
+  --shadow-card: 0 12px 35px -6px rgba(154, 106, 57, 0.18);
 }
