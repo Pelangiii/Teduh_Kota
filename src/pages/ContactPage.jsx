@@ -1,13 +1,16 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // 1. Import Gambar Header (Versi Light & Dark Terpisah)
 import headerIllustration from '../assets/images/ilustrasi-meja-laptop.svg';
 import headerIllustrationDark from '../assets/images/ilustrasi-meja-laptop-dark.svg';
 
-// Import Dekorasi Polkadot
+// Import Dekorasi Polkadot & Rumput
 import polkadotImg from '../assets/images/polkadot.svg';
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
+
+// Import Icon Tombol Kirim
+import btnSendImg from '../assets/images/btn-send.svg';
 
 // Konfigurasi Variasi Animasi
 const fadeInUp = {
@@ -26,21 +29,47 @@ export default function ContactPage() {
     message: ''
   });
 
+  const [errors, setErrors] = useState({});
+  const [showModal, setShowModal] = useState(false);
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    
+    // Clear error saat user mengetik
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: '' });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Data Terkirim:', formData);
-    alert('Pesan kamu berhasil dikirim!');
+
+    // Validasi input wajib isi
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = 'Nama lengkap wajib diisi!';
+    if (!formData.email.trim()) newErrors.email = 'Email wajib diisi!';
+    if (!formData.message.trim()) newErrors.message = 'Pesan tidak boleh kosong!';
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
     <div className="bg-brand-bg min-h-screen pt-28 md:pt-36 pb-0 overflow-x-hidden font-sans relative flex flex-col justify-between">
       <div className="max-w-7xl mx-auto px-8 lg:px-16 space-y-12 md:space-y-16 relative w-full">
 
-        {/* Polkadot 1: Pojok Kanan Atas (Cut in half on edge) */}
+        {/* Polkadot 1: Pojok Kanan Atas */}
         <img
           src={polkadotImg}
           alt="Dekorasi Polkadot Kanan Atas"
@@ -70,14 +99,11 @@ export default function ContactPage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* Gambar Versi Light (Hilang pas Dark Mode) */}
             <motion.img
               src={headerIllustration}
               alt="Ilustrasi Laptop Light"
               className="w-full max-w-lg md:max-w-xl h-auto object-contain drop-shadow-md dark:hidden"
             />
-
-            {/* Gambar Versi Dark (Tampil HANYA pas Dark Mode) */}
             <motion.img
               src={headerIllustrationDark}
               alt="Ilustrasi Laptop Dark"
@@ -89,14 +115,12 @@ export default function ContactPage() {
         {/* 3. FORM CARD SECTION */}
         <div className="relative">
 
-          {/* Polkadot 2: Kiri Tengah Card (DI LUAR CARD) */}
+          {/* Polkadot 2 & 3 */}
           <img
             src={polkadotImg}
             alt="Dekorasi Polkadot Kiri"
             className="absolute top-1/2 -left-12 md:-left-16 -translate-y-1/2 w-20 md:w-28 opacity-80 pointer-events-none z-0"
           />
-
-          {/* Polkadot 3: Kanan Bawah Card (DI LUAR CARD) */}
           <img
             src={polkadotImg}
             alt="Dekorasi Polkadot Kanan Bawah"
@@ -117,7 +141,8 @@ export default function ContactPage() {
                 Kirim Pesan
               </h2>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} noValidate className="space-y-4">
+                {/* Input Nama */}
                 <div className="space-y-1.5">
                   <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 font-sans">
                     Nama Lengkap
@@ -128,11 +153,18 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Masukkan nama mu"
-                    required
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-line-dark text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans"
+                    className={`w-full px-4 py-3 rounded-2xl border ${
+                      errors.name ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 dark:border-line-dark focus:border-brand-green focus:ring-brand-green'
+                    } text-sm focus:outline-none focus:ring-1 transition bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans`}
                   />
+                  {errors.name && (
+                    <p className="text-[11px] text-red-500 font-semibold pt-0.5">
+                      {errors.name}
+                    </p>
+                  )}
                 </div>
 
+                {/* Input Email */}
                 <div className="space-y-1.5">
                   <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 font-sans">
                     Email
@@ -143,11 +175,18 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Masukkan email aktif mu"
-                    required
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-line-dark text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans"
+                    className={`w-full px-4 py-3 rounded-2xl border ${
+                      errors.email ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 dark:border-line-dark focus:border-brand-green focus:ring-brand-green'
+                    } text-sm focus:outline-none focus:ring-1 transition bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans`}
                   />
+                  {errors.email && (
+                    <p className="text-[11px] text-red-500 font-semibold pt-0.5">
+                      {errors.email}
+                    </p>
+                  )}
                 </div>
 
+                {/* Input Pesan */}
                 <div className="space-y-1.5">
                   <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 font-sans">
                     Pesan
@@ -158,19 +197,31 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tulis pesan yang ingin kamu sampaikan"
-                    required
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-line-dark text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition resize-none bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans"
+                    className={`w-full px-4 py-3 rounded-2xl border ${
+                      errors.message ? 'border-red-500 focus:ring-red-500' : 'border-gray-200 dark:border-line-dark focus:border-brand-green focus:ring-brand-green'
+                    } text-sm focus:outline-none focus:ring-1 transition resize-none bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans`}
                   ></textarea>
+                  {errors.message && (
+                    <p className="text-[11px] text-red-500 font-semibold pt-0.5">
+                      {errors.message}
+                    </p>
+                  )}
                 </div>
 
+                {/* Tombol Kirim Pesan dengan Ikon Gambar */}
                 <div className="pt-2">
                   <motion.button
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.96 }}
                     type="submit"
-                    className="bg-brand-orange hover:bg-[#e08316] text-white font-semibold px-8 py-3 rounded-2xl text-sm transition flex items-center gap-2 shadow-sm font-sans"
+                    className="bg-brand-orange hover:bg-[#e08316] text-white font-semibold px-8 py-3 rounded-2xl text-sm transition flex items-center justify-center gap-2 shadow-sm font-sans cursor-pointer"
                   >
-                    Kirim Pesan <span>➤</span>
+                    <span>Kirim Pesan</span>
+                    <img 
+                      src={btnSendImg} 
+                      alt="Kirim Icon" 
+                      className="w-4 h-4 object-contain inline-block"
+                    />
                   </motion.button>
                 </div>
               </form>
@@ -200,7 +251,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Container Embedded Google Maps */}
+              {/* Embedded Google Maps */}
               <motion.div
                 className="w-full h-48 md:h-52 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-xs dark:brightness-90"
               >
@@ -222,7 +273,7 @@ export default function ContactPage() {
 
       </div>
 
-      {/* Rumput Panjang Bawah (Setelah Form - Full Screen Width) */}
+      {/* Rumput Panjang Bawah */}
       <div
         className="w-full h-24 md:h-32 lg:h-44 pointer-events-none relative z-10"
         style={{
@@ -232,6 +283,53 @@ export default function ContactPage() {
           backgroundSize: 'auto 100%'
         }}
       />
+
+      {/* MODAL POP-UP CUSTOM */}
+      <AnimatePresence>
+        {showModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={handleCloseModal}
+              className="fixed inset-0 bg-black/40 backdrop-blur-xs"
+            />
+
+            {/* Modal Card */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white rounded-[28px] p-8 max-w-md w-full text-center shadow-xl relative z-10 space-y-4"
+            >
+              <h3 className="text-2xl font-bold text-gray-900 leading-snug">
+                Pesan Berhasil Terkirim!
+              </h3>
+
+              <p className="text-sm text-gray-500 font-medium leading-relaxed">
+                Terima kasih <span className="font-semibold text-gray-700">{formData.name}</span>, pesan kamu sudah kami terima. Tim Teduh Kota akan segera membalas via email.
+              </p>
+
+              <div className="flex gap-4 pt-2 justify-center">
+                <button
+                  onClick={handleCloseModal}
+                  className="w-full py-3 px-6 rounded-2xl border-2 border-brand-orange text-brand-orange font-bold hover:bg-orange-50 transition"
+                >
+                  Tutup
+                </button>
+                <button
+                  onClick={handleCloseModal}
+                  className="w-full py-3 px-6 rounded-2xl bg-brand-orange text-white font-bold hover:bg-opacity-90 transition shadow-md"
+                >
+                  Oke
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

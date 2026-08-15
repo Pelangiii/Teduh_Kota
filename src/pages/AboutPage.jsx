@@ -107,7 +107,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="bg-brand-bg min-h-screen pt-24 md:pt-32 pb-0 relative overflow-hidden font-sans flex flex-col justify-between">
+    <div className="bg-mode-dark min-h-screen pt-24 md:pt-32 pb-0 relative overflow-hidden font-sans flex flex-col justify-between">
       <div className="max-w-7xl mx-auto px-8 lg:px-16 space-y-36 md:space-y-48 relative z-10 w-full">
 
         {/* 1. HEADER / HERO SECTION */}
