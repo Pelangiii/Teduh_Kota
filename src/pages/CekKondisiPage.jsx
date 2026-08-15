@@ -60,7 +60,7 @@ export default function CekKondisiPage() {
         >
           <motion.h1
             variants={fadeInUp}
-            className="text-3xl md:text-4xl lg:text-5xl font-header leading-[1.1] tracking-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-header leading-[1.15] tracking-tight"
           >
             <span className="text-brand-dark block mb-2">Jawab Pertanyaan, dan</span>
             <span className="text-brand-green block">Dapatkan Solusi</span>
@@ -68,7 +68,7 @@ export default function CekKondisiPage() {
 
           <motion.p
             variants={fadeInUp}
-            className="text-brand-text font-sans font-medium text-sm lg:text-base leading-relaxed max-w-105"
+            className="text-brand-text font-sans text-base md:text-lg leading-relaxed max-w-xl"
           >
             Lengkapkan informasi mengenai area yang kamu ingin hijaukan, jawabanmu akan membantu kami untuk memberikan hasil yang sesuai.
           </motion.p>
@@ -76,7 +76,7 @@ export default function CekKondisiPage() {
           <motion.div variants={fadeInUp} className="pt-2 flex">
             <Link
               to="/cek-kondisi-form"
-              className="font-sans inline-flex items-center gap-2 bg-brand-orange hover:bg-[#e87f2e] text-white px-8 py-3.5 rounded-2xl font-medium text-base transition shadow-xs cursor-pointer"
+              className="font-sans inline-flex items-center gap-2 bg-brand-orange hover:bg-[#e87f2e] text-white px-8 py-4 rounded-2xl font-medium text-base transition shadow-xs cursor-pointer"
             >
               Mulai Analisis <span>&rarr;</span>
             </Link>
@@ -92,7 +92,7 @@ export default function CekKondisiPage() {
           <img
             src={cekKondisiImg}
             alt="Cek Kondisi"
-            className="w-full max-w-100 lg:max-w-150 object-contain z-10" />
+            className="w-full max-w-md lg:max-w-xl object-contain z-10" />
         </motion.div>
 
       </div>

@@ -16,7 +16,7 @@ const fadeInUp = {
 export default function ContactBanner() {
   return (
     <motion.section
-      className="pt-12 md:pt-16 pb-52 px-8 max-w-5xl mx-auto relative z-10"
+      className="pt-12 md:pt-16 pb-52 px-8 lg:px-16 max-w-7xl mx-auto relative z-10"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}

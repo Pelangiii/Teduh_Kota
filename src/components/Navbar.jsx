@@ -18,16 +18,16 @@ export default function Navbar() {
 
   return (
     <header className="w-full bg-white sticky top-0 z-50 shadow-xs font-sans">
-      <nav className="max-w-7xl mx-auto px-6 md:px-8 py-4 md:py-5 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-8 lg:px-16 py-4 md:py-5 flex items-center justify-between">
 
         {/* LOGO */}
         <Link to="/" onClick={closeMenu} className="flex items-center gap-3 shrink-0">
           <img src={logoTeduhKota} alt="Logo Teduh Kota" className="w-9 h-9 md:w-10 md:h-10" />
-          <span className="font-header text-xl text-brand-dark font-medium">Teduh Kota</span>
+          <span className="font-header text-2xl text-brand-dark font-medium">Teduh Kota</span>
         </Link>
 
         {/* DESKTOP NAV LINKS (Tampil hanya di layar sedang/besar) */}
-        <div className="hidden md:flex items-center gap-8 font-medium text-gray-600 text-sm">
+        <div className="hidden md:flex items-center gap-8 font-medium text-gray-600 text-base">
           <Link
             to="/"
             className={`transition ${isActive('/') ? 'text-brand-green font-semibold border-b-2 border-brand-green pb-0.5' : 'hover:text-brand-green'}`}
@@ -61,7 +61,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <Link
             to="/kontak"
-            className="bg-brand-light-orange hover:bg-brand-orange text-white px-6 py-2.5 rounded-[10px] font-medium text-sm shadow-xs transition inline-block"
+            className="bg-brand-light-orange hover:bg-brand-orange text-white px-6 py-2.5 rounded-[10px] font-medium text-base shadow-xs transition inline-block"
           >
             Kontak
           </Link>
@@ -86,7 +86,7 @@ export default function Navbar() {
 
       {/* DROPDOWN MENU MOBILE / TABLET */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-6 py-5 space-y-4 text-sm font-medium text-gray-700 shadow-md">
+        <div className="md:hidden bg-white border-t border-gray-100 px-6 py-5 space-y-4 text-base font-medium text-gray-700 shadow-md">
           <Link
             to="/"
             onClick={closeMenu}

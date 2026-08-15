@@ -35,7 +35,7 @@ export default function ContactPage() {
 
   return (
     <div className="bg-brand-bg min-h-screen pt-28 md:pt-36 pb-0 overflow-x-hidden font-sans relative flex flex-col justify-between">
-      <div className="max-w-6xl mx-auto px-6 space-y-12 md:space-y-16 relative w-full">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16 space-y-12 md:space-y-16 relative w-full">
 
         {/* Polkadot 1: Pojok Kanan Atas (Cut in half on edge) */}
         <img 
@@ -100,7 +100,7 @@ export default function ContactPage() {
           >
             {/* Form Kirim Pesan */}
             <div className="md:col-span-7 space-y-6">
-              <h2 className="font-header text-2xl md:text-3xl font-normal text-brand-dark">
+              <h2 className="font-header text-3xl md:text-4xl font-normal text-brand-dark">
                 Kirim Pesan
               </h2>
 

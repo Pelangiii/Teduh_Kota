@@ -16,7 +16,7 @@ const fadeInUp = {
 export default function Hero() {
   return (
     <section className="relative pt-12 pb-8 overflow-hidden bg-brand-bg">
-      <div className="max-w-7xl mx-auto px-8 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10 relative">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10 relative">
         <motion.div 
           className="space-y-8"
           initial="hidden"

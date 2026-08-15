@@ -68,7 +68,7 @@ export default function Faq() {
       />
 
       <motion.section 
-        className="px-8 max-w-5xl mx-auto space-y-12 relative z-10"
+        className="px-8 lg:px-16 max-w-7xl mx-auto space-y-12 relative z-10"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}

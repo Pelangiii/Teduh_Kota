@@ -53,7 +53,7 @@ export default function BedengTanamTinggiPage() {
       <motion.img animate={floatingAnimation} src={polkadotImg} alt="" className="absolute bottom-1/3 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" />
       <motion.img animate={floatingAnimation} src={polkadotImg} alt="" className="absolute bottom-16 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" />
 
-      <div className="pt-12 pb-48 md:pb-64 px-6 max-w-7xl mx-auto relative">
+      <div className="pt-12 pb-48 md:pb-64 px-8 lg:px-16 max-w-7xl mx-auto relative">
         
         {/* Tombol Back */}
         <Link 

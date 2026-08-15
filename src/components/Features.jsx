@@ -58,7 +58,7 @@ export default function Features() {
       />
 
       {/* SECTION 1: Mengapa Teduh Kota? */}
-      <section className="max-w-6xl mx-auto text-center space-y-12 relative px-4 md:px-8 z-10">
+      <section className="max-w-7xl mx-auto text-center space-y-12 relative px-8 lg:px-16 z-10">
 
         <div className="space-y-3 relative z-10 max-w-xl mx-auto">
           {/* Top Left Star Accent */}
@@ -99,7 +99,7 @@ export default function Features() {
               <div className="bg-white rounded-3xl p-8 shadow-card border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-200 relative z-10 h-full">
                 <img src={item.icon} alt={item.title} className="w-20 h-20 object-contain" />
                 <h3 className="font-sans text-lg font-extrabold text-brand-dark">{item.title}</h3>
-                <p className="font-sans text-brand-text text-xs leading-relaxed">
+                <p className="font-sans text-brand-text text-sm md:text-base leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -109,7 +109,7 @@ export default function Features() {
       </section>
 
       {/* SECTION 2: Cara Kerja Teduh Kota? */}
-      <section className="max-w-6xl mx-auto text-center space-y-14 pt-6 md:pt-10 z-10 relative">
+      <section className="max-w-7xl mx-auto text-center space-y-14 pt-6 md:pt-10 px-8 lg:px-16 z-10 relative">
         
         <div className="space-y-3 relative z-10 max-w-xl mx-auto">
           {/* Top Right Star Accent */}
@@ -149,7 +149,7 @@ export default function Features() {
                   </span>
 
                   <h3 className="font-sans text-xl font-bold text-brand-dark mb-3">{item.title}</h3>
-                  <p className="font-sans text-brand-text text-xs md:text-sm leading-relaxed mb-6">
+                  <p className="font-sans text-brand-text text-sm md:text-base leading-relaxed mb-6">
                     {item.description}
                   </p>
                 </div>

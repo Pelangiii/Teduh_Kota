@@ -170,14 +170,14 @@ export default function SolusiPage() {
         <div className="space-y-6 text-center md:text-left">
           <motion.h1 
             variants={fadeInUp}
-            className="text-3xl md:text-4xl lg:text-5xl font-header text-brand-dark leading-[1.1] tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-header text-brand-dark leading-[1.15] tracking-tight"
           >
             Solusi <span className="text-brand-green block md:inline">Teduh Kota</span>
           </motion.h1>
           
           <motion.p 
             variants={fadeInUp}
-            className="text-brand-dark/70 font-sans font-medium text-sm lg:text-base leading-relaxed max-w-105 mx-auto md:mx-0"
+            className="text-brand-text font-sans text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0"
           >
             Temukan berbagai pilihan konsep penghijauan cerdas yang sudah disesuaikan dengan kebutuhan dan ukuran area kamu.
           </motion.p>
@@ -191,7 +191,7 @@ export default function SolusiPage() {
           <img
             src={ilustrasiSolusiTeduh}
             alt="Ilustrasi Solusi Teduh"
-            className="w-full max-w-80 lg:max-w-112.5 object-contain z-10"
+            className="w-full max-w-md lg:max-w-xl object-contain z-10"
           />
         </motion.div>
       </motion.div>
@@ -249,12 +249,12 @@ export default function SolusiPage() {
                     <h3 className="font-header text-2xl text-[#4A4A4A] bg-[#F2FBE9] inline-block px-2 py-0.5 mb-1 rounded-md">
                       {item.title}
                     </h3>
-                    <p className="font-sans font-extrabold text-[#4A4A4A] text-[13px] md:text-sm tracking-wide">
+                    <p className="font-sans font-extrabold text-[#4A4A4A] text-sm md:text-base tracking-wide">
                       {item.subtitle}
                     </p>
                   </div>
 
-                  <p className="font-sans text-brand-dark/70 text-[13px] md:text-sm leading-relaxed mb-6 grow font-medium">
+                  <p className="font-sans text-brand-dark/70 text-sm md:text-base leading-relaxed mb-6 grow font-medium">
                     {item.description}
                   </p>
 

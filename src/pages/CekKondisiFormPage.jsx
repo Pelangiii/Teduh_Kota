@@ -284,7 +284,7 @@ export default function CekKondisiFormPage() {
   return (
     <div className="bg-brand-bg min-h-screen relative overflow-hidden flex flex-col justify-start pt-8 pb-48 md:pb-64 font-sans">
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10 flex flex-col items-center">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16 w-full relative z-10 flex flex-col items-center">
 
         {/* Stepper Container */}
         <div className="w-full max-w-5xl bg-white rounded-[32px] p-8 shadow-sm mb-8 flex flex-col md:flex-row justify-between items-stretch gap-6 md:gap-4">

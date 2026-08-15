@@ -108,26 +108,26 @@ export default function AboutPage() {
 
   return (
     <div className="bg-brand-bg min-h-screen pt-24 md:pt-32 pb-0 relative overflow-hidden font-sans flex flex-col justify-between">
-      <div className="max-w-6xl mx-auto px-6 space-y-36 md:space-y-48 relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-8 lg:px-16 space-y-36 md:space-y-48 relative z-10 w-full">
 
         {/* 1. HEADER / HERO SECTION */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-10 pt-8 md:pt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-8 md:pt-12">
           <motion.div
-            className="space-y-4 max-w-lg text-center md:text-left"
+            className="space-y-6 max-w-xl text-center md:text-left"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="font-header text-4xl md:text-5xl font-normal text-brand-dark leading-tight">
+            <h1 className="font-header text-4xl md:text-5xl lg:text-6xl font-normal text-brand-dark leading-[1.15] tracking-tight">
               Apa itu <span className="text-brand-green">Teduh Kota?</span>
             </h1>
-            <p className="font-sans color-brand-text text-sm md:text-base leading-relaxed">
+            <p className="font-sans color-brand-text text-base md:text-lg leading-relaxed">
               Platform rekomendasi penghijauan yang membantu siapa saja menemukan solusi tanaman sesuai kondisi area mereka.
             </p>
           </motion.div>
 
           <motion.div
-            className="w-full md:w-1/2 flex justify-center lg:justify-end"
+            className="w-full flex justify-center lg:justify-end"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -135,7 +135,7 @@ export default function AboutPage() {
             <motion.img
               src={ilustrasiSolusiTeduh}
               alt="Ilustrasi Solusi Teduh"
-              className="w-full max-w-80 lg:max-w-112.5 object-contain z-10"
+              className="w-full max-w-md lg:max-w-xl object-contain z-10"
             />
           </motion.div>
         </div>
@@ -171,18 +171,18 @@ export default function AboutPage() {
         {/* 3. PROBLEM SECTION */}
         <div className="space-y-12 text-center relative">
           {/* Polkadot Kanan Atas Section */}
-          <img 
-            src={polkadotImg} 
-            alt="" 
-            className="absolute -top-12 -right-12 md:-right-20 w-24 md:w-32 opacity-80 pointer-events-none z-0" 
+          <img
+            src={polkadotImg}
+            alt=""
+            className="absolute -top-12 -right-12 md:-right-20 w-24 md:w-32 opacity-80 pointer-events-none z-0"
           />
 
           <div className="relative inline-block">
             {/* Bintang / Star Sparkle di atas judul */}
-            <img 
-              src={circleStarImg} 
-              alt="" 
-              className="absolute -top-7 -left-6 w-8 h-auto pointer-events-none" 
+            <img
+              src={circleStarImg}
+              alt=""
+              className="absolute -top-8 -left-10 md:-left-12 w-8 h-auto pointer-events-none"
             />
             <motion.h2
               className="font-header text-3xl md:text-4xl font-normal text-brand-dark"
@@ -191,7 +191,7 @@ export default function AboutPage() {
               viewport={{ once: true, amount: 0.5 }}
               variants={fadeInUp}
             >
-              Problem yang <span className="text-brand-green font-bold">Diangkat</span>
+              Problem yang <span className="text-brand-green font-normal">Diangkat</span>
             </motion.h2>
           </div>
 
@@ -209,14 +209,9 @@ export default function AboutPage() {
 
                 className="bg-white rounded-3xl p-8 shadow-xs border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-200 relative z-10"
               >
-                <motion.div
-                  // {/* Memperbesar kontainer icon problem dari w-20 h-20 ke w-28 h-28 */}
-                  className="w-28 h-28 rounded-2xl flex items-center justify-center p-2 transition-transform"
-                >
-                  <img src={item.icon} alt={item.title} className="w-full h-full object-contain" />
-                </motion.div>
+                <img src={item.icon} alt={item.title} className="w-20 h-20 object-contain" />
                 <h3 className="font-sans text-lg font-bold text-brand-dark pt-2">{item.title}</h3>
-                <p className="font-sans color-brand-text text-xs md:text-sm leading-relaxed">{item.description}</p>
+                <p className="font-sans color-brand-text text-sm md:text-base leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -238,10 +233,10 @@ export default function AboutPage() {
           </div>
           <motion.div className="w-44 md:w-56 shrink-0 flex justify-center items-center relative" >
             {/* Bintang / Star Sparkle di dekat ilustrasi tanaman */}
-            <img 
-              src={circleStarImg} 
-              alt="" 
-              className="absolute -top-4 -left-4 w-7 h-auto pointer-events-none z-20" 
+            <img
+              src={circleStarImg}
+              alt=""
+              className="absolute -top-6 -left-8 md:-left-10 w-7 h-auto pointer-events-none z-20"
             />
             <img
               src={ilustrasiTujuan}
@@ -254,18 +249,18 @@ export default function AboutPage() {
         {/* 5. TARGET PENGGUNA SECTION */}
         <div className="space-y-12 text-center relative">
           {/* Polkadot Kiri Section */}
-          <img 
-            src={polkadotImg} 
-            alt="" 
-            className="absolute top-1/2 -left-12 md:-left-20 -translate-y-1/2 w-24 md:w-32 opacity-80 pointer-events-none z-0" 
+          <img
+            src={polkadotImg}
+            alt=""
+            className="absolute top-1/2 -left-12 md:-left-20 -translate-y-1/2 w-24 md:w-32 opacity-80 pointer-events-none z-0"
           />
 
           <div className="relative inline-block">
             {/* Bintang / Star Sparkle di atas judul Target Pengguna */}
-            <img 
-              src={circleStarImg} 
-              alt="" 
-              className="absolute -top-5 -right-6 w-8 h-auto pointer-events-none" 
+            <img
+              src={circleStarImg}
+              alt=""
+              className="absolute -top-7 -right-10 md:-right-12 w-8 h-auto pointer-events-none"
             />
             <motion.h2
               className="font-header text-3xl md:text-4xl font-normal text-brand-dark"
@@ -292,14 +287,9 @@ export default function AboutPage() {
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 className="bg-white rounded-3xl p-8 shadow-xs border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-200 relative z-10"
               >
-                <motion.div
-                  // {/* Memperbesar kontainer icon target pengguna dari w-20 h-20 ke w-28 h-28 */}
-                  className="w-28 h-28 rounded-2xl flex items-center justify-center p-2 transition-transform"
-                >
-                  <img src={item.icon} alt={item.title} className="w-full h-full object-contain" />
-                </motion.div>
-                <h3 className="font-sans text-base font-bold text-brand-dark pt-1">{item.title}</h3>
-                <p className="font-sans color-brand-text text-xs md:text-sm leading-relaxed">{item.description}</p>
+                <img src={item.icon} alt={item.title} className="w-20 h-20 object-contain" />
+                <h3 className="font-sans text-lg font-bold text-brand-dark pt-1">{item.title}</h3>
+                <p className="font-sans color-brand-text text-sm md:text-base leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -345,9 +335,9 @@ export default function AboutPage() {
       </div>
 
       {/* Rumput Panjang Bawah (Paling bawah sebelum footer - Full Screen Width) */}
-      <div 
+      <div
         className="w-full h-24 md:h-32 lg:h-44 pointer-events-none relative z-10"
-        style={{ 
+        style={{
           backgroundImage: `url(${ilustrasiRumputPanjang})`,
           backgroundRepeat: 'repeat-x',
           backgroundPosition: 'bottom',

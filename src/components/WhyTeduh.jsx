@@ -14,7 +14,7 @@ const fadeInUp = {
 export default function About() {
   return (
     <motion.section 
-      className="py-16 md:py-20 px-8 max-w-6xl mx-auto"
+      className="py-16 md:py-20 px-8 lg:px-16 max-w-7xl mx-auto"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
