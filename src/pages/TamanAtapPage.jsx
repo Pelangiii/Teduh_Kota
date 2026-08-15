@@ -64,7 +64,7 @@ const floatPolkadot = {
 
 export default function TamanAtapPage() {
   return (
-    <div className="relative overflow-hidden min-h-screen font-sans">
+    <div className="relative overflow-hidden min-h-screen bg-brand-bg dark:bg-mode-dark font-sans transition-colors duration-300">
       
       {/* Background Polkadots dengan Efek Floating */}
       <img src={polkadotImg} 
@@ -105,7 +105,7 @@ export default function TamanAtapPage() {
             variants={fadeInUp}
             className="text-4xl md:text-5xl font-header text-center mb-10"
           >
-            <span className="text-brand-dark">Taman</span> <span className="text-brand-green">Atap (Green Roof)</span>
+            <span className="text-brand-dark dark:text-white">Taman</span> <span className="text-brand-green">Atap (Green Roof)</span>
           </motion.h1>
 
           {/* Main Hero Banner */}
@@ -132,16 +132,16 @@ export default function TamanAtapPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromLeft}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusPot} alt="Apa itu?" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Apa</span> <span className="text-brand-green">itu?</span>
+                  <span className="text-brand-dark dark:text-white">Apa</span> <span className="text-brand-green">itu?</span>
                 </h2>
-                <p className="text-brand-dark/80 text-sm md:text-base leading-relaxed font-medium">
+                <p className="text-brand-dark/80 dark:text-gray-300 text-sm md:text-base leading-relaxed font-medium">
                   Penghijauan yang diterapkan pada bagian atap bangunan dengan menggunakan wadah atau sistem berlapis yang melibatkan vegetasi, media tanam, drainase, dan perlindungan terhadap air. Taman atap merupakan salah satu cara menambah ruang hijau ketika lahan terbuka terbatas, tetapi desainnya harus mempertimbangkan struktur dan komponen bangunan.
                 </p>
               </div>
@@ -154,16 +154,16 @@ export default function TamanAtapPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromRight}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row-reverse items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusCheck} alt="Cocok untuk" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Cocok</span> <span className="text-brand-green">untuk</span>
+                  <span className="text-brand-dark dark:text-white">Cocok</span> <span className="text-brand-green">untuk</span>
                 </h2>
-                <ul className="list-disc pl-5 text-brand-dark/80 text-sm md:text-base space-y-2 font-medium">
+                <ul className="list-disc pl-5 text-brand-dark/80 dark:text-gray-300 text-sm md:text-base space-y-2 font-medium">
                   <li>Bangunan dengan area atap yang dapat digunakan.</li>
                   <li>Kawasan dengan keterbatasan lahan terbuka.</li>
                   <li>Pemilik yang telah memperoleh izin penggunaan.</li>
@@ -179,16 +179,16 @@ export default function TamanAtapPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromLeft}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusStar} alt="Manfaat utama" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Manfaat</span> <span className="text-brand-green">utama</span>
+                  <span className="text-brand-dark dark:text-white">Manfaat</span> <span className="text-brand-green">utama</span>
                 </h2>
-                <ul className="list-disc pl-5 text-brand-dark/80 text-sm md:text-base space-y-2 font-medium">
+                <ul className="list-disc pl-5 text-brand-dark/80 dark:text-gray-300 text-sm md:text-base space-y-2 font-medium">
                   <li>Memanfaatkan ruang atap yang sebelumnya kosong.</li>
                   <li>Menambah vegetasi pada kawasan terbangun.</li>
                   <li>Dapat membantu mengurangi panas pada permukaan atap dan mengelola sebagian air hujan.</li>
@@ -203,16 +203,16 @@ export default function TamanAtapPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromRight}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row-reverse items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusMenu} alt="Cara menerapkan" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Cara</span> <span className="text-brand-green">menerapkan</span>
+                  <span className="text-brand-dark dark:text-white">Cara</span> <span className="text-brand-green">menerapkan</span>
                 </h2>
-                <ol className="list-decimal pl-5 text-brand-dark/80 text-sm md:text-base space-y-2 font-medium">
+                <ol className="list-decimal pl-5 text-brand-dark/80 dark:text-gray-300 text-sm md:text-base space-y-2 font-medium">
                   <li>Dapatkan persetujuan pemilik atau pengelola.</li>
                   <li>Minta pemeriksaan kapasitas struktur bangunan.</li>
                   <li>Pastikan waterproofing dan drainase tersedia.</li>
@@ -229,16 +229,16 @@ export default function TamanAtapPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row items-center gap-8 justify-between"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8 justify-between"
             >
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-4">
                   <img src={perhatikanIcon} alt="Perhatikan" className="w-10 md:w-12 h-auto" />
-                  <h3 className="text-xl md:text-2xl font-header font-normal text-brand-dark">
+                  <h3 className="text-xl md:text-2xl font-header font-normal text-brand-dark dark:text-white">
                     Perhatikan
                   </h3>
                 </div>
-                <p className="text-brand-dark/80 text-sm md:text-base leading-relaxed font-medium">
+                <p className="text-brand-dark/80 dark:text-gray-300 text-sm md:text-base leading-relaxed font-medium">
                   Taman atap tidak boleh langsung diterapkan berdasarkan hasil analisis website. Struktur, beban, waterproofing, drainase, dan keselamatan harus diperiksa oleh pihak yang kompeten.
                 </p>
               </div>
@@ -258,7 +258,7 @@ export default function TamanAtapPage() {
             className="mt-20 md:mt-28 pb-8 relative z-20"
           >
             <h2 className="text-3xl md:text-4xl font-header text-center mb-12">
-              <span className="text-brand-dark">Contoh Penerapan</span> <span className="text-brand-green">Taman Atap (Green Roof)</span>
+              <span className="text-brand-dark dark:text-white">Contoh Penerapan</span> <span className="text-brand-green">Taman Atap (Green Roof)</span>
             </h2>
             <div className="relative max-w-4xl mx-auto">
               <img src={circleStarImg} 

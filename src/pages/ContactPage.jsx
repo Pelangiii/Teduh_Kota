@@ -66,20 +66,43 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-brand-bg min-h-screen pt-28 md:pt-36 pb-0 overflow-x-hidden font-sans relative flex flex-col justify-between">
+    <div className="bg-brand-bg dark:bg-mode-dark min-h-screen pt-28 md:pt-36 pb-0 overflow-x-hidden font-sans relative flex flex-col justify-between transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-8 lg:px-16 space-y-12 md:space-y-16 relative w-full">
 
         {/* Polkadot 1: Pojok Kanan Atas */}
         <img
           src={polkadotImg}
           alt="Dekorasi Polkadot Kanan Atas"
-          className="absolute -top-10 -right-12 md:-right-16 w-24 md:w-32 opacity-80 pointer-events-none z-0"
+          className="hidden md:block absolute -top-10 -right-12 md:-right-16 w-24 md:w-32 opacity-80 pointer-events-none z-0"
         />
 
         {/* 1. HEADER SECTION */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-2 relative z-10">
+          {/* GAMBAR HEADER (Di ATAS pada HP/Tablet <md) */}
           <motion.div
-            className="space-y-3 max-w-lg text-center md:text-left z-10"
+            className="w-full md:w-1/2 flex justify-center md:justify-end z-10 order-first md:order-last"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {/* Gambar Versi Light (Hilang pas Dark Mode) */}
+            <motion.img
+              src={headerIllustration}
+              alt="Ilustrasi Laptop Light"
+              className="w-full max-w-lg md:max-w-xl h-auto object-contain dark:hidden"
+            />
+
+            {/* Gambar Versi Dark (Tampil HANYA pas Dark Mode) */}
+            <motion.img
+              src={headerIllustrationDark}
+              alt="Ilustrasi Laptop Dark"
+              className="w-full max-w-lg md:max-w-xl h-auto object-contain hidden dark:block"
+            />
+          </motion.div>
+
+          {/* TEKS HEADER (Di BAWAH pada HP/Tablet <md) */}
+          <motion.div
+            className="space-y-3 max-w-lg text-center md:text-left z-10 order-last md:order-first w-full"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -119,12 +142,12 @@ export default function ContactPage() {
           <img
             src={polkadotImg}
             alt="Dekorasi Polkadot Kiri"
-            className="absolute top-1/2 -left-12 md:-left-16 -translate-y-1/2 w-20 md:w-28 opacity-80 pointer-events-none z-0"
+            className="hidden md:block absolute top-1/2 -left-12 md:-left-16 -translate-y-1/2 w-20 md:w-28 opacity-80 pointer-events-none z-0"
           />
           <img
             src={polkadotImg}
             alt="Dekorasi Polkadot Kanan Bawah"
-            className="absolute -bottom-6 -right-12 md:-right-16 w-20 md:w-28 opacity-80 pointer-events-none z-0"
+            className="hidden md:block absolute -bottom-6 -right-12 md:-right-16 w-20 md:w-28 opacity-80 pointer-events-none z-0"
           />
 
           {/* Card Utama */}
@@ -137,7 +160,7 @@ export default function ContactPage() {
           >
             {/* Form Kirim Pesan */}
             <div className="md:col-span-7 space-y-6">
-              <h2 className="font-header text-3xl md:text-4xl font-normal text-brand-dark">
+              <h2 className="font-header text-3xl md:text-4xl font-normal text-brand-dark dark:text-white">
                 Kirim Pesan
               </h2>
 
@@ -234,26 +257,26 @@ export default function ContactPage() {
                 <span className="text-brand-green"> membantu!</span>
               </h3>
 
-              <div className="space-y-3 text-sm text-gray-600 dark:text-gray-400 font-sans">
+              <div className="space-y-3 text-sm text-gray-600 dark:text-gray-300 font-sans">
                 <div>
                   <p className="font-bold text-gray-800 dark:text-gray-200">Email</p>
-                  <p className="text-gray-500 dark:text-gray-400">hai@teduhkota.id</p>
+                  <p className="text-gray-500 dark:text-gray-300">hai@teduhkota.id</p>
                 </div>
 
                 <div>
                   <p className="font-bold text-gray-800 dark:text-gray-200">Number</p>
-                  <p className="text-gray-500 dark:text-gray-400">0811-0018-3210</p>
+                  <p className="text-gray-500 dark:text-gray-300">0811-0018-3210</p>
                 </div>
 
                 <div>
                   <p className="font-bold text-gray-800 dark:text-gray-200">Lokasi</p>
-                  <p className="text-gray-500 dark:text-gray-400">Jakarta, Indonesia</p>
+                  <p className="text-gray-500 dark:text-gray-300">Jakarta, Indonesia</p>
                 </div>
               </div>
 
               {/* Embedded Google Maps */}
               <motion.div
-                className="w-full h-48 md:h-52 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-xs dark:brightness-90"
+                className="w-full h-48 md:h-52 rounded-2xl overflow-hidden border border-gray-100 dark:border-line-dark shadow-xs bg-white dark:bg-mode-dark"
               >
                 <iframe
                   title="Peta Lokasi Teduh Kota"

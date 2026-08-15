@@ -20,7 +20,7 @@ export default function About() {
       viewport={{ once: true, amount: 0.3 }}
       variants={fadeInUp}
     >
-      <div className="bg-white rounded-3xl p-10 md:p-14 border border-gray-100 shadow-card flex flex-col md:flex-row items-center gap-10 md:gap-14 hover:shadow-md transition duration-200">
+      <div className="bg-white dark:bg-card-dark-mode rounded-3xl p-10 md:p-14 border border-gray-100 dark:border-line-dark shadow-card flex flex-col md:flex-row items-center gap-10 md:gap-14 hover:shadow-md transition duration-300">
         <div className="w-48 md:w-56 shrink-0 flex justify-center">
           <img
             src={tanamanLoveImg}
@@ -30,16 +30,16 @@ export default function About() {
         </div>
 
         <div className="space-y-6 text-center md:text-left">
-          <h2 className="font-header text-3xl md:text-4xl font-normal text-brand-dark">
+          <h2 className="font-header text-3xl md:text-4xl font-normal text-brand-dark dark:text-white">
             Tentang <span className="text-brand-green font-normal">Teduh Kota</span>
           </h2>
-          <p className="font-sans text-brand-text text-sm md:text-base leading-relaxed">
+          <p className="font-sans text-brand-text dark:text-gray-300 text-sm md:text-base leading-relaxed">
             Teduh Kota adalah website rekomendasi penghijauan yang dirancang untuk membantu masyarakat menentukan jenis tanaman yang paling sesuai berdasarkan kondisi area yang dimiliki, seperti pencahayaan, luas ruang, dan lokasi penanaman.
             <br /><br />
             Melalui proses analisis yang sederhana, Teduh Kota memberikan rekomendasi tanaman beserta solusi penghijauan yang praktis tanpa harus memiliki pengetahuan khusus tentang tanaman.
           </p>
           <div>
-            <Link to="/tentang" className="font-sans inline-flex items-center gap-2 bg-brand-orange text-white px-8 py-3.5 rounded-2xl font-medium text-base hover:bg-[#e87f2e] transition shadow-xs">
+            <Link to="/tentang" className="font-sans inline-flex items-center justify-center gap-2 bg-brand-orange text-white px-5 py-2.5 sm:px-8 sm:py-3.5 rounded-xl sm:rounded-2xl font-medium text-xs sm:text-sm md:text-base hover:bg-[#e87f2e] transition shadow-xs whitespace-nowrap cursor-pointer">
               Lihat lebih Detail <span>&rarr;</span>
             </Link>
           </div>

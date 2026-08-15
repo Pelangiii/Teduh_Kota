@@ -43,7 +43,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-brand-bg text-gray-800 font-sans flex flex-col justify-between">
+      <div className="min-h-screen bg-brand-bg dark:bg-mode-dark text-gray-800 dark:text-gray-100 font-sans flex flex-col justify-between transition-colors duration-300">
         {/* Navbar tampil di semua halaman */}
         <Navbar />
 

@@ -45,13 +45,13 @@ const floatingAnimation = {
 
 export default function BedengTanamTinggiPage() {
   return (
-    <div className="relative overflow-hidden min-h-screen bg-brand-bg font-sans">
+    <div className="relative overflow-hidden min-h-screen bg-brand-bg dark:bg-mode-dark font-sans transition-colors duration-300">
       
-      {/* Background Polkadots (Floating) */}
-      <motion.img animate={floatingAnimation} src={polkadotImg} alt="" className="absolute top-48 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" />
-      <motion.img animate={floatingAnimation} src={polkadotImg} alt="" className="absolute top-1/3 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" />
-      <motion.img animate={floatingAnimation} src={polkadotImg} alt="" className="absolute bottom-1/3 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" />
-      <motion.img animate={floatingAnimation} src={polkadotImg} alt="" className="absolute bottom-16 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" />
+      {/* Background Polkadots */}
+      <img src={polkadotImg} alt="" className="absolute top-48 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" />
+      <img src={polkadotImg} alt="" className="absolute top-1/3 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" />
+      <img src={polkadotImg} alt="" className="absolute bottom-1/3 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" />
+      <img src={polkadotImg} alt="" className="absolute bottom-16 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" />
 
       <div className="pt-12 pb-48 md:pb-64 px-8 lg:px-16 max-w-7xl mx-auto relative">
         
@@ -74,7 +74,7 @@ export default function BedengTanamTinggiPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-4xl md:text-5xl font-header text-center mb-10"
           >
-            <span className="text-brand-dark">Bedeng Tanam</span> <span className="text-brand-green">Tinggi</span>
+            <span className="text-brand-dark dark:text-white">Bedeng Tanam</span> <span className="text-brand-green">Tinggi</span>
           </motion.h1>
 
           {/* Gambar Hero Utama */}
@@ -104,16 +104,16 @@ export default function BedengTanamTinggiPage() {
             <motion.div 
               variants={fadeInUp}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusPot} alt="Apa itu?" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Apa</span> <span className="text-brand-green">itu?</span>
+                  <span className="text-brand-dark dark:text-white">Apa</span> <span className="text-brand-green">itu?</span>
                 </h2>
-                <p className="text-brand-dark/80 text-sm md:text-base leading-relaxed font-medium">
+                <p className="text-brand-dark/80 dark:text-gray-300 text-sm md:text-base leading-relaxed font-medium">
                   Bedeng tanam tinggi merupakan area tanam yang dibuat lebih tinggi dari permukaan sekitarnya dan diisi dengan media tanam. Sistem ini memungkinkan pengguna mengatur kualitas media, drainase, serta susunan tanaman dengan lebih mudah. Raised bed telah digunakan untuk memperbaiki kondisi penanaman dan produktivitas taman.
                 </p>
               </div>
@@ -123,16 +123,16 @@ export default function BedengTanamTinggiPage() {
             <motion.div 
               variants={fadeInUp}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusCheck} alt="Cocok untuk" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Cocok</span> <span className="text-brand-green">untuk</span>
+                  <span className="text-brand-dark dark:text-white">Cocok</span> <span className="text-brand-green">untuk</span>
                 </h2>
-                <ul className="list-disc pl-5 text-brand-dark/80 text-sm md:text-base space-y-2 font-medium">
+                <ul className="list-disc pl-5 text-brand-dark/80 dark:text-gray-300 text-sm md:text-base space-y-2 font-medium">
                   <li>Halaman kecil hingga sedang.</li>
                   <li>Tanah yang padat atau kurang mendukung.</li>
                   <li>Area paving yang masih memungkinkan penempatan wadah besar.</li>
@@ -145,16 +145,16 @@ export default function BedengTanamTinggiPage() {
             <motion.div 
               variants={fadeInUp}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusStar} alt="Manfaat utama" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Manfaat</span> <span className="text-brand-green">utama</span>
+                  <span className="text-brand-dark dark:text-white">Manfaat</span> <span className="text-brand-green">utama</span>
                 </h2>
-                <ul className="list-disc pl-5 text-brand-dark/80 text-sm md:text-base space-y-2 font-medium">
+                <ul className="list-disc pl-5 text-brand-dark/80 dark:text-gray-300 text-sm md:text-base space-y-2 font-medium">
                   <li>Kondisi media tanam lebih mudah dikontrol.</li>
                   <li>Kapasitas tanam lebih besar daripada pot biasa.</li>
                   <li>Area tanam terlihat lebih rapi dan teratur.</li>
@@ -166,16 +166,16 @@ export default function BedengTanamTinggiPage() {
             <motion.div 
               variants={fadeInUp}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusMenu} alt="Cara menerapkan" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Cara</span> <span className="text-brand-green">menerapkan</span>
+                  <span className="text-brand-dark dark:text-white">Cara</span> <span className="text-brand-green">menerapkan</span>
                 </h2>
-                <ol className="list-decimal pl-5 text-brand-dark/80 text-sm md:text-base space-y-2 font-medium">
+                <ol className="list-decimal pl-5 text-brand-dark/80 dark:text-gray-300 text-sm md:text-base space-y-2 font-medium">
                   <li>Tentukan ukuran dan posisi bedeng.</li>
                   <li>Gunakan bahan pembatas yang kuat dan aman.</li>
                   <li>Pastikan bagian bawah mempunyai drainase.</li>
@@ -189,16 +189,16 @@ export default function BedengTanamTinggiPage() {
             <motion.div 
               variants={fadeInUp}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] transition-all duration-300 flex flex-col md:flex-row items-center gap-8 justify-between"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8 justify-between"
             >
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-4">
                   <img src={perhatikanIcon} alt="Perhatikan" className="w-10 md:w-12 h-auto" />
-                  <h3 className="text-xl md:text-2xl font-header font-normal text-brand-dark">
+                  <h3 className="text-xl md:text-2xl font-header font-normal text-brand-dark dark:text-white">
                     Perhatikan
                   </h3>
                 </div>
-                <p className="text-brand-dark/80 text-sm md:text-base leading-relaxed font-medium">
+                <p className="text-brand-dark/80 dark:text-gray-300 text-sm md:text-base leading-relaxed font-medium">
                   Setelah terisi media dan air, bedeng akan cukup berat dan sulit dipindahkan. Pastikan lokasi telah ditentukan dengan baik.
                 </p>
               </div>
@@ -218,7 +218,7 @@ export default function BedengTanamTinggiPage() {
             variants={fadeInUp}
           >
             <h2 className="text-3xl md:text-4xl font-header text-center mb-12">
-              <span className="text-brand-dark">Contoh Penerapan</span> <span className="text-brand-green">Bedeng Tanam Tinggi</span>
+              <span className="text-brand-dark dark:text-white">Contoh Penerapan</span> <span className="text-brand-green">Bedeng Tanam Tinggi</span>
             </h2>
             <div className="relative max-w-4xl mx-auto">
               <img 

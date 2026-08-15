@@ -44,27 +44,27 @@ export default function Faq() {
   ];
 
   return (
-    <div className="w-full relative overflow-hidden py-16 md:py-20">
+    <div className="w-full bg-brand-bg dark:bg-mode-dark relative overflow-hidden py-16 md:py-20 transition-colors duration-300">
 
-      {/* Polkadot Top Left - Full Screen Edge Cut in Half */}
+      {/* Polkadot Top Left - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
       <img 
         src={polkadotImg} 
         alt="Dekorasi Polkadot" 
-        className="absolute top-8 -left-14 md:-left-18 w-32 md:w-40 opacity-90 pointer-events-none z-0" 
+        className="hidden md:block absolute top-8 -left-14 md:-left-18 w-32 md:w-40 opacity-80 pointer-events-none z-0" 
       />
 
-      {/* Polkadot Middle Right - Full Screen Edge Cut in Half */}
+      {/* Polkadot Middle Right - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
       <img 
         src={polkadotImg} 
         alt="Dekorasi Polkadot" 
-        className="absolute top-1/2 -translate-y-1/2 -right-14 md:-right-18 w-32 md:w-40 opacity-90 pointer-events-none z-0" 
+        className="hidden md:block absolute top-1/2 -translate-y-1/2 -right-14 md:-right-18 w-32 md:w-40 opacity-80 pointer-events-none z-0" 
       />
 
-      {/* Polkadot Bottom Left - Full Screen Edge Cut in Half */}
+      {/* Polkadot Bottom Left - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
       <img 
         src={polkadotImg} 
         alt="Dekorasi Polkadot" 
-        className="absolute -bottom-8 -left-14 md:-left-18 w-32 md:w-40 opacity-90 pointer-events-none z-0" 
+        className="hidden md:block absolute -bottom-8 -left-14 md:-left-18 w-32 md:w-40 opacity-80 pointer-events-none z-0" 
       />
 
       <motion.section 
@@ -89,10 +89,10 @@ export default function Faq() {
             className="absolute -bottom-2 -right-6 md:-right-12 w-8 md:w-9 pointer-events-none scale-x-[-1]" 
           />
 
-          <h2 className="font-header text-3xl md:text-4xl font-normal text-brand-dark">
+          <h2 className="font-header text-3xl md:text-4xl font-normal text-brand-dark dark:text-white">
             Masih Ada <span className="text-brand-green font-normal">Pertanyaan?</span>
           </h2>
-          <p className="font-sans text-brand-text text-base">Teduh Kota hadir untuk membantu kamu menemukan solusi yang tepat.</p>
+          <p className="font-sans text-brand-text dark:text-gray-300 text-base">Teduh Kota hadir untuk membantu kamu menemukan solusi yang tepat.</p>
         </div>
 
         <div className="space-y-5 relative z-10">
@@ -102,12 +102,12 @@ export default function Faq() {
               <div 
                 key={index} 
                 className={`rounded-3xl border transition-all duration-300 ${
-                  isOpen ? 'bg-brand-green/10 border-brand-green/30' : 'bg-white border-gray-100 shadow-card hover:shadow-md'
+                  isOpen ? 'bg-brand-green/10 dark:bg-brand-green/20 border-brand-green/30' : 'bg-white dark:bg-card-dark-mode border-gray-100 dark:border-line-dark shadow-card hover:shadow-md'
                 }`}
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full text-left p-6 md:p-8 flex justify-between items-center font-sans font-bold text-base md:text-lg text-brand-dark transition cursor-pointer"
+                  className="w-full text-left p-6 md:p-8 flex justify-between items-center font-sans font-bold text-base md:text-lg text-brand-dark dark:text-white transition cursor-pointer"
                 >
                   <div className="flex items-center gap-5 md:gap-6">
                     <span 
@@ -115,7 +115,7 @@ export default function Faq() {
                     >
                       0{index + 1}
                     </span>
-                    <span className="font-sans font-bold text-brand-dark text-base md:text-lg">{faq.q}</span>
+                    <span className="font-sans font-bold text-brand-dark dark:text-white text-base md:text-lg">{faq.q}</span>
                   </div>
                   <motion.span 
                     animate={{ rotate: isOpen ? 180 : 0 }}
@@ -136,7 +136,7 @@ export default function Faq() {
                       transition={{ duration: 0.35, ease: [0.04, 0.62, 0.23, 0.98] }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 md:px-8 pb-8 pt-0 font-sans text-sm md:text-base text-brand-text leading-relaxed pl-23 md:pl-28">
+                      <div className="px-6 md:px-8 pb-8 pt-0 font-sans text-sm md:text-base text-brand-text dark:text-gray-300 leading-relaxed pl-23 md:pl-28">
                         {faq.a}
                       </div>
                     </motion.div>
