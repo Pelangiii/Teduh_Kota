@@ -1,10 +1,17 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 // Import Assets
 import ilustrasiSolusiTeduh from '../assets/images/ilustrasi-solusi-teduh.svg';
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
+import tamanPotImg from '../assets/images/taman-pot.png';
+import vertikalBertrellisImg from '../assets/images/vertikal-bertrellis.svg';
+import bedengTanamTinggiImg from '../assets/images/bedeng-tanam-tinggi.png';
+import tamanTanamLangsungImg from '../assets/images/taman-tanam-langsung.png';
+import pohonPeneduhImg from '../assets/images/pohon-peneduh.png';
+import tamanResapanImg from '../assets/images/taman-resapan.png';
+import tamanAtapImg from '../assets/images/taman-atap.png';
 
 // --- Variants Animasi Framer Motion ---
 const containerVariants = {
@@ -49,6 +56,22 @@ const cardVariants = {
 export default function SolusiPage() {
   const sliderRef = useRef(null);
 
+  useEffect(() => {
+    const savedIndex = sessionStorage.getItem('last_viewed_solusi_index');
+    if (savedIndex !== null && sliderRef.current) {
+      const idx = parseInt(savedIndex, 10);
+      const timer = setTimeout(() => {
+        if (sliderRef.current) {
+          const cards = sliderRef.current.querySelectorAll('.snap-start');
+          if (cards[idx]) {
+            cards[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+          }
+        }
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   const scrollLeft = () => {
     if (sliderRef.current) {
       sliderRef.current.scrollBy({ left: -sliderRef.current.offsetWidth, behavior: 'smooth' });
@@ -80,7 +103,7 @@ export default function SolusiPage() {
       subtitle: "Container Garden",
       badge: "Mudah Diterapkan",
       description: "Solusi penghijauan menggunakan pot yang mudah disusun, dipindahkan, dan disesuaikan dengan ruang terbatas.",
-      image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&auto=format&fit=crop&q=80",
+      image: tamanPotImg,
       link: "/solusi-teduh/taman-pot-fleksibel"
     },
     {
@@ -88,7 +111,7 @@ export default function SolusiPage() {
       subtitle: "Trellis Vertical Garden",
       badge: "Mudah Diterapkan",
       description: "Penghijauan yang memanfaatkan dinding, pagar, atau rangka vertikal tanpa membutuhkan banyak ruang lantai.",
-      image: "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600&auto=format&fit=crop&q=80",
+      image: vertikalBertrellisImg,
       link: "/solusi-teduh/taman-vertikal-bertrellis"
     },
     {
@@ -96,7 +119,7 @@ export default function SolusiPage() {
       subtitle: "Raised Bed Garden",
       badge: "Mudah Diterapkan",
       description: "Area tanam yang ditinggikan untuk memudahkan pengaturan media tanam serta cocok bagi tanaman hias maupun produktif.",
-      image: "https://images.unsplash.com/photo-1463320726281-696a485928c7?w=600&auto=format&fit=crop&q=80",
+      image: bedengTanamTinggiImg,
       link: "/solusi-teduh/bedeng-tanam-tinggi"
     },
     {
@@ -104,7 +127,7 @@ export default function SolusiPage() {
       subtitle: "In-Ground Garden",
       badge: "Mudah Diterapkan",
       description: "Penghijauan dengan menanam langsung pada tanah terbuka untuk menciptakan area hijau yang lebih alami dan beragam.",
-      image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&auto=format&fit=crop&q=80",
+      image: tamanTanamLangsungImg,
       link: "/solusi-teduh/taman-tanam-langsung"
     },
     {
@@ -112,7 +135,7 @@ export default function SolusiPage() {
       subtitle: "Shade Tree",
       badge: "Perlu Pengecekan Lokasi",
       description: "Solusi penghijauan jangka panjang untuk menciptakan keteduhan dan mengurangi paparan panas pada area terbuka.",
-      image: "https://images.unsplash.com/photo-1545241047-6083a36a1d18?w=600&auto=format&fit=crop&q=80",
+      image: pohonPeneduhImg,
       link: "/solusi-teduh/pohon-peneduh"
     },
     {
@@ -120,7 +143,7 @@ export default function SolusiPage() {
       subtitle: "Rain Garden",
       badge: "Perlu Pengecekan Lokasi",
       description: "Taman cekung yang dirancang untuk menampung sementara dan membantu meresapkan limpasan air hujan ke dalam tanah.",
-      image: "https://images.unsplash.com/photo-1598512752271-33f913a5af13?w=600&auto=format&fit=crop&q=80",
+      image: tamanResapanImg,
       link: "/solusi-teduh/taman-resapan"
     },
     {
@@ -128,7 +151,7 @@ export default function SolusiPage() {
       subtitle: "Rooftop Garden",
       badge: "Perlu Pemeriksaan Teknis",
       description: "Pemanfaatan area atap sebagai ruang hijau untuk menambah vegetasi pada kawasan dengan keterbatasan lahan.",
-      image: "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=600&auto=format&fit=crop&q=80",
+      image: tamanAtapImg,
       link: "/solusi-teduh/taman-atap"
     }
   ];
@@ -238,6 +261,7 @@ export default function SolusiPage() {
                   {/* Button */}
                   <Link
                     to={item.link}
+                    onClick={() => sessionStorage.setItem('last_viewed_solusi_index', idx)}
                     className="w-full"
                   >
                     <motion.div 

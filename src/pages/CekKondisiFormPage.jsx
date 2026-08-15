@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { calculateRecommendations } from '../utils/recommendationEngine';
-import { GLOBAL_METADATA } from '../data/recommendationConfig';
+import { GLOBAL_METADATA, SOLUTIONS } from '../data/recommendationConfig';
 
 // Import Assets
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
@@ -31,7 +31,7 @@ const modalTransition = {
 const RadioOption = ({ icon, label, desc, selectedValue, onChange, value }) => {
   const isSelected = selectedValue === value;
   return (
-    <motion.label 
+    <motion.label
       whileHover={{ scale: 1.01 }}
       whileTap={{ scale: 0.99 }}
       className={`flex items-center gap-4 p-4 rounded-2xl border-2 cursor-pointer transition-colors
@@ -46,9 +46,9 @@ const RadioOption = ({ icon, label, desc, selectedValue, onChange, value }) => {
         <span className="font-bold text-brand-dark text-base">{label}</span>
         {desc && <span className="text-brand-dark/60 text-xs font-medium">{desc}</span>}
       </div>
-      <input 
-        type="radio" 
-        value={value} 
+      <input
+        type="radio"
+        value={value}
         checked={isSelected}
         onChange={() => onChange(value)}
         className="hidden"
@@ -61,7 +61,7 @@ const RadioOption = ({ icon, label, desc, selectedValue, onChange, value }) => {
 const CheckboxOption = ({ label, desc, selectedValues, onChange, value, maxAllowed }) => {
   const isSelected = selectedValues.includes(value);
   const isDisabled = !isSelected && selectedValues.length >= maxAllowed;
-  
+
   const handleClick = (e) => {
     e.preventDefault();
     if (isDisabled) return;
@@ -69,7 +69,7 @@ const CheckboxOption = ({ label, desc, selectedValues, onChange, value, maxAllow
   };
 
   return (
-    <motion.div 
+    <motion.div
       whileHover={!isDisabled ? { scale: 1.01 } : {}}
       whileTap={!isDisabled ? { scale: 0.99 } : {}}
       onClick={handleClick}
@@ -121,7 +121,7 @@ export default function CekKondisiFormPage() {
   useEffect(() => {
     const savedResult = localStorage.getItem('teduhkota_saved_result');
     const savedForm = localStorage.getItem('teduhkota_saved_form');
-    
+
     if (savedResult && savedForm) {
       try {
         const parsedForm = JSON.parse(savedForm);
@@ -140,7 +140,7 @@ export default function CekKondisiFormPage() {
         setTreeSpace(parsedForm.treeSpace);
         setRoofStructure(parsedForm.roofStructure);
         setGoals(parsedForm.goals || []);
-        
+
         setRecommendationResult(JSON.parse(savedResult));
         setCurrentStep(4);
       } catch (e) {
@@ -166,7 +166,7 @@ export default function CekKondisiFormPage() {
       const formData = compileFormData();
       const result = calculateRecommendations(formData);
       setRecommendationResult(result);
-      
+
       // Save to localStorage
       localStorage.setItem('teduhkota_saved_form', JSON.stringify(formData));
       localStorage.setItem('teduhkota_saved_result', JSON.stringify(result));
@@ -188,7 +188,7 @@ export default function CekKondisiFormPage() {
   const handleReset = () => {
     localStorage.removeItem('teduhkota_saved_form');
     localStorage.removeItem('teduhkota_saved_result');
-    
+
     setLocationType('');
     setLocationName('');
     setCustomLocationType('');
@@ -205,7 +205,7 @@ export default function CekKondisiFormPage() {
     setRoofStructure(null);
     setGoals([]);
     setRecommendationResult(null);
-    
+
     setShowResetModal(false);
     setCurrentStep(1);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -219,11 +219,11 @@ export default function CekKondisiFormPage() {
     });
   };
 
-  const isPohonBerpotensi = (areaSize === 'medium' || areaSize === 'large') && 
-                            (surfaceType === 'soil' || surfaceType === 'mixed') &&
-                            areaType !== 'wall_fence' &&
-                            areaType !== 'terrace_balcony' &&
-                            areaType !== 'rooftop';
+  const isPohonBerpotensi = (areaSize === 'medium' || areaSize === 'large') &&
+    (surfaceType === 'soil' || surfaceType === 'mixed') &&
+    areaType !== 'wall_fence' &&
+    areaType !== 'terrace_balcony' &&
+    areaType !== 'rooftop';
 
   // State Reset Effects
   useEffect(() => {
@@ -283,9 +283,9 @@ export default function CekKondisiFormPage() {
 
   return (
     <div className="bg-brand-bg min-h-screen relative overflow-hidden flex flex-col justify-start pt-8 pb-48 md:pb-64 font-sans">
-      
+
       <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10 flex flex-col items-center">
-        
+
         {/* Stepper Container */}
         <div className="w-full max-w-5xl bg-white rounded-[32px] p-8 shadow-sm mb-8 flex flex-col md:flex-row justify-between items-stretch gap-6 md:gap-4">
           {steps.map((step) => {
@@ -293,14 +293,14 @@ export default function CekKondisiFormPage() {
             const isPast = currentStep > step.num;
             return (
               <div key={step.num} className="flex items-start md:items-center gap-4 flex-1">
-                <motion.div 
+                <motion.div
                   animate={{ scale: isActive ? 1.05 : 1 }}
                   className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shrink-0 transition-colors
-                  ${isActive 
-                    ? 'bg-brand-green text-white' 
-                    : isPast 
-                      ? 'bg-brand-green/50 text-white'
-                      : 'bg-brand-gray/40 text-white'}`}
+                  ${isActive
+                      ? 'bg-brand-green text-white'
+                      : isPast
+                        ? 'bg-brand-green/50 text-white'
+                        : 'bg-brand-gray/40 text-white'}`}
                 >
                   {step.num}
                 </motion.div>
@@ -318,12 +318,12 @@ export default function CekKondisiFormPage() {
 
         {/* Main Content Area */}
         <div className="w-full max-w-5xl flex flex-col lg:flex-row gap-8 items-start">
-          
+
           {/* Form Content */}
           <div className="w-full lg:w-2/3 bg-white rounded-[32px] p-8 md:p-10 shadow-sm flex flex-col gap-8">
-            
+
             <AnimatePresence mode="wait">
-              
+
               {/* SESI 1 */}
               {currentStep === 1 && (
                 <motion.div key="step1" variants={pageTransition} initial="hidden" animate="visible" exit="exit">
@@ -339,14 +339,14 @@ export default function CekKondisiFormPage() {
                     <RadioOption icon={<img src={perkantoranIcon} className="w-8 h-8 object-contain" alt="Perkantoran" />} label="Perkantoran" desc="Area kantor atau gedung komersial." value="office" selectedValue={locationType} onChange={setLocationType} />
                     <RadioOption icon={<img src={sekolahIcon} className="w-8 h-8 object-contain" alt="Sekolah" />} label="Sekolah / Kampus" desc="Taman belajar atau lapangan sekolah." value="school" selectedValue={locationType} onChange={setLocationType} />
                     <RadioOption icon={<img src={ruangPublikIcon} className="w-8 h-8 object-contain" alt="Ruang Publik" />} label="Ruang Publik" desc="Taman, ruang terbuka dan lainnya." value="public_space" selectedValue={locationType} onChange={setLocationType} />
-                    
+
                     <label className={`flex items-center gap-4 p-4 rounded-2xl border-2 cursor-pointer transition-colors ${locationType === 'other' ? 'border-brand-green bg-[#F9FDF5]' : 'border-brand-gray/30 hover:border-brand-gray/60 bg-white'}`}>
                       <input type="radio" name="locationType" value="other" checked={locationType === 'other'} onChange={() => setLocationType('other')} className="hidden" />
                       <div className="flex flex-col grow gap-2 w-full">
                         <span className="font-bold text-brand-dark text-base">Lainnya</span>
-                        <input 
-                          type="text" 
-                          placeholder="Tuliskan di sini..." 
+                        <input
+                          type="text"
+                          placeholder="Tuliskan di sini..."
                           value={customLocationType}
                           onChange={(e) => { setLocationType('other'); setCustomLocationType(e.target.value); }}
                           onClick={(e) => { e.stopPropagation(); setLocationType('other'); }}
@@ -366,20 +366,20 @@ export default function CekKondisiFormPage() {
                     <div className="inline-block bg-[#F2FBE9] text-brand-green font-bold text-xs px-4 py-2 rounded-full mb-4">Pertanyaan 2</div>
                     <h2 className="text-xl font-header text-brand-dark mb-2">Area yang Akan Dihijaukan</h2>
                     <p className="text-brand-dark/70 text-sm mb-4">Bagian mana yang ingin kamu hijaukan? Pilih area yang paling sesuai.</p>
-                    
+
                     <div className="space-y-3">
                       <RadioOption label="Halaman / Area Tanah" value="ground_area" selectedValue={areaType} onChange={setAreaType} />
                       <RadioOption label="Teras / Balkon" value="terrace_balcony" selectedValue={areaType} onChange={setAreaType} />
                       <RadioOption label="Dinding / Pagar" value="wall_fence" selectedValue={areaType} onChange={setAreaType} />
                       <RadioOption label="Area Beton / Paving" value="concrete_paving" selectedValue={areaType} onChange={setAreaType} />
                       <RadioOption label="Atap / Rooftop" value="rooftop" selectedValue={areaType} onChange={setAreaType} />
-                      
+
                       <label className={`flex items-center gap-4 p-4 rounded-2xl border-2 cursor-pointer transition-colors ${areaType === 'other' ? 'border-brand-green bg-[#F9FDF5]' : 'border-brand-gray/30 hover:border-brand-gray/60 bg-white'}`}>
                         <input type="radio" name="areaType" value="other" checked={areaType === 'other'} onChange={() => setAreaType('other')} className="hidden" />
                         <div className="flex flex-col grow gap-2 w-full">
                           <span className="font-bold text-brand-dark text-base">Area Lainnya</span>
-                          <input 
-                            type="text" placeholder="Tuliskan bagian yang ingin dihijaukan..." 
+                          <input
+                            type="text" placeholder="Tuliskan bagian yang ingin dihijaukan..."
                             value={customAreaType}
                             onChange={(e) => { setAreaType('other'); setCustomAreaType(e.target.value); }}
                             onClick={(e) => { e.stopPropagation(); setAreaType('other'); }}
@@ -424,10 +424,10 @@ export default function CekKondisiFormPage() {
                     <h2 className="text-xl font-header text-brand-dark mb-2">Luas Area</h2>
                     <p className="text-brand-dark/70 text-sm mb-4">Kira-kira, seberapa luas area yang ingin kamu hijaukan? Pilih berdasarkan perkiraan ukuran area.</p>
                     <div className="space-y-3">
-                      <RadioOption label="Sangat kecil — kurang dari 2 m²" value="very_small" selectedValue={areaSize} onChange={setAreaSize} />
-                      <RadioOption label="Kecil — 2–5 m²" value="small" selectedValue={areaSize} onChange={setAreaSize} />
-                      <RadioOption label="Sedang — 5–15 m²" value="medium" selectedValue={areaSize} onChange={setAreaSize} />
-                      <RadioOption label="Luas — lebih dari 15 m²" value="large" selectedValue={areaSize} onChange={setAreaSize} />
+                      <RadioOption label="Sangat kecil (kurang dari 2 m²)" value="very_small" selectedValue={areaSize} onChange={setAreaSize} />
+                      <RadioOption label="Kecil (2–5 m²)" value="small" selectedValue={areaSize} onChange={setAreaSize} />
+                      <RadioOption label="Sedang (5–15 m²)" value="medium" selectedValue={areaSize} onChange={setAreaSize} />
+                      <RadioOption label="Luas (lebih dari 15 m²)" value="large" selectedValue={areaSize} onChange={setAreaSize} />
                     </div>
                   </div>
 
@@ -523,7 +523,7 @@ export default function CekKondisiFormPage() {
                     <div className="inline-block bg-[#F2FBE9] text-brand-green font-bold text-xs px-4 py-2 rounded-full mb-4">Pertanyaan Terakhir</div>
                     <h2 className="text-xl font-header text-brand-dark mb-2">Tujuan Penghijauan</h2>
                     <p className="text-brand-dark/70 text-sm mb-4">Apa tujuan utama kamu menghijaukan area ini? Pilih maksimal 3 tujuan yang paling penting bagimu.</p>
-                    
+
                     <div className="space-y-3">
                       <CheckboxOption label="Membuat area lebih sejuk" desc="Membantu mengurangi rasa panas di sekitar area." value="cooler_area" selectedValues={goals} onChange={toggleGoal} maxAllowed={3} />
                       <CheckboxOption label="Menambah ruang hijau" desc="Membuat lingkungan memiliki lebih banyak tanaman." value="more_green_space" selectedValues={goals} onChange={toggleGoal} maxAllowed={3} />
@@ -532,7 +532,7 @@ export default function CekKondisiFormPage() {
                       <CheckboxOption label="Mempercantik area" desc="Membuat lingkungan terlihat lebih hijau dan menarik." value="beautification" selectedValues={goals} onChange={toggleGoal} maxAllowed={3} />
                       <CheckboxOption label="Memanfaatkan area kosong" desc="Mengubah ruang yang belum dimanfaatkan menjadi area hijau." value="use_empty_space" selectedValues={goals} onChange={toggleGoal} maxAllowed={3} />
                     </div>
-                    
+
                     {goals.length === 3 && (
                       <p className="text-brand-orange font-bold text-xs mt-4">
                         Kamu telah memilih batas maksimal 3 tujuan.
@@ -562,21 +562,21 @@ export default function CekKondisiFormPage() {
                           </div>
                           <h2 className="text-2xl md:text-3xl font-extrabold text-gray-800 tracking-tight">{recommendationResult.primary.title}</h2>
                         </div>
-        
+
                         <div className="rounded-2xl overflow-hidden h-56 w-full shadow-inner relative">
-                          <img 
-                            src={recommendationResult.primary.image} 
-                            alt="Rekomendasi" 
+                          <img
+                            src={SOLUTIONS[recommendationResult.primary.solutionId]?.image || recommendationResult.primary.image}
+                            alt="Rekomendasi"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
                         </div>
-        
+
                         <div className="mb-4">
                           <span className="text-sm font-semibold text-gray-600">Skor Kecocokan:</span>
                           <div className="flex items-center gap-3 mt-1">
                             <div className="grow h-3 bg-gray-100 rounded-full overflow-hidden">
-                              <div 
+                              <div
                                 className="h-full bg-brand-green rounded-full transition-all duration-1000"
                                 style={{ width: `${recommendationResult.primary.score}%` }}
                               />
@@ -599,7 +599,7 @@ export default function CekKondisiFormPage() {
                             </div>
                           </div>
                         )}
-        
+
                         <div className="space-y-3 pt-2">
                           <h3 className="font-bold text-gray-800 text-sm">Mengapa Direkomendasikan?</h3>
                           <ul className="list-disc list-inside text-xs text-gray-600 space-y-1.5 leading-relaxed">
@@ -608,9 +608,9 @@ export default function CekKondisiFormPage() {
                             ))}
                           </ul>
                         </div>
-        
+
                         <div className="flex items-center gap-4 pt-4 flex-wrap">
-                          <Link 
+                          <Link
                             to={`/solusi-teduh/${recommendationResult.primary.link}`}
                             className="bg-[#FF8A65] hover:bg-[#ff7043] text-white px-6 py-3 rounded-xl text-sm font-medium transition"
                           >
@@ -618,7 +618,7 @@ export default function CekKondisiFormPage() {
                           </Link>
                         </div>
                       </div>
-        
+
                       {/* Sidebar Info Detail */}
                       <div className="md:col-span-5 bg-[#FAF8F5] p-6 rounded-2xl space-y-4 border border-gray-200/60">
                         <h4 className="font-bold text-gray-800 text-sm border-b pb-2 border-gray-200">Detail Estimasi</h4>
@@ -671,7 +671,7 @@ export default function CekKondisiFormPage() {
                                 </div>
                               )}
                             </div>
-                            <Link 
+                            <Link
                               to={`/solusi-teduh/${alt.link}`}
                               className="text-brand-orange text-sm font-bold hover:text-[#e87f2e] transition-colors flex items-center gap-1 group/link"
                             >
@@ -708,7 +708,7 @@ export default function CekKondisiFormPage() {
                                 </div>
                               )}
                             </div>
-                            <Link 
+                            <Link
                               to={`/solusi-teduh/${sugg.link}`}
                               className="text-amber-600 text-sm font-bold hover:text-amber-700 transition-colors flex items-center gap-1 group/link"
                             >
@@ -720,7 +720,7 @@ export default function CekKondisiFormPage() {
                     </div>
                   )}
 
-                  <button 
+                  <button
                     onClick={() => setShowResetModal(true)}
                     className="w-full py-3 text-sm font-bold text-brand-orange hover:underline transition-all"
                   >
@@ -733,7 +733,7 @@ export default function CekKondisiFormPage() {
 
             {/* Navigation Buttons */}
             <div className="flex items-center justify-between pt-6 border-t border-brand-gray/20">
-              <button 
+              <button
                 onClick={handleBack}
                 className="px-6 py-3 rounded-full text-brand-dark font-bold text-sm bg-brand-gray/20 hover:bg-brand-gray/30 transition-all"
               >
@@ -741,14 +741,14 @@ export default function CekKondisiFormPage() {
               </button>
 
               {currentStep < 4 && (
-                <motion.button 
+                <motion.button
                   whileHover={{ scale: isNextDisabled() ? 1 : 1.03 }}
                   whileTap={{ scale: isNextDisabled() ? 1 : 0.97 }}
                   onClick={handleNext}
                   disabled={isNextDisabled()}
                   className={`px-8 py-3 rounded-full font-bold text-sm transition-all
-                    ${isNextDisabled() 
-                      ? 'bg-brand-gray/40 text-white cursor-not-allowed' 
+                    ${isNextDisabled()
+                      ? 'bg-brand-gray/40 text-white cursor-not-allowed'
                       : 'bg-brand-green text-white hover:bg-brand-green/90 shadow-md'}`}
                 >
                   {currentStep === 3 ? 'Lihat Hasil' : 'Lanjut'}
@@ -760,11 +760,11 @@ export default function CekKondisiFormPage() {
 
           {/* Right Column: Information Sidebar Panels */}
           <div className="w-full lg:w-1/3 flex flex-col gap-6">
-            
+
             {/* Card 1: Tips Sebelum Menjawab */}
             <div className="bg-[#FFFBF5] rounded-[32px] p-7 shadow-sm border border-brand-gray/20 space-y-6">
               <h3 className="font-sans font-bold text-lg text-brand-dark">Tips Sebelum Menjawab</h3>
-              
+
               <div className="space-y-5">
                 {/* Item 1 */}
                 <div className="flex items-start gap-4">
@@ -802,7 +802,7 @@ export default function CekKondisiFormPage() {
             </div>
 
             {/* Card 2: Butuh Bantuan? */}
-            <Link 
+            <Link
               to="/kontak"
               className="bg-white rounded-[32px] p-7 shadow-sm border border-gray-100 flex items-center justify-between gap-4 cursor-pointer"
             >
@@ -824,7 +824,7 @@ export default function CekKondisiFormPage() {
       </div>
 
       {/* Ilustrasi Rumput Bawah */}
-      <div 
+      <div
         className="absolute bottom-0 left-0 w-full h-24 md:h-32 lg:h-48 pointer-events-none z-10"
         style={{
           backgroundImage: `url(${ilustrasiRumputPanjang})`,

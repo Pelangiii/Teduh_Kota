@@ -8,6 +8,9 @@ import tanamanLoveImg from '../assets/images/tanaman-love.svg';
 import tanamanTanyaImg from '../assets/images/tanaman-tanya.svg';
 import ilustrasiTujuan from '../assets/images/ilustrasi-tujuan.svg';
 import ilustrasiSolusiTeduh from '../assets/images/ilustrasi-solusi-teduh.svg';
+import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
+import polkadotImg from '../assets/images/polkadot.svg';
+import circleStarImg from '../assets/images/circle-star.svg';
 
 // Import Icon Problem & Target Pengguna
 import iconKacaPembesar from '../assets/images/icon-kaca-pembesar.svg';
@@ -104,8 +107,8 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="bg-brand-bg min-h-screen pt-24 md:pt-32 pb-32 relative overflow-hidden font-sans">
-      <div className="max-w-6xl mx-auto px-6 space-y-36 md:space-y-48 relative z-10">
+    <div className="bg-brand-bg min-h-screen pt-24 md:pt-32 pb-0 relative overflow-hidden font-sans flex flex-col justify-between">
+      <div className="max-w-6xl mx-auto px-6 space-y-36 md:space-y-48 relative z-10 w-full">
 
         {/* 1. HEADER / HERO SECTION */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-10 pt-8 md:pt-12">
@@ -166,16 +169,31 @@ export default function AboutPage() {
         </motion.div>
 
         {/* 3. PROBLEM SECTION */}
-        <div className="space-y-12 text-center">
-          <motion.h2
-            className="font-header text-3xl md:text-4xl font-normal text-brand-dark"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            variants={fadeInUp}
-          >
-            Problem yang <span className="text-brand-green">diangkat</span>
-          </motion.h2>
+        <div className="space-y-12 text-center relative">
+          {/* Polkadot Kanan Atas Section */}
+          <img 
+            src={polkadotImg} 
+            alt="" 
+            className="absolute -top-12 -right-12 md:-right-20 w-24 md:w-32 opacity-80 pointer-events-none z-0" 
+          />
+
+          <div className="relative inline-block">
+            {/* Bintang / Star Sparkle di atas judul */}
+            <img 
+              src={circleStarImg} 
+              alt="" 
+              className="absolute -top-7 -left-6 w-8 h-auto pointer-events-none" 
+            />
+            <motion.h2
+              className="font-header text-3xl md:text-4xl font-normal text-brand-dark"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              variants={fadeInUp}
+            >
+              Problem yang <span className="text-brand-green font-bold">Diangkat</span>
+            </motion.h2>
+          </div>
 
           <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
@@ -206,7 +224,7 @@ export default function AboutPage() {
 
         {/* 4. TUJUAN SECTION */}
         <motion.div
-          className="bg-white rounded-3xl p-8 md:p-12 shadow-xs border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 hover:shadow-md transition duration-200 relative z-10"
+          className="bg-white rounded-3xl p-8 md:p-12 shadow-xs border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 hover:shadow-md transition duration-200 relative z-10 overflow-hidden"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -218,26 +236,47 @@ export default function AboutPage() {
               Teduh Kota bertujuan membantu masyarakat menemukan solusi penghijauan yang sesuai dengan kondisi area mereka melalui rekomendasi yang mudah dipahami, sehingga lebih banyak ruang dapat dimanfaatkan menjadi lingkungan yang hijau dan nyaman.
             </p>
           </div>
-          <motion.div className="w-44 md:w-56 shrink-0 flex justify-center items-center" >
+          <motion.div className="w-44 md:w-56 shrink-0 flex justify-center items-center relative" >
+            {/* Bintang / Star Sparkle di dekat ilustrasi tanaman */}
+            <img 
+              src={circleStarImg} 
+              alt="" 
+              className="absolute -top-4 -left-4 w-7 h-auto pointer-events-none z-20" 
+            />
             <img
               src={ilustrasiTujuan}
               alt="Ilustrasi Tujuan Penghijauan"
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain relative z-10"
             />
           </motion.div>
         </motion.div>
 
         {/* 5. TARGET PENGGUNA SECTION */}
-        <div className="space-y-12 text-center">
-          <motion.h2
-            className="font-header text-3xl md:text-4xl font-normal text-brand-dark"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            variants={fadeInUp}
-          >
-            Target <span className="text-brand-green">Pengguna</span>
-          </motion.h2>
+        <div className="space-y-12 text-center relative">
+          {/* Polkadot Kiri Section */}
+          <img 
+            src={polkadotImg} 
+            alt="" 
+            className="absolute top-1/2 -left-12 md:-left-20 -translate-y-1/2 w-24 md:w-32 opacity-80 pointer-events-none z-0" 
+          />
+
+          <div className="relative inline-block">
+            {/* Bintang / Star Sparkle di atas judul Target Pengguna */}
+            <img 
+              src={circleStarImg} 
+              alt="" 
+              className="absolute -top-5 -right-6 w-8 h-auto pointer-events-none" 
+            />
+            <motion.h2
+              className="font-header text-3xl md:text-4xl font-normal text-brand-dark"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              variants={fadeInUp}
+            >
+              Target <span className="text-brand-green">Pengguna</span>
+            </motion.h2>
+          </div>
 
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
@@ -304,6 +343,17 @@ export default function AboutPage() {
         </motion.div>
 
       </div>
+
+      {/* Rumput Panjang Bawah (Paling bawah sebelum footer - Full Screen Width) */}
+      <div 
+        className="w-full h-24 md:h-32 lg:h-44 pointer-events-none relative z-10"
+        style={{ 
+          backgroundImage: `url(${ilustrasiRumputPanjang})`,
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'bottom',
+          backgroundSize: 'auto 100%'
+        }}
+      />
     </div>
   );
 }

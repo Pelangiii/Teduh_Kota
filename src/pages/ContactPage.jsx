@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 // Import Gambar Header & Dekorasi
 import headerIllustration from '../assets/images/ilustrasi-meja-laptop.svg';
 import polkadotImg from '../assets/images/polkadot.svg';
+import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
 
 // Konfigurasi Variasi Animasi
 const fadeInUp = {
@@ -33,14 +34,14 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-brand-bg min-h-screen pt-28 md:pt-36 pb-20 overflow-x-hidden font-sans relative">
-      <div className="max-w-6xl mx-auto px-6 space-y-12 md:space-y-16 relative">
+    <div className="bg-brand-bg min-h-screen pt-28 md:pt-36 pb-0 overflow-x-hidden font-sans relative flex flex-col justify-between">
+      <div className="max-w-6xl mx-auto px-6 space-y-12 md:space-y-16 relative w-full">
 
-        {/* Polkadot 1: Pojok Kanan Atas */}
+        {/* Polkadot 1: Pojok Kanan Atas (Cut in half on edge) */}
         <img 
           src={polkadotImg} 
           alt="Dekorasi Polkadot Kanan Atas" 
-          className="absolute -top-6 -right-4 md:-right-10 w-16 md:w-24 opacity-80 pointer-events-none z-0" 
+          className="absolute -top-10 -right-12 md:-right-16 w-24 md:w-32 opacity-80 pointer-events-none z-0" 
         />
 
         {/* 1. HEADER SECTION */}
@@ -80,14 +81,14 @@ export default function ContactPage() {
           <img 
             src={polkadotImg} 
             alt="Dekorasi Polkadot Kiri" 
-            className="absolute top-1/2 -left-6 md:-left-10 -translate-y-1/2 w-16 md:w-24 opacity-80 pointer-events-none z-0" 
+            className="absolute top-1/2 -left-12 md:-left-16 -translate-y-1/2 w-20 md:w-28 opacity-80 pointer-events-none z-0" 
           />
 
           {/* Polkadot 3: Kanan Bawah Card */}
           <img 
             src={polkadotImg} 
             alt="Dekorasi Polkadot Kanan Bawah" 
-            className="absolute -bottom-6 -right-6 md:-right-10 w-16 md:w-24 opacity-80 pointer-events-none z-0" 
+            className="absolute -bottom-6 -right-12 md:-right-16 w-20 md:w-28 opacity-80 pointer-events-none z-0" 
           />
 
           <motion.div
@@ -97,7 +98,6 @@ export default function ContactPage() {
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeInUp}
           >
-
             {/* Form Kirim Pesan */}
             <div className="md:col-span-7 space-y-6">
               <h2 className="font-header text-2xl md:text-3xl font-normal text-brand-dark">
@@ -208,6 +208,17 @@ export default function ContactPage() {
         </div>
 
       </div>
+
+      {/* Rumput Panjang Bawah (Setelah Form - Full Screen Width) */}
+      <div 
+        className="w-full h-24 md:h-32 lg:h-44 pointer-events-none relative z-10"
+        style={{ 
+          backgroundImage: `url(${ilustrasiRumputPanjang})`,
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'bottom',
+          backgroundSize: 'auto 100%'
+        }}
+      />
     </div>
   );
 }

@@ -277,18 +277,18 @@ export default function TamanPotFleksibelPage() {
             </div>
           </motion.div>
         </div>
-
-        {/* Ilustrasi Rumput Panjang Bawah - Menggunakan repeat-x agar tidak melar */}
-        <div
-          className="absolute bottom-0 left-0 w-full h-24 md:h-32 lg:h-48 pointer-events-none z-10"
-          style={{
-            backgroundImage: `url(${rumputPanjangImg})`,
-            backgroundRepeat: 'repeat-x',
-            backgroundPosition: 'bottom',
-            backgroundSize: 'auto 100%'
-          }}
-        ></div>
       </div>
+
+      {/* Ilustrasi Rumput Panjang Bawah (Full Screen Width) */}
+      <div
+        className="absolute bottom-0 left-0 w-full h-24 md:h-32 lg:h-48 pointer-events-none z-10"
+        style={{
+          backgroundImage: `url(${rumputPanjangImg})`,
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'bottom',
+          backgroundSize: 'auto 100%'
+        }}
+      ></div>
     </div>
   );
 }

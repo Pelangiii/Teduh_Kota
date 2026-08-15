@@ -1,3 +1,11 @@
+import flexiblePotImg from '../assets/images/taman-pot.png';
+import verticalTrellisImg from '../assets/images/vertikal-bertrellis.png';
+import raisedBedImg from '../assets/images/bedeng-tanam-tinggi.png';
+import directGardenImg from '../assets/images/taman-tanam-langsung.png';
+import shadeTreeImg from '../assets/images/pohon-peneduh.png';
+import rainGardenImg from '../assets/images/taman-resapan.png';
+import rooftopGardenImg from '../assets/images/taman-atap.png';
+
 export const WEIGHTS = {
   areaType: 25,
   areaSize: 10,
@@ -16,7 +24,7 @@ export const SOLUTIONS = {
     estimasiBiaya: 'Rendah-Sedang',
     kebutuhanCahaya: 'Fleksibel, menyesuaikan jenis tanaman',
     pemeliharaan: 'Sedang',
-    image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&auto=format&fit=crop&q=80',
+    image: flexiblePotImg,
     link: 'taman-pot-fleksibel'
   },
   vertical_trellis: {
@@ -25,7 +33,7 @@ export const SOLUTIONS = {
     estimasiBiaya: 'Sedang',
     kebutuhanCahaya: 'Fleksibel, menyesuaikan jenis tanaman',
     pemeliharaan: 'Sedang',
-    image: 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600&auto=format&fit=crop&q=80',
+    image: verticalTrellisImg,
     link: 'taman-vertikal-bertrellis'
   },
   raised_bed: {
@@ -34,7 +42,7 @@ export const SOLUTIONS = {
     estimasiBiaya: 'Sedang',
     kebutuhanCahaya: 'Sedang-Tinggi, menyesuaikan jenis tanaman',
     pemeliharaan: 'Sedang',
-    image: 'https://images.unsplash.com/photo-1463320726281-696a485928c7?w=600&auto=format&fit=crop&q=80',
+    image: raisedBedImg,
     link: 'bedeng-tanam-tinggi'
   },
   direct_garden: {
@@ -43,7 +51,7 @@ export const SOLUTIONS = {
     estimasiBiaya: 'Rendah-Sedang',
     kebutuhanCahaya: 'Fleksibel, menyesuaikan jenis tanaman',
     pemeliharaan: 'Sedang',
-    image: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&auto=format&fit=crop&q=80',
+    image: directGardenImg,
     link: 'taman-tanam-langsung'
   },
   shade_tree: {
@@ -52,7 +60,7 @@ export const SOLUTIONS = {
     estimasiBiaya: 'Sedang',
     kebutuhanCahaya: 'Sedang-Tinggi, menyesuaikan jenis pohon',
     pemeliharaan: 'Rendah-Sedang',
-    image: 'https://images.unsplash.com/photo-1545241047-6083a36a1d18?w=600&auto=format&fit=crop&q=80',
+    image: shadeTreeImg,
     link: 'pohon-peneduh'
   },
   rain_garden: {
@@ -61,7 +69,7 @@ export const SOLUTIONS = {
     estimasiBiaya: 'Sedang-Tinggi',
     kebutuhanCahaya: 'Fleksibel, menyesuaikan tanaman dan kondisi lokasi',
     pemeliharaan: 'Sedang',
-    image: 'https://images.unsplash.com/photo-1598512752271-33f913a5af13?w=600&auto=format&fit=crop&q=80',
+    image: rainGardenImg,
     link: 'taman-resapan'
   },
   rooftop_garden: {
@@ -70,7 +78,7 @@ export const SOLUTIONS = {
     estimasiBiaya: 'Tinggi',
     kebutuhanCahaya: 'Sedang-Tinggi, menyesuaikan kondisi atap dan jenis tanaman',
     pemeliharaan: 'Sedang-Tinggi',
-    image: 'https://images.unsplash.com/photo-1522273400909-fd1a8f77637e?w=600&auto=format&fit=crop&q=80',
+    image: rooftopGardenImg,
     link: 'taman-atap'
   }
 };

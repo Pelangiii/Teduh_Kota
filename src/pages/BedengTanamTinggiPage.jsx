@@ -55,17 +55,15 @@ export default function BedengTanamTinggiPage() {
 
       <div className="pt-12 pb-48 md:pb-64 px-6 max-w-7xl mx-auto relative">
         
-        {/* Tombol Back dengan Feedback Interaction */}
-        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <Link 
-            to="/solusi-teduh" 
-            className="inline-flex items-center justify-center w-10 h-10 bg-brand-light-orange hover:bg-brand-orange text-white rounded-full shadow-sm hover:shadow-md transition-all mb-8 lg:mb-0 lg:absolute lg:left-8 lg:top-12 z-10"
-          >
-            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"></path>
-            </svg>
-          </Link>
-        </motion.div>
+        {/* Tombol Back */}
+        <Link 
+          to="/solusi-teduh" 
+          className="inline-flex items-center justify-center w-10 h-10 bg-brand-light-orange hover:bg-brand-orange text-white rounded-full shadow-sm hover:shadow-md transition-all mb-8 lg:mb-0 lg:absolute lg:left-8 lg:top-12 z-10"
+        >
+          <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </Link>
 
         <div className="max-w-4xl mx-auto pt-2 lg:pt-0 relative z-10">
           
@@ -243,18 +241,18 @@ export default function BedengTanamTinggiPage() {
           </motion.div>
 
         </div>
-        
-        {/* Ilustrasi Rumput Panjang Bawah */}
-        <div 
-          className="absolute bottom-0 left-0 w-full h-24 md:h-32 lg:h-48 pointer-events-none z-10"
-          style={{
-            backgroundImage: `url(${rumputPanjangImg})`,
-            backgroundRepeat: 'repeat-x',
-            backgroundPosition: 'bottom',
-            backgroundSize: 'auto 100%'
-          }}
-        ></div>
       </div>
+
+      {/* Ilustrasi Rumput Panjang Bawah (Full Screen Width) */}
+      <div 
+        className="absolute bottom-0 left-0 w-full h-24 md:h-32 lg:h-48 pointer-events-none z-10"
+        style={{
+          backgroundImage: `url(${rumputPanjangImg})`,
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: 'bottom',
+          backgroundSize: 'auto 100%'
+        }}
+      ></div>
     </div>
   );
 }
