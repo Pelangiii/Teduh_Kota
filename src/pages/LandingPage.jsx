@@ -10,7 +10,7 @@ import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.sv
 
 export default function LandingPage() {
     return (
-        <div className="min-h-screen text-brand-dark font-sans overflow-hidden pt-12">
+        <div className="min-h-screen text-brand-dark dark:text-white bg-brand-bg dark:bg-mode-dark font-sans overflow-hidden pt-12 transition-colors duration-300">
 
             {/* 1. HERO SECTION */}
             <Hero />

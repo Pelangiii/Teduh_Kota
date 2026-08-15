@@ -8,6 +8,7 @@ import tanamanLoveImg from '../assets/images/tanaman-love.svg';
 import tanamanTanyaImg from '../assets/images/tanaman-tanya.svg';
 import ilustrasiTujuan from '../assets/images/ilustrasi-tujuan.svg';
 import ilustrasiSolusiTeduh from '../assets/images/ilustrasi-solusi-teduh.svg';
+import headerIllustrationDark from '../assets/images/ilustrasi-meja-laptop-dark.svg';
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
 import polkadotImg from '../assets/images/polkadot.svg';
 import circleStarImg from '../assets/images/circle-star.svg';
@@ -107,7 +108,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="bg-brand-bg min-h-screen pt-24 md:pt-32 pb-0 relative overflow-hidden font-sans flex flex-col justify-between">
+    <div className="bg-brand-bg dark:bg-mode-dark min-h-screen pt-24 md:pt-32 pb-0 relative overflow-hidden font-sans flex flex-col justify-between transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-8 lg:px-16 space-y-36 md:space-y-48 relative z-10 w-full">
 
         {/* 1. HEADER / HERO SECTION */}
@@ -118,10 +119,10 @@ export default function AboutPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h1 className="font-header text-4xl md:text-5xl lg:text-6xl font-normal text-brand-dark leading-[1.15] tracking-tight">
+            <h1 className="font-header text-4xl md:text-5xl lg:text-6xl font-normal text-brand-dark dark:text-white leading-[1.15] tracking-tight">
               Apa itu <span className="text-brand-green">Teduh Kota?</span>
             </h1>
-            <p className="font-sans color-brand-text text-base md:text-lg leading-relaxed">
+            <p className="font-sans color-brand-text dark:text-gray-300 text-base md:text-lg leading-relaxed">
               Platform rekomendasi penghijauan yang membantu siapa saja menemukan solusi tanaman sesuai kondisi area mereka.
             </p>
           </motion.div>
@@ -134,15 +135,20 @@ export default function AboutPage() {
           >
             <motion.img
               src={ilustrasiSolusiTeduh}
-              alt="Ilustrasi Solusi Teduh"
-              className="w-full max-w-md lg:max-w-xl object-contain z-10"
+              alt="Ilustrasi Solusi Teduh Light"
+              className="w-full max-w-md lg:max-w-xl object-contain z-10 dark:hidden"
+            />
+            <motion.img
+              src={headerIllustrationDark}
+              alt="Ilustrasi Solusi Teduh Dark"
+              className="w-full max-w-md lg:max-w-xl object-contain z-10 hidden dark:block"
             />
           </motion.div>
         </div>
 
         {/* 2. TENTANG TEDUH KOTA CARD */}
         <motion.div
-          className="bg-white rounded-3xl p-10 md:p-14 border border-gray-100 shadow-card flex flex-col md:flex-row items-center gap-10 md:gap-14 hover:shadow-md transition duration-200"
+          className="bg-white dark:bg-card-dark-mode rounded-3xl p-10 md:p-14 border border-gray-100 dark:border-line-dark shadow-card flex flex-col md:flex-row items-center gap-10 md:gap-14 hover:shadow-md transition duration-300"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -156,13 +162,13 @@ export default function AboutPage() {
             />
           </motion.div>
           <div className="space-y-4 text-center md:text-left">
-            <h2 className="font-header text-2xl md:text-3xl font-normal text-brand-dark">
+            <h2 className="font-header text-2xl md:text-3xl font-normal text-brand-dark dark:text-white">
               Tentang <span className="text-brand-green">Teduh Kota</span>
             </h2>
-            <p className="font-sans color-brand-text text-sm md:text-base leading-relaxed">
+            <p className="font-sans color-brand-text dark:text-gray-300 text-sm md:text-base leading-relaxed">
               Teduh Kota adalah website rekomendasi penghijauan yang dirancang untuk membantu masyarakat menentukan jenis tanaman yang paling sesuai berdasarkan kondisi area yang dimiliki, seperti pencahayaan, luas ruang, dan lokasi penanaman.
             </p>
-            <p className="font-sans color-brand-text text-sm md:text-base leading-relaxed">
+            <p className="font-sans color-brand-text dark:text-gray-300 text-sm md:text-base leading-relaxed">
               Melalui proses analisis yang sederhana, Teduh Kota memberikan rekomendasi tanaman beserta solusi penghijauan yang praktis tanpa harus memiliki pengetahuan khusus tentang tanaman.
             </p>
           </div>
@@ -185,7 +191,7 @@ export default function AboutPage() {
               className="absolute -top-8 -left-10 md:-left-12 w-8 h-auto pointer-events-none"
             />
             <motion.h2
-              className="font-header text-3xl md:text-4xl font-normal text-brand-dark"
+              className="font-header text-3xl md:text-4xl font-normal text-brand-dark dark:text-white"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
@@ -206,12 +212,12 @@ export default function AboutPage() {
               <motion.div
                 key={idx}
                 variants={scaleUpCard}
-
-                className="bg-white rounded-3xl p-8 shadow-xs border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-200 relative z-10"
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                className="bg-white dark:bg-card-dark-mode rounded-3xl p-8 shadow-xs border border-gray-100 dark:border-line-dark flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-300 relative z-10"
               >
                 <img src={item.icon} alt={item.title} className="w-20 h-20 object-contain" />
-                <h3 className="font-sans text-lg font-bold text-brand-dark pt-2">{item.title}</h3>
-                <p className="font-sans color-brand-text text-sm md:text-base leading-relaxed">{item.description}</p>
+                <h3 className="font-sans text-lg font-bold text-brand-dark dark:text-white pt-2">{item.title}</h3>
+                <p className="font-sans color-brand-text dark:text-gray-300 text-sm md:text-base leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -219,15 +225,15 @@ export default function AboutPage() {
 
         {/* 4. TUJUAN SECTION */}
         <motion.div
-          className="bg-white rounded-3xl p-8 md:p-12 shadow-xs border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 hover:shadow-md transition duration-200 relative z-10 overflow-hidden"
+          className="bg-white dark:bg-card-dark-mode rounded-3xl p-8 md:p-12 shadow-xs border border-gray-100 dark:border-line-dark flex flex-col md:flex-row items-center justify-between gap-8 hover:shadow-md transition duration-300 relative z-10 overflow-hidden"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInUp}
         >
           <div className="space-y-4 max-w-xl text-center md:text-left">
-            <h2 className="font-header text-3xl font-normal text-brand-dark">Tujuan</h2>
-            <p className="font-sans color-brand-text text-sm md:text-base leading-relaxed">
+            <h2 className="font-header text-3xl font-normal text-brand-dark dark:text-white">Tujuan</h2>
+            <p className="font-sans color-brand-text dark:text-gray-300 text-sm md:text-base leading-relaxed">
               Teduh Kota bertujuan membantu masyarakat menemukan solusi penghijauan yang sesuai dengan kondisi area mereka melalui rekomendasi yang mudah dipahami, sehingga lebih banyak ruang dapat dimanfaatkan menjadi lingkungan yang hijau dan nyaman.
             </p>
           </div>
@@ -263,7 +269,7 @@ export default function AboutPage() {
               className="absolute -top-7 -right-10 md:-right-12 w-8 h-auto pointer-events-none"
             />
             <motion.h2
-              className="font-header text-3xl md:text-4xl font-normal text-brand-dark"
+              className="font-header text-3xl md:text-4xl font-normal text-brand-dark dark:text-white"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
@@ -285,11 +291,11 @@ export default function AboutPage() {
                 key={idx}
                 variants={scaleUpCard}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className="bg-white rounded-3xl p-8 shadow-xs border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-200 relative z-10"
+                className="bg-white dark:bg-card-dark-mode rounded-3xl p-8 shadow-xs border border-gray-100 dark:border-line-dark flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-300 relative z-10"
               >
                 <img src={item.icon} alt={item.title} className="w-20 h-20 object-contain" />
-                <h3 className="font-sans text-lg font-bold text-brand-dark pt-1">{item.title}</h3>
-                <p className="font-sans color-brand-text text-sm md:text-base leading-relaxed">{item.description}</p>
+                <h3 className="font-sans text-lg font-bold text-brand-dark dark:text-white pt-1">{item.title}</h3>
+                <p className="font-sans color-brand-text dark:text-gray-300 text-sm md:text-base leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -297,7 +303,7 @@ export default function AboutPage() {
 
         {/* 6. BANNER CTA */}
         <motion.div
-          className="bg-[#FFEAD8] rounded-3xl p-8 md:p-12 border border-orange-100 flex flex-col md:flex-row items-center justify-start gap-8 md:gap-10 shadow-xs"
+          className="bg-[#FFEAD8] dark:bg-card-dark-mode rounded-3xl p-8 md:p-12 border border-orange-100 dark:border-line-dark flex flex-col md:flex-row items-center justify-start gap-8 md:gap-10 shadow-xs transition-colors duration-300"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -312,10 +318,10 @@ export default function AboutPage() {
           </motion.div>
           <div className="space-y-4 text-center md:text-left flex-1">
             <div className="space-y-1">
-              <h3 className="font-header text-2xl md:text-3xl font-normal text-brand-dark">
+              <h3 className="font-header text-2xl md:text-3xl font-normal text-brand-dark dark:text-white">
                 Siap Menghijaukan Area Kamu?
               </h3>
-              <p className="font-sans color-brand-text text-sm md:text-base">
+              <p className="font-sans color-brand-text dark:text-gray-300 text-sm md:text-base">
                 Mulai analisis untuk mencobanya langsung
               </p>
             </div>

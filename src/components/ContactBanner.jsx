@@ -22,7 +22,7 @@ export default function ContactBanner() {
       viewport={{ once: true, amount: 0.3 }}
       variants={fadeInUp}
     >
-      <div className="bg-brand-peach rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-start gap-8 md:gap-12 relative overflow-hidden z-10">
+      <div className="bg-brand-peach dark:bg-card-dark-mode rounded-3xl p-8 md:p-12 border border-transparent dark:border-line-dark flex flex-col md:flex-row items-center justify-start gap-8 md:gap-12 relative overflow-hidden z-10 transition-colors duration-300">
 
         {/* Left Illustration */}
         <div className="w-36 md:w-44 shrink-0 flex justify-center relative z-10">
@@ -36,10 +36,10 @@ export default function ContactBanner() {
         {/* Text Content */}
         <div className="space-y-4 text-center md:text-left flex-1 relative z-10">
           <div className="space-y-1.5">
-            <h3 className="font-header text-2xl md:text-3xl font-normal text-brand-dark leading-snug">
+            <h3 className="font-header text-2xl md:text-3xl font-normal text-brand-dark dark:text-white leading-snug">
               Masih belum menemukan jawaban?
             </h3>
-            <p className="font-sans text-sm md:text-base text-brand-text">
+            <p className="font-sans text-sm md:text-base text-brand-text dark:text-gray-300">
               Tim kami siap membantu kamu.
             </p>
           </div>

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 // Import Assets
 import ilustrasiSolusiTeduh from '../assets/images/ilustrasi-solusi-teduh.svg';
+import headerIllustrationDark from '../assets/images/ilustrasi-meja-laptop-dark.svg';
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
 import tamanPotImg from '../assets/images/taman-pot.png';
 import vertikalBertrellisImg from '../assets/images/vertikal-bertrellis.svg';
@@ -157,65 +158,55 @@ export default function SolusiPage() {
   ];
 
   return (
-    <div className="bg-brand-bg min-h-screen relative overflow-hidden flex flex-col justify-start pt-20 font-sans">
+    <div className="bg-brand-bg dark:bg-mode-dark min-h-screen pt-28 md:pt-36 pb-0 relative overflow-x-hidden font-sans flex flex-col justify-between transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 space-y-16 md:space-y-24 relative z-10 w-full pb-48 md:pb-72">
 
-      {/* Header Section */}
-      <motion.div 
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-        className="max-w-7xl mx-auto px-8 lg:px-16 w-full relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16 md:mb-24"
-      >
-        {/* Kiri: Teks Header */}
-        <div className="space-y-6 text-center md:text-left">
-          <motion.h1 
-            variants={fadeInUp}
-            className="text-4xl md:text-5xl lg:text-6xl font-header text-brand-dark leading-[1.15] tracking-tight"
-          >
-            Solusi <span className="text-brand-green block md:inline">Teduh Kota</span>
-          </motion.h1>
-          
-          <motion.p 
-            variants={fadeInUp}
-            className="text-brand-text font-sans text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0"
-          >
-            Temukan berbagai pilihan konsep penghijauan cerdas yang sudah disesuaikan dengan kebutuhan dan ukuran area kamu.
-          </motion.p>
-        </div>
-
-        {/* Kanan: Ilustrasi Header */}
+        {/* Header Section */}
         <motion.div 
-          variants={imageVariants}
-          className="relative flex justify-center lg:justify-end items-center mt-8 md:mt-0"
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center pt-2 md:pt-4"
         >
-          <img
-            src={ilustrasiSolusiTeduh}
-            alt="Ilustrasi Solusi Teduh"
-            className="w-full max-w-md lg:max-w-xl object-contain z-10"
-          />
-        </motion.div>
-      </motion.div>
+          {/* Kiri: Teks Header */}
+          <div className="space-y-6 text-center md:text-left">
+            <h1 className="font-header text-4xl md:text-5xl lg:text-6xl font-normal text-brand-dark dark:text-white leading-[1.15] tracking-tight">
+              Solusi <span className="text-brand-green">Teduh Kota</span>
+            </h1>
+            
+            <p className="text-brand-text dark:text-gray-300 font-sans text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+              Temukan berbagai pilihan konsep penghijauan cerdas yang sudah disesuaikan dengan kebutuhan dan ukuran area kamu.
+            </p>
+          </div>
 
-      {/* Slider Cards Section (Geser 2-2) */}
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 w-full relative z-10 pb-48 md:pb-72">
-        <div className="relative px-12 md:px-20">
+          {/* Kanan: Ilustrasi Header */}
+          <div className="w-full flex justify-center lg:justify-end items-center">
+            <img
+              src={ilustrasiSolusiTeduh}
+              alt="Ilustrasi Solusi Teduh Light"
+              className="w-full max-w-md lg:max-w-xl object-contain z-10 dark:hidden"
+            />
+            <img
+              src={headerIllustrationDark}
+              alt="Ilustrasi Solusi Teduh Dark"
+              className="w-full max-w-md lg:max-w-xl object-contain z-10 hidden dark:block"
+            />
+          </div>
+        </motion.div>
+
+        {/* Slider Cards Section (Geser 2-2) */}
+        <div className="relative">
 
           {/* Tombol Kiri */}
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+          <button
             onClick={scrollLeft}
-            className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-brand-dark hover:bg-brand-orange text-white rounded-full flex items-center justify-center transition shadow-md cursor-pointer"
+            className="absolute -left-3 md:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-white dark:bg-card-dark-mode text-brand-dark dark:text-white hover:bg-brand-orange dark:hover:bg-brand-orange hover:text-white rounded-full flex items-center justify-center transition shadow-md border border-gray-200 dark:border-line-dark cursor-pointer"
           >
             ❮
-          </motion.button>
+          </button>
 
           {/* Container Scroll */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={containerVariants}
+          <div
             ref={sliderRef}
             className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 pt-4 w-full"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -230,9 +221,8 @@ export default function SolusiPage() {
             {solutions.map((item, idx) => (
               <motion.div
                 key={idx}
-                variants={cardVariants}
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                className="w-full md:w-[calc(50%-0.75rem)] flex-none snap-start bg-white rounded-3xl p-4 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-brand-gray/30 flex flex-col h-full"
+                className="w-full md:w-[calc(50%-0.75rem)] flex-none snap-start bg-white dark:bg-card-dark-mode rounded-3xl p-5 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-brand-gray/30 dark:border-line-dark flex flex-col h-full transition-colors duration-300"
               >
                 {/* Image & Badge */}
                 <div className="relative rounded-2xl overflow-hidden h-48 md:h-52 mb-5">
@@ -246,15 +236,15 @@ export default function SolusiPage() {
                 {/* Content */}
                 <div className="flex flex-col grow px-1 pb-1">
                   <div className="mb-3">
-                    <h3 className="font-header text-2xl text-[#4A4A4A] bg-[#F2FBE9] inline-block px-2 py-0.5 mb-1 rounded-md">
+                    <h3 className="font-header text-2xl text-[#4A4A4A] dark:text-white bg-[#F2FBE9] dark:bg-transparent inline-block px-2 py-0.5 mb-1 rounded-md">
                       {item.title}
                     </h3>
-                    <p className="font-sans font-extrabold text-[#4A4A4A] text-sm md:text-base tracking-wide">
+                    <p className="font-sans font-extrabold text-[#4A4A4A] dark:text-gray-300 text-sm md:text-base tracking-wide">
                       {item.subtitle}
                     </p>
                   </div>
 
-                  <p className="font-sans text-brand-dark/70 text-sm md:text-base leading-relaxed mb-6 grow font-medium">
+                  <p className="font-sans text-brand-dark/70 dark:text-gray-300 text-sm md:text-base leading-relaxed mb-6 grow font-medium">
                     {item.description}
                   </p>
 
@@ -267,7 +257,7 @@ export default function SolusiPage() {
                     <motion.div 
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full py-3 rounded-xl border border-brand-orange text-brand-orange bg-white font-sans font-bold text-sm hover:bg-brand-orange hover:text-white transition-all flex items-center justify-center gap-2 mt-auto cursor-pointer"
+                      className="w-full py-3 rounded-xl border border-brand-orange text-brand-orange bg-white dark:bg-card-dark-mode font-sans font-bold text-sm hover:bg-brand-orange hover:text-white transition-all flex items-center justify-center gap-2 mt-auto cursor-pointer"
                     >
                       Lihat Detail <span className="text-lg font-normal leading-none">&rarr;</span>
                     </motion.div>
@@ -275,18 +265,17 @@ export default function SolusiPage() {
                 </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Tombol Kanan */}
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+          <button
             onClick={scrollRight}
-            className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-brand-dark hover:bg-brand-orange text-white rounded-full flex items-center justify-center transition shadow-md cursor-pointer"
+            className="absolute -right-3 md:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-white dark:bg-card-dark-mode text-brand-dark dark:text-white hover:bg-brand-orange dark:hover:bg-brand-orange hover:text-white rounded-full flex items-center justify-center transition shadow-md border border-gray-200 dark:border-line-dark cursor-pointer"
           >
             ❯
-          </motion.button>
+          </button>
         </div>
+
       </div>
 
       {/* Background Ilustrasi Rumput Bawah */}

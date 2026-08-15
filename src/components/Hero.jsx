@@ -15,7 +15,7 @@ const fadeInUp = {
 
 export default function Hero() {
   return (
-    <section className="relative pt-12 pb-8 overflow-hidden bg-brand-bg">
+    <section className="relative pt-12 pb-8 overflow-hidden bg-brand-bg dark:bg-mode-dark transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-8 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10 relative">
         <motion.div 
           className="space-y-8"
@@ -23,18 +23,18 @@ export default function Hero() {
           animate="visible"
           variants={fadeInUp}
         >
-          <h1 className="font-header text-4xl md:text-5xl lg:text-6xl font-normal text-brand-dark leading-[1.15] tracking-tight">
+          <h1 className="font-header text-4xl md:text-5xl lg:text-6xl font-normal text-brand-dark dark:text-white leading-[1.15] tracking-tight">
             Temukan Solusi <br />
             untuk <span className="text-brand-green font-normal">Ruang Hijau</span>
           </h1>
-          <p className="font-sans text-brand-text text-base md:text-lg leading-relaxed max-w-xl">
+          <p className="font-sans text-brand-text dark:text-gray-300 text-base md:text-lg leading-relaxed max-w-xl">
             Temukan rekomendasi penghijauan berdasarkan kondisi area di sekitarmu melalui sistem rekomendasi yang sederhana dan mudah digunakan.
           </p>
           <div className="flex flex-wrap gap-5 pt-2">
             <Link to="/cek-kondisi-form" className="font-sans bg-brand-orange hover:bg-[#e87f2e] text-white px-8 py-4 rounded-2xl font-medium text-base transition shadow-xs flex items-center gap-3">
               Mulai Analisis <span>&rarr;</span>
             </Link>
-            <Link to="/solusi-teduh" className="font-sans bg-white border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-8 py-4 rounded-2xl font-medium text-base transition">
+            <Link to="/solusi-teduh" className="font-sans bg-white dark:bg-card-dark-mode border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-8 py-4 rounded-2xl font-medium text-base transition">
               Lihat lebih lanjut
             </Link>
           </div>

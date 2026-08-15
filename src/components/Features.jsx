@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import iconSolusi from '../assets/images/icon-solusi.svg';
 import iconMudah from '../assets/images/icon-mudah.svg';
 import iconDampak from '../assets/images/icon-dampak.svg';
@@ -49,7 +50,7 @@ export default function Features() {
   ];
 
   return (
-    <div className="bg-brand-bg py-16 md:py-24 px-6 space-y-28 md:space-y-36 relative overflow-hidden">
+    <div className="bg-brand-bg dark:bg-mode-dark py-16 md:py-24 px-6 space-y-28 md:space-y-36 relative overflow-hidden transition-colors duration-300">
       {/* Polkadot Decoration Top Right Flush on Screen Right Edge */}
       <img 
         src={polkadotImg} 
@@ -75,10 +76,10 @@ export default function Features() {
             className="absolute -bottom-4 -right-6 md:-right-10 w-8 md:w-10 pointer-events-none scale-x-[-1]" 
           />
 
-          <h2 className="font-header text-3xl md:text-4xl font-normal text-brand-dark">
+          <h2 className="font-header text-3xl md:text-4xl font-normal text-brand-dark dark:text-white">
             Mengapa <span className="text-brand-green font-normal">Teduh Kota?</span>
           </h2>
-          <p className="font-sans text-brand-text text-sm md:text-base">
+          <p className="font-sans text-brand-text dark:text-gray-300 text-sm md:text-base">
             Teduh Kota hadir untuk membantu kamu menemukan solusi penghijauan yang tepat, cepat dan mudah.
           </p>
         </div>
@@ -96,13 +97,16 @@ export default function Features() {
                 />
               )}
 
-              <div className="bg-white rounded-3xl p-8 shadow-card border border-gray-100 flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-200 relative z-10 h-full">
+              <motion.div 
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                className="bg-white dark:bg-card-dark-mode rounded-3xl p-8 shadow-card border border-gray-100 dark:border-line-dark flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-300 relative z-10 h-full"
+              >
                 <img src={item.icon} alt={item.title} className="w-20 h-20 object-contain" />
-                <h3 className="font-sans text-lg font-extrabold text-brand-dark">{item.title}</h3>
-                <p className="font-sans text-brand-text text-sm md:text-base leading-relaxed">
+                <h3 className="font-sans text-lg font-extrabold text-brand-dark dark:text-white">{item.title}</h3>
+                <p className="font-sans text-brand-text dark:text-gray-300 text-sm md:text-base leading-relaxed">
                   {item.description}
                 </p>
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>
@@ -126,10 +130,10 @@ export default function Features() {
             className="absolute -bottom-4 -left-4 md:-left-10 w-8 md:w-9 pointer-events-none scale-x-[-1]" 
           />
 
-          <h2 className="font-header text-3xl md:text-4xl font-normal text-brand-dark">
+          <h2 className="font-header text-3xl md:text-4xl font-normal text-brand-dark dark:text-white">
             Cara Kerja <span className="text-brand-green font-normal">Teduh Kota?</span>
           </h2>
-          <p className="font-sans text-brand-text text-sm md:text-base">
+          <p className="font-sans text-brand-text dark:text-gray-300 text-sm md:text-base">
             Ikuti tiga langkah mudah untuk mendapatkan rekomendasi penghijauan yang sesuai dengan kebutuhanmu.
           </p>
         </div>
@@ -140,7 +144,10 @@ export default function Features() {
             <div key={index} className="flex flex-col items-center relative">
 
               {/* Main Step Card */}
-              <div className="bg-white rounded-3xl p-8 shadow-card border border-gray-100 w-full flex flex-col items-center justify-between min-h-[460px] text-center hover:shadow-md transition duration-200">
+              <motion.div 
+                whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                className="bg-white dark:bg-card-dark-mode rounded-3xl p-8 shadow-card border border-gray-100 dark:border-line-dark w-full flex flex-col items-center justify-between min-h-[460px] text-center hover:shadow-md transition duration-300"
+              >
 
                 <div className="flex flex-col items-center w-full">
                   {/* Step Number Badge */}
@@ -148,18 +155,18 @@ export default function Features() {
                     {item.step}
                   </span>
 
-                  <h3 className="font-sans text-xl font-bold text-brand-dark mb-3">{item.title}</h3>
-                  <p className="font-sans text-brand-text text-sm md:text-base leading-relaxed mb-6">
+                  <h3 className="font-sans text-xl font-bold text-brand-dark dark:text-white mb-3">{item.title}</h3>
+                  <p className="font-sans text-brand-text dark:text-gray-300 text-sm md:text-base leading-relaxed mb-6">
                     {item.description}
                   </p>
                 </div>
 
                 {/* Card Mockup Graphic Container */}
-                <div className="w-full bg-brand-peach rounded-2xl p-4 flex items-center justify-center">
+                <div className="w-full bg-brand-peach dark:bg-mode-dark/60 rounded-2xl p-4 flex items-center justify-center">
                   <img src={item.image} alt={item.title} className="w-full h-auto max-h-44 object-contain" />
                 </div>
 
-              </div>
+              </motion.div>
 
               {/* Arrow Connector for Desktop (Hidden on last item) */}
               {index < stepsData.length - 1 && (

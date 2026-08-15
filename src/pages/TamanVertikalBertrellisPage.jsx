@@ -64,7 +64,7 @@ const floatPolkadot = {
 
 export default function TamanVertikalBertrellisPage() {
   return (
-    <div className="relative overflow-hidden min-h-screen font-sans">
+    <div className="relative overflow-hidden min-h-screen bg-brand-bg dark:bg-mode-dark font-sans transition-colors duration-300">
       {/* Background Polkadots dengan Efek Floating */}
       <img src={polkadotImg} 
         alt="" 
@@ -100,7 +100,7 @@ export default function TamanVertikalBertrellisPage() {
             variants={fadeInUp}
             className="text-4xl md:text-5xl font-header text-center mb-10"
           >
-            <span className="text-brand-dark">Taman Vertikal</span> <span className="text-brand-green">Bertrellis</span>
+            <span className="text-brand-dark dark:text-white">Taman Vertikal</span> <span className="text-brand-green">Bertrellis</span>
           </motion.h1>
 
           {/* Main Hero Banner */}
@@ -127,16 +127,16 @@ export default function TamanVertikalBertrellisPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromLeft}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusPot} alt="Apa itu?" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Apa</span> <span className="text-brand-green">itu?</span>
+                  <span className="text-brand-dark dark:text-white">Apa</span> <span className="text-brand-green">itu?</span>
                 </h2>
-                <p className="text-brand-dark/80 text-sm md:text-base leading-relaxed font-medium">
+                <p className="text-brand-dark/80 dark:text-gray-300 text-sm md:text-base leading-relaxed font-medium">
                   Penghijauan yang mengarahkan tanaman tumbuh pada trellis, pagar, pergola, atau rangka vertikal. Sistem ini berbeda dari living wall otomatis karena konstruksinya lebih sederhana dan biasanya menggunakan tanaman rambat atau pot yang disusun vertikal. Bentuk penghijauan menggunakan tanaman rambat pada trellis dan pergola merupakan salah satu jenis vertical greenery yang telah digunakan secara nyata.
                 </p>
               </div>
@@ -149,16 +149,16 @@ export default function TamanVertikalBertrellisPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromRight}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row-reverse items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusCheck} alt="Cocok untuk" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Cocok</span> <span className="text-brand-green">untuk</span>
+                  <span className="text-brand-dark dark:text-white">Cocok</span> <span className="text-brand-green">untuk</span>
                 </h2>
-                <ul className="list-disc pl-5 text-brand-dark/80 text-sm md:text-base space-y-2 font-medium">
+                <ul className="list-disc pl-5 text-brand-dark/80 dark:text-gray-300 text-sm md:text-base space-y-2 font-medium">
                   <li>Dinding atau pagar kosong.</li>
                   <li>Balkon, teras, dan lorong sempit.</li>
                   <li>Area dengan ruang lantai terbatas.</li>
@@ -174,16 +174,16 @@ export default function TamanVertikalBertrellisPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromLeft}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusStar} alt="Manfaat utama" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Manfaat</span> <span className="text-brand-green">utama</span>
+                  <span className="text-brand-dark dark:text-white">Manfaat</span> <span className="text-brand-green">utama</span>
                 </h2>
-                <ul className="list-disc pl-5 text-brand-dark/80 text-sm md:text-base space-y-2 font-medium">
+                <ul className="list-disc pl-5 text-brand-dark/80 dark:text-gray-300 text-sm md:text-base space-y-2 font-medium">
                   <li>Menghemat penggunaan ruang lantai.</li>
                   <li>Menambah vegetasi pada bidang vertikal.</li>
                   <li>Membantu memberi naungan pada dinding atau pagar.</li>
@@ -198,16 +198,16 @@ export default function TamanVertikalBertrellisPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromRight}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row-reverse items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusMenu} alt="Cara menerapkan" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Cara</span> <span className="text-brand-green">menerapkan</span>
+                  <span className="text-brand-dark dark:text-white">Cara</span> <span className="text-brand-green">menerapkan</span>
                 </h2>
-                <ol className="list-decimal pl-5 text-brand-dark/80 text-sm md:text-base space-y-2 font-medium">
+                <ol className="list-decimal pl-5 text-brand-dark/80 dark:text-gray-300 text-sm md:text-base space-y-2 font-medium">
                   <li>Tentukan bidang vertikal yang akan digunakan.</li>
                   <li>Pasang trellis atau rangka yang kokoh.</li>
                   <li>Sediakan pot, media tanam, dan drainase.</li>
@@ -224,16 +224,16 @@ export default function TamanVertikalBertrellisPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row items-center gap-8 justify-between"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8 justify-between"
             >
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-4">
                   <img src={perhatikanIcon} alt="Perhatikan" className="w-10 md:w-12 h-auto" />
-                  <h3 className="text-xl md:text-2xl font-header font-normal text-brand-dark">
+                  <h3 className="text-xl md:text-2xl font-header font-normal text-brand-dark dark:text-white">
                     Perhatikan
                   </h3>
                 </div>
-                <p className="text-brand-dark/80 text-sm md:text-base leading-relaxed font-medium">
+                <p className="text-brand-dark/80 dark:text-gray-300 text-sm md:text-base leading-relaxed font-medium">
                   Gunakan rangka berdiri sendiri apabila kekuatan dinding belum diketahui. Hindari sistem yang membuat dinding terus-menerus lembap.
                 </p>
               </div>
@@ -253,7 +253,7 @@ export default function TamanVertikalBertrellisPage() {
             className="mt-20 md:mt-28 pb-8 relative z-20"
           >
             <h2 className="text-3xl md:text-4xl font-header text-center mb-12">
-              <span className="text-brand-dark">Contoh Penerapan</span> <span className="text-brand-green">Taman Vertikal Bertrellis</span>
+              <span className="text-brand-dark dark:text-white">Contoh Penerapan</span> <span className="text-brand-green">Taman Vertikal Bertrellis</span>
             </h2>
             <div className="relative max-w-4xl mx-auto">
               <img src={circleStarImg} 

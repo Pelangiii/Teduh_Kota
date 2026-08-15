@@ -46,7 +46,7 @@ const floatingAnimation = {
 
 export default function CekKondisiPage() {
   return (
-    <div className="bg-brand-bg min-h-screen relative overflow-hidden flex flex-col justify-center pt-20 font-sans">
+    <div className="bg-brand-bg dark:bg-mode-dark min-h-screen relative overflow-hidden flex flex-col justify-center pt-20 font-sans transition-colors duration-300">
 
       {/* Konten Utama */}
       <div className="max-w-7xl mx-auto px-8 lg:px-16 w-full relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center pb-40 md:pb-56">
@@ -62,13 +62,13 @@ export default function CekKondisiPage() {
             variants={fadeInUp}
             className="text-3xl md:text-4xl lg:text-5xl font-header leading-[1.15] tracking-tight"
           >
-            <span className="text-brand-dark block mb-2">Jawab Pertanyaan, dan</span>
+            <span className="text-brand-dark dark:text-white block mb-2">Jawab Pertanyaan, dan</span>
             <span className="text-brand-green block">Dapatkan Solusi</span>
           </motion.h1>
 
           <motion.p
             variants={fadeInUp}
-            className="text-brand-text font-sans text-base md:text-lg leading-relaxed max-w-xl"
+            className="text-brand-text dark:text-gray-300 font-sans text-base md:text-lg leading-relaxed max-w-xl"
           >
             Lengkapkan informasi mengenai area yang kamu ingin hijaukan, jawabanmu akan membantu kami untuk memberikan hasil yang sesuai.
           </motion.p>

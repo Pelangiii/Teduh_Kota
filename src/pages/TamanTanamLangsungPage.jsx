@@ -64,7 +64,7 @@ const floatPolkadot = {
 
 export default function TamanTanamLangsungPage() {
   return (
-    <div className="relative overflow-hidden min-h-screen font-sans">
+    <div className="relative overflow-hidden min-h-screen bg-brand-bg dark:bg-mode-dark font-sans transition-colors duration-300">
       {/* Background Polkadots dengan Efek Floating */}
       <img src={polkadotImg} 
         alt="" 
@@ -100,7 +100,7 @@ export default function TamanTanamLangsungPage() {
             variants={fadeInUp}
             className="text-4xl md:text-5xl font-header text-center mb-10"
           >
-            <span className="text-brand-dark">Taman Tanam</span> <span className="text-brand-green">Langsung</span>
+            <span className="text-brand-dark dark:text-white">Taman Tanam</span> <span className="text-brand-green">Langsung</span>
           </motion.h1>
 
           {/* Main Hero Banner */}
@@ -127,16 +127,16 @@ export default function TamanTanamLangsungPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromLeft}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusPot} alt="Apa itu?" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Apa</span> <span className="text-brand-green">itu?</span>
+                  <span className="text-brand-dark dark:text-white">Apa</span> <span className="text-brand-green">itu?</span>
                 </h2>
-                <p className="text-brand-dark/80 text-sm md:text-base leading-relaxed font-medium">
+                <p className="text-brand-dark/80 dark:text-gray-300 text-sm md:text-base leading-relaxed font-medium">
                   Penghijauan dengan menanam tanaman langsung pada tanah asli. Bentuknya dapat berupa taman bunga, tanaman penutup tanah, semak, tanaman herbal, atau kombinasi beberapa lapisan vegetasi. Pemanfaatan kebun atau halaman yang ditanami tumbuhan termasuk bentuk ruang terbuka hijau privat.
                 </p>
               </div>
@@ -149,16 +149,16 @@ export default function TamanTanamLangsungPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromRight}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row-reverse items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusCheck} alt="Cocok untuk" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Cocok</span> <span className="text-brand-green">untuk</span>
+                  <span className="text-brand-dark dark:text-white">Cocok</span> <span className="text-brand-green">untuk</span>
                 </h2>
-                <ul className="list-disc pl-5 text-brand-dark/80 text-sm md:text-base space-y-2 font-medium">
+                <ul className="list-disc pl-5 text-brand-dark/80 dark:text-gray-300 text-sm md:text-base space-y-2 font-medium">
                   <li>Halaman yang mempunyai tanah terbuka.</li>
                   <li>Area yang boleh diubah secara permanen.</li>
                   <li>Pengguna yang ingin menanam vegetasi beragam.</li>
@@ -174,16 +174,16 @@ export default function TamanTanamLangsungPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromLeft}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusStar} alt="Manfaat utama" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Manfaat</span> <span className="text-brand-green">utama</span>
+                  <span className="text-brand-dark dark:text-white">Manfaat</span> <span className="text-brand-green">utama</span>
                 </h2>
-                <ul className="list-disc pl-5 text-brand-dark/80 text-sm md:text-base space-y-2 font-medium">
+                <ul className="list-disc pl-5 text-brand-dark/80 dark:text-gray-300 text-sm md:text-base space-y-2 font-medium">
                   <li>Pilihan jenis dan ukuran tanaman lebih beragam.</li>
                   <li>Tidak membutuhkan banyak wadah tambahan.</li>
                   <li>Dapat membantu mempertahankan permukaan yang lebih alami dan mudah meresapkan air.</li>
@@ -198,16 +198,16 @@ export default function TamanTanamLangsungPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromRight}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row-reverse items-center gap-8"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
             >
               <div className="flex-shrink-0">
                 <img src={ilusMenu} alt="Cara menerapkan" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
                 <h2 className="text-2xl md:text-3xl font-header mb-4">
-                  <span className="text-brand-dark">Cara</span> <span className="text-brand-green">menerapkan</span>
+                  <span className="text-brand-dark dark:text-white">Cara</span> <span className="text-brand-green">menerapkan</span>
                 </h2>
-                <ol className="list-decimal pl-5 text-brand-dark/80 text-sm md:text-base space-y-2 font-medium">
+                <ol className="list-decimal pl-5 text-brand-dark/80 dark:text-gray-300 text-sm md:text-base space-y-2 font-medium">
                   <li>Bersihkan area dari sampah dan gulma berlebihan.</li>
                   <li>Periksa kondisi tanah serta aliran air.</li>
                   <li>Tentukan susunan dan jarak tanaman.</li>
@@ -224,16 +224,16 @@ export default function TamanTanamLangsungPage() {
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] flex flex-col md:flex-row items-center gap-8 justify-between"
+              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8 justify-between"
             >
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-4">
                   <img src={perhatikanIcon} alt="Perhatikan" className="w-10 md:w-12 h-auto" />
-                  <h3 className="text-xl md:text-2xl font-header font-normal text-brand-dark">
+                  <h3 className="text-xl md:text-2xl font-header font-normal text-brand-dark dark:text-white">
                     Perhatikan
                   </h3>
                 </div>
-                <p className="text-brand-dark/80 text-sm md:text-base leading-relaxed font-medium">
+                <p className="text-brand-dark/80 dark:text-gray-300 text-sm md:text-base leading-relaxed font-medium">
                   Hindari memilih tanaman hanya berdasarkan tampilannya. Pertimbangkan kebutuhan cahaya, air, kondisi tanah, dan ukurannya ketika dewasa.
                 </p>
               </div>
@@ -253,7 +253,7 @@ export default function TamanTanamLangsungPage() {
             className="mt-20 md:mt-28 pb-8 relative z-20"
           >
             <h2 className="text-3xl md:text-4xl font-header text-center mb-12">
-              <span className="text-brand-dark">Contoh Penerapan</span> <span className="text-brand-green">Taman Tanam Langsung</span>
+              <span className="text-brand-dark dark:text-white">Contoh Penerapan</span> <span className="text-brand-green">Taman Tanam Langsung</span>
             </h2>
             <div className="relative max-w-4xl mx-auto">
               <img src={circleStarImg} 

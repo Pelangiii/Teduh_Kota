@@ -37,7 +37,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-brand-bg min-h-screen pt-28 md:pt-36 pb-0 overflow-x-hidden font-sans relative flex flex-col justify-between">
+    <div className="bg-brand-bg dark:bg-mode-dark min-h-screen pt-28 md:pt-36 pb-0 overflow-x-hidden font-sans relative flex flex-col justify-between transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-8 lg:px-16 space-y-12 md:space-y-16 relative w-full">
 
         {/* Polkadot 1: Pojok Kanan Atas (Cut in half on edge) */}
@@ -113,7 +113,7 @@ export default function ContactPage() {
           >
             {/* Form Kirim Pesan */}
             <div className="md:col-span-7 space-y-6">
-              <h2 className="font-header text-3xl md:text-4xl font-normal text-brand-dark">
+              <h2 className="font-header text-3xl md:text-4xl font-normal text-brand-dark dark:text-white">
                 Kirim Pesan
               </h2>
 
@@ -129,7 +129,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Masukkan nama mu"
                     required
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-line-dark text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans"
+                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-line-dark text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition bg-white dark:bg-mode-dark text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 font-sans"
                   />
                 </div>
 
@@ -144,7 +144,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Masukkan email aktif mu"
                     required
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-line-dark text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans"
+                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-line-dark text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition bg-white dark:bg-mode-dark text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 font-sans"
                   />
                 </div>
 
@@ -159,7 +159,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Tulis pesan yang ingin kamu sampaikan"
                     required
-                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-line-dark text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition resize-none bg-white dark:bg-card-dark-mode text-gray-900 dark:text-line-dark placeholder-gray-400 dark:placeholder-gray-500 font-sans"
+                    className="w-full px-4 py-3 rounded-2xl border border-gray-200 dark:border-line-dark text-sm focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition resize-none bg-white dark:bg-mode-dark text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-400 font-sans"
                   ></textarea>
                 </div>
 
@@ -183,26 +183,26 @@ export default function ContactPage() {
                 <span className="text-brand-green"> membantu!</span>
               </h3>
 
-              <div className="space-y-3 text-sm text-gray-600 dark:text-gray-400 font-sans">
+              <div className="space-y-3 text-sm text-gray-600 dark:text-gray-300 font-sans">
                 <div>
                   <p className="font-bold text-gray-800 dark:text-gray-200">Email</p>
-                  <p className="text-gray-500 dark:text-gray-400">hai@teduhkota.id</p>
+                  <p className="text-gray-500 dark:text-gray-300">hai@teduhkota.id</p>
                 </div>
 
                 <div>
                   <p className="font-bold text-gray-800 dark:text-gray-200">Number</p>
-                  <p className="text-gray-500 dark:text-gray-400">0811-0018-3210</p>
+                  <p className="text-gray-500 dark:text-gray-300">0811-0018-3210</p>
                 </div>
 
                 <div>
                   <p className="font-bold text-gray-800 dark:text-gray-200">Lokasi</p>
-                  <p className="text-gray-500 dark:text-gray-400">Jakarta, Indonesia</p>
+                  <p className="text-gray-500 dark:text-gray-300">Jakarta, Indonesia</p>
                 </div>
               </div>
 
               {/* Container Embedded Google Maps */}
               <motion.div
-                className="w-full h-48 md:h-52 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-xs dark:brightness-90"
+                className="w-full h-48 md:h-52 rounded-2xl overflow-hidden border border-gray-100 dark:border-line-dark shadow-xs bg-white dark:bg-mode-dark"
               >
                 <iframe
                   title="Peta Lokasi Teduh Kota"
