@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react';
 
 export default function useDarkMode() {
   const [isDark, setIsDark] = useState(() => {
-    // Cek tema yang pernah disimpan user, atau ikuti preferensi OS laptop
+    // Cek tema yang pernah disimpan user, jika belum ada default ke Light Mode
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       return savedTheme === 'dark';
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return false;
   });
 
   useEffect(() => {
