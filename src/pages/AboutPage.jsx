@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 // gambar ilustrasi utama
-import heroMejaImg from '../assets/images/ilustrasi-meja-laptop.svg';
 import tanamanLoveImg from '../assets/images/tanaman-love.svg';
 import tanamanTanyaImg from '../assets/images/tanaman-tanya.svg';
 import ilustrasiTujuan from '../assets/images/ilustrasi-tujuan.svg';
 import ilustrasiSolusiTeduh from '../assets/images/ilustrasi-solusi-teduh.svg';
-import headerIllustrationDark from '../assets/images/ilustrasi-meja-laptop-dark.svg';
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
 import polkadotImg from '../assets/images/polkadot.svg';
 import circleStarImg from '../assets/images/circle-star.svg';
@@ -117,7 +115,9 @@ export default function AboutPage() {
 
   return (
     <div className="bg-brand-bg dark:bg-mode-dark min-h-screen pt-24 md:pt-32 pb-0 relative overflow-hidden font-sans flex flex-col justify-between transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-8 lg:px-16 space-y-36 md:space-y-48 relative z-10 w-full">
+      
+      {/* Tambahkan pb-24 md:pb-36 di bawah ini untuk memberi jarak CTA ke rumput */}
+      <div className="max-w-7xl mx-auto px-8 lg:px-16 space-y-36 md:space-y-48 relative z-10 w-full pb-24 md:pb-36">
 
         {/* 1. hero section */}
         <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center pt-8 md:pt-12">
@@ -131,8 +131,7 @@ export default function AboutPage() {
             <motion.img
               src={ilustrasiSolusiTeduh}
               alt="Ilustrasi Solusi Teduh"
-              className="w-full max-w-md lg:max-w-xl object-contain z-10"
-            />
+              className="w-full max-w-md lg:max-w-xl object-contain z-10"/>
           </motion.div>
 
           <motion.div
@@ -186,8 +185,7 @@ export default function AboutPage() {
             <img
               src={circleStarImg}
               alt=""
-              className="absolute -top-8 -left-10 md:-left-12 w-8 h-auto pointer-events-none"    
-              />
+              className="absolute -top-8 -left-10 md:-left-12 w-8 h-auto pointer-events-none"    />
             <motion.h2
               className="font-header text-3xl md:text-4xl font-normal text-brand-dark dark:text-white"
               initial="hidden"
@@ -235,7 +233,6 @@ export default function AboutPage() {
             </p>
           </div>
           <motion.div className="w-44 md:w-56 shrink-0 flex justify-center items-center relative" >
-            {/* Gambar bintang berdiri sendiri dihapus agar tidak double dengan gambar bawaan */}
             <img
               src={ilustrasiTujuan}
               alt="Ilustrasi Tujuan Penghijauan"
