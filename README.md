@@ -24,3 +24,4 @@ Frontend: React.js (Vite) & React Router DOM
 Styling & Animasi: Tailwind CSS & Framer Motion
 
 ## Tautan / Link Deploy Website
+https://teduh-kota.vercel.app/beranda
