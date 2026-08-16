@@ -602,7 +602,7 @@ export default function CekKondisiFormPage() {
                         <div className="flex items-center gap-4 pt-4 flex-wrap">
                           <Link
                             to={`/solusi-teduh/${recommendationResult.primary.link}`}
-                            className="bg-brand-orange hover:bg-amber-700 text-white px-6 py-3 rounded-xl text-sm font-medium transition shadow-xs">
+                            className="bg-brand-orange hover:bg-[#e87f2e] text-white px-6 py-3 rounded-xl text-sm font-medium transition shadow-xs">
                             Lihat Solusi Ini →
                           </Link>
                         </div>
