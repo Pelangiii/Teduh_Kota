@@ -35,7 +35,7 @@ export default function Hero() {
           <img
             src={darkHeroImg}
             alt="Sebelum dan Sesudah Ruang Hijau Dark"
-            className="w-full max-w-sm sm:max-w-md lg:max-w-xl object-contain hidden" />
+            className="w-full max-w-sm sm:max-w-md lg:max-w-xl object-contain hidden dark:block" />
         </motion.div>
 
         {/* teks hero */}

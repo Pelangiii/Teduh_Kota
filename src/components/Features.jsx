@@ -113,7 +113,7 @@ export default function Features() {
                 <img
                   src={item.iconDark}
                   alt={item.title}
-                  className="w-20 h-20 object-contain hidden" />
+                  className="w-20 h-20 object-contain hidden dark:block" />
 
                 <h3 className="font-sans text-lg font-extrabold text-brand-dark dark:text-white">{item.title}</h3>
                 <p className="font-sans text-brand-text dark:text-gray-300 text-sm md:text-base leading-relaxed">
@@ -167,7 +167,7 @@ export default function Features() {
                 </div>
 
                 {/* card */}
-                <div className="w-full bg-brand-peach dark:bg-transparent rounded-2xl p-4 dark:p-0 flex items-center justify-center transition-colors">
+                <div className="w-full flex items-center justify-center transition-colors">
                   {/* gambar light mode */}
                   <img
                     src={item.image}
@@ -178,7 +178,7 @@ export default function Features() {
                   <img
                     src={item.imageDark}
                     alt={item.title}
-                    className="w-full h-auto max-h-44 object-contain hidden" />
+                    className="w-full h-auto max-h-44 object-contain hidden dark:block" />
                 </div>
 
               </motion.div>

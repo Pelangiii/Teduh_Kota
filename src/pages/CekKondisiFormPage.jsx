@@ -815,13 +815,13 @@ export default function CekKondisiFormPage() {
 
       <AnimatePresence>
         {showExitModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs">
-            <motion.div variants={modalTransition} initial="hidden" animate="visible" exit="exit" className="bg-white rounded-3xl p-6 max-w-sm w-full text-center space-y-4 shadow-xl">
-              <h3 className="font-header text-xl text-brand-dark">Keluar dari Pengisian?</h3>
-              <p className="text-xs text-brand-dark/70">Progres pengisian formulir saat ini tidak akan tersimpan.</p>
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
+            <motion.div variants={modalTransition} initial="hidden" animate="visible" exit="exit" className="bg-white dark:bg-card-dark-mode border border-gray-100 dark:border-line-dark rounded-3xl p-6 max-w-sm w-full text-center space-y-4 shadow-xl">
+              <h3 className="font-header text-xl text-brand-dark dark:text-white">Keluar dari Pengisian?</h3>
+              <p className="text-xs text-brand-dark/70 dark:text-gray-300">Progres pengisian formulir saat ini tidak akan tersimpan.</p>
               <div className="flex gap-3 justify-center pt-2">
-                <button onClick={() => setShowExitModal(false)} className="flex-1 py-2.5 rounded-full border border-brand-gray/40 font-bold text-xs text-brand-dark">Batal</button>
-                <button onClick={() => navigate('/solusi-teduh')} className="flex-1 py-2.5 rounded-full bg-brand-orange text-white font-bold text-xs">Ya, Keluar</button>
+                <button onClick={() => setShowExitModal(false)} className="flex-1 py-2.5 rounded-full border border-gray-300 dark:border-line-dark font-bold text-xs text-brand-dark dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition cursor-pointer">Batal</button>
+                <button onClick={() => navigate('/solusi-teduh')} className="flex-1 py-2.5 rounded-full bg-brand-orange hover:bg-[#e87f2e] text-white font-bold text-xs transition cursor-pointer">Ya, Keluar</button>
               </div>
             </motion.div>
           </div>
@@ -831,13 +831,13 @@ export default function CekKondisiFormPage() {
 
       <AnimatePresence>
         {showResetModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs">
-            <motion.div variants={modalTransition} initial="hidden" animate="visible" exit="exit" className="bg-white rounded-3xl p-6 max-w-sm w-full text-center space-y-4 shadow-xl">
-              <h3 className="font-header text-xl text-brand-dark">Mulai Ulang Formulir?</h3>
-              <p className="text-xs text-brand-dark/70">Seluruh data jawaban dan hasil rekomendasi saat ini akan dihapus.</p>
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
+            <motion.div variants={modalTransition} initial="hidden" animate="visible" exit="exit" className="bg-white dark:bg-card-dark-mode border border-gray-100 dark:border-line-dark rounded-3xl p-6 max-w-sm w-full text-center space-y-4 shadow-xl">
+              <h3 className="font-header text-xl text-brand-dark dark:text-white">Mulai Ulang Formulir?</h3>
+              <p className="text-xs text-brand-dark/70 dark:text-gray-300">Seluruh data jawaban dan hasil rekomendasi saat ini akan dihapus.</p>
               <div className="flex gap-3 justify-center pt-2">
-                <button onClick={() => setShowResetModal(false)} className="flex-1 py-2.5 rounded-full border border-brand-gray/40 font-bold text-xs text-brand-dark">Batal</button>
-                <button onClick={handleReset} className="flex-1 py-2.5 rounded-full bg-brand-green text-white font-bold text-xs">Mulai Ulang</button>
+                <button onClick={() => setShowResetModal(false)} className="flex-1 py-2.5 rounded-full border border-gray-300 dark:border-line-dark font-bold text-xs text-brand-dark dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition cursor-pointer">Batal</button>
+                <button onClick={handleReset} className="flex-1 py-2.5 rounded-full bg-brand-green text-white font-bold text-xs transition cursor-pointer">Mulai Ulang</button>
               </div>
             </motion.div>
           </div>

@@ -278,13 +278,13 @@ export default function ContactPage() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white rounded-[28px] p-8 max-w-md w-full text-center shadow-xl relative z-10 space-y-4 dark:bg-mode-dark">
+              className="bg-white dark:bg-card-dark-mode border border-gray-100 dark:border-line-dark rounded-[28px] p-8 max-w-md w-full text-center shadow-xl relative z-10 space-y-4">
               <h3 className="text-2xl font-bold text-gray-900 leading-snug dark:text-white">
                 Pesan Berhasil Terkirim!
               </h3>
 
               <p className="text-sm text-gray-500 font-medium leading-relaxed dark:text-gray-300">
-                Terima kasih <span className="font-semibold text-white">{formData.name}</span>, pesan kamu sudah kami terima. Tim Teduh Kota akan segera membalas via email.
+                Terima kasih <span className="font-semibold text-brand-dark dark:text-brand-green">{formData.name}</span>, pesan kamu sudah kami terima. Tim Teduh Kota akan segera membalas via email.
               </p>
 
               <div className="flex gap-4 pt-2 justify-center ">

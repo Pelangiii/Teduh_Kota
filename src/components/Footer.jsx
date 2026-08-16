@@ -166,7 +166,7 @@ export default function FooterSection() {
         <img
           src={ilustrasiFooter}
           alt="Ilustrasi Footer"
-          className="absolute right-6 sm:right-8 bottom-0 h-10 sm:h-12 md:h-14 object-contain pointer-events-none"/>
+          className="absolute right-20 sm:right-24 md:right-28 bottom-0 h-6 sm:h-7 md:h-8 object-contain pointer-events-none"/>
       </div>
 
       {/* MODAL POP-UP CUSTOM */}
