@@ -196,18 +196,10 @@ export default function SolusiPage() {
           className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center pt-2 md:pt-4" >
           
           <div className="w-full flex justify-center lg:justify-end items-center order-first md:order-last">
-
             <img
               src={ilustrasiSolusiTeduh}
-              alt="Ilustrasi Solusi Teduh Light"
-              className="w-full max-w-md lg:max-w-xl object-contain z-10 block dark:hidden"
-            />
-
-            <img
-              src={headerIllustrationDark}
-              alt="Ilustrasi Solusi Teduh Dark"
-              className="w-full max-w-md lg:max-w-xl object-contain z-10 hidden dark:block"
-            />
+              alt="Ilustrasi Solusi Teduh"
+              className="w-full max-w-md lg:max-w-xl object-contain z-10" />
           </div>
 
           <div className="space-y-6 text-center md:text-left order-last md:order-first w-full">
