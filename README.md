@@ -1,16 +1,26 @@
-# React + Vite
+# Teduh Kota 
+## Instansi
+SMK IDN 
+## Anggota Tim
+- Ketua : Azka Syakirah
+- Anggota 1: Qonita Nur Hasanah
+- Anggota 2: Pelangi Pagi
+## Deskripsi Karya
+Teduh kota adalah platform rekomendasi penghijauan berbasis web yang membantu pengguna menemukan solusi tanaman paling tepat sesuai kondisi area mereka (luas lahan, pencahayaan, dan lokasi penanaman).
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+---
 
-Currently, two official plugins are available:
+##  Fitur Utama
+Cek Kondisi Area: Kuis interaktif untuk menganalisis karakteristik lokasi pengguna.
+Rekomendasi Terpersonalisasi: Hasil rekomendasi jenis tanaman dan panduan penanaman secara akurat.
+Eksplorasi Solusi: Katalog variasi penghijauan (Taman Pot, Taman Vertikal, Bedeng Tanam, Taman Resapan, Taman Atap, dll.).
+Target Pengguna Beragam: Panduan khusus untuk area Rumah, Perkantoran, Sekolah, dan Ruang Publik.
+Responsive & Dual Theme: Tampilan interaktif dengan dukungan Light Mode dan Dark Mode.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+##  Tech Stack
+Frontend: React.js (Vite) & React Router DOM
+Styling & Animasi: Tailwind CSS & Framer Motion
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Tautan / Link Deploy Website
