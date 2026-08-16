@@ -1,28 +1,46 @@
 import { motion } from 'framer-motion';
+
+// Import Icon Mengapa Teduh Kota (Light Mode)
 import iconSolusi from '../assets/images/icon-solusi.svg';
 import iconMudah from '../assets/images/icon-mudah.svg';
 import iconDampak from '../assets/images/icon-dampak.svg';
-import polkadotImg from '../assets/images/polkadot.svg';
-import circleStarImg from '../assets/images/circle-star.svg';
-import ilusStarImg from '../assets/images/ilus-star.svg';
+
+// Import Icon Mengapa Teduh Kota (Dark Mode) - Sesuaikan path jika nama file berbeda
+import iconSolusiDark from '../assets/images/icon-solusi-dark.svg';
+import iconMudahDark from '../assets/images/icon-mudah-dark.svg';
+import iconDampakDark from '../assets/images/icon-dampak-dark.svg';
+
+// Import Gambar Cara Kerja (Light Mode)
 import step1Img from '../assets/images/step1-jawab.svg';
 import step2Img from '../assets/images/step2-analisis.svg';
 import step3Img from '../assets/images/step3-rekomendasi.svg';
+
+// Import Gambar Cara Kerja (Dark Mode) - Sesuaikan path jika nama file berbeda
+import step1ImgDark from '../assets/images/step1-jawab-dark.svg';
+import step2ImgDark from '../assets/images/step2-analisis-dark.svg';
+import step3ImgDark from '../assets/images/step3-rekomendasi-dark.svg';
+
+// Import Dekorasi Polkadot & Bintang
+import polkadotImg from '../assets/images/polkadot.svg';
+import circleStarImg from '../assets/images/circle-star.svg';
 
 export default function Features() {
   const whyUsData = [
     {
       icon: iconSolusi,
+      iconDark: iconSolusiDark,
       title: "Solusi Yang Tepat",
       description: "Rekomendasi disesuaikan dengan kondisi area berdasarkan analisis yang dilakukan untuk mendapatkan solusi yang tepat."
     },
     {
       icon: iconMudah,
+      iconDark: iconMudahDark,
       title: "Mudah Digunakan",
       description: "Analisis dilakukan melalui pertanyaan singkat dan interaktif untuk mendapatkan rekomendasi."
     },
     {
       icon: iconDampak,
+      iconDark: iconDampakDark,
       title: "Berdampak Positif",
       description: "Setiap rekomendasi membantu memaksimalkan ruang hijau untuk lingkungan yang lebih sehat."
     }
@@ -33,25 +51,28 @@ export default function Features() {
       step: "01",
       title: "Jawab Pertanyaan",
       description: "Isi beberapa pertanyaan singkat mengenai kondisi area yang kamu miliki.",
-      image: step1Img
+      image: step1Img,
+      imageDark: step1ImgDark
     },
     {
       step: "02",
       title: "Analisis Area",
       description: "Sistem akan menganalisa data yang kamu berikan untuk memahami kondisi area.",
-      image: step2Img
+      image: step2Img,
+      imageDark: step2ImgDark
     },
     {
       step: "03",
       title: "Dapatkan Rekomendasi",
       description: "Terima rekomendasi penghijauan yang paling sesuai dengan saran penempatan.",
-      image: step3Img
+      image: step3Img,
+      imageDark: step3ImgDark
     }
   ];
 
   return (
     <div className="bg-brand-bg dark:bg-mode-dark py-16 md:py-24 px-6 space-y-28 md:space-y-36 relative overflow-hidden transition-colors duration-300">
-      {/* Polkadot Top Right - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
+      {/* Polkadot Top Right */}
       <img 
         src={polkadotImg} 
         alt="Dekorasi Polkadot" 
@@ -62,14 +83,11 @@ export default function Features() {
       <section className="max-w-7xl mx-auto text-center space-y-12 relative px-8 lg:px-16 z-10">
 
         <div className="space-y-3 relative z-10 max-w-xl mx-auto">
-          {/* Top Left Star Accent */}
           <img 
             src={circleStarImg} 
             alt="Bintang Dekorasi" 
             className="absolute -top-6 -left-8 md:-left-12 w-8 md:w-10 pointer-events-none" 
           />
-          
-          {/* Bottom Right Star Accent */}
           <img 
             src={circleStarImg} 
             alt="Bintang Dekorasi" 
@@ -88,7 +106,6 @@ export default function Features() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
           {whyUsData.map((item, index) => (
             <div key={index} className="relative h-full">
-              {/* Polkadot Bottom Left - Tampil di Tablet & Desktop (>=md), Sembunyi di HP */}
               {index === 0 && (
                 <img 
                   src={polkadotImg} 
@@ -101,7 +118,20 @@ export default function Features() {
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 className="bg-white dark:bg-card-dark-mode rounded-3xl p-8 shadow-card border border-gray-100 dark:border-line-dark flex flex-col items-center text-center space-y-4 hover:shadow-md transition duration-300 relative z-10 h-full"
               >
-                <img src={item.icon} alt={item.title} className="w-20 h-20 object-contain" />
+                {/* Icon Versi Light Mode */}
+                <img 
+                  src={item.icon} 
+                  alt={item.title} 
+                  className="w-20 h-20 object-contain dark:hidden" 
+                />
+                
+                {/* Icon Versi Dark Mode */}
+                <img 
+                  src={item.iconDark} 
+                  alt={item.title} 
+                  className="w-20 h-20 object-contain hidden dark:block" 
+                />
+
                 <h3 className="font-sans text-lg font-extrabold text-brand-dark dark:text-white">{item.title}</h3>
                 <p className="font-sans text-brand-text dark:text-gray-300 text-sm md:text-base leading-relaxed">
                   {item.description}
@@ -116,14 +146,11 @@ export default function Features() {
       <section className="max-w-7xl mx-auto text-center space-y-14 pt-6 md:pt-10 px-8 lg:px-16 z-10 relative">
         
         <div className="space-y-3 relative z-10 max-w-xl mx-auto">
-          {/* Top Right Star Accent */}
           <img 
             src={circleStarImg} 
             alt="Bintang Dekorasi" 
             className="absolute -top-4 -right-4 md:-right-10 w-8 md:w-9 pointer-events-none" 
           />
-          
-          {/* Bottom Left Star Accent */}
           <img 
             src={circleStarImg} 
             alt="Bintang Dekorasi" 
@@ -150,7 +177,6 @@ export default function Features() {
               >
 
                 <div className="flex flex-col items-center w-full">
-                  {/* Step Number Badge */}
                   <span className="font-sans bg-brand-light-orange text-white font-extrabold text-lg px-6 py-2 rounded-xl mb-5 inline-block shadow-xs">
                     {item.step}
                   </span>
@@ -162,15 +188,27 @@ export default function Features() {
                 </div>
 
                 {/* Card Mockup Graphic Container */}
-                <div className="w-full bg-brand-peach dark:bg-mode-dark/60 rounded-2xl p-4 flex items-center justify-center">
-                  <img src={item.image} alt={item.title} className="w-full h-auto max-h-44 object-contain" />
+                <div className="w-full bg-brand-peach dark:bg-[#343434] rounded-2xl p-4 flex items-center justify-center transition-colors">
+                  {/* Gambar Versi Light Mode */}
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    className="w-full h-auto max-h-44 object-contain dark:hidden" 
+                  />
+                  
+                  {/* Gambar Versi Dark Mode */}
+                  <img 
+                    src={item.imageDark} 
+                    alt={item.title} 
+                    className="w-full h-auto max-h-44 object-contain hidden dark:block" 
+                  />
                 </div>
 
               </motion.div>
 
-              {/* Arrow Connector for Desktop (Hidden on last item) */}
+              {/* Arrow Connector for Desktop */}
               {index < stepsData.length - 1 && (
-                <div className="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-brand-dark text-white rounded-full items-center justify-center shadow-md">
+                <div className="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-card-dark-mode text-brand-dark dark:text-white border border-gray-100 dark:border-line-dark rounded-full items-center justify-center shadow-md">
                   <span className="text-xl font-bold">&rarr;</span>
                 </div>
               )}

@@ -22,7 +22,7 @@ export default function ContactBanner() {
       viewport={{ once: true, amount: 0.3 }}
       variants={fadeInUp}
     >
-      <div className="bg-brand-peach dark:bg-card-dark-mode rounded-3xl p-8 md:p-12 border border-transparent dark:border-line-dark flex flex-col md:flex-row items-center justify-start gap-8 md:gap-12 relative overflow-hidden z-10 transition-colors duration-300">
+      <div className="bg-brand-peach dark:bg-bg-orange-dark rounded-3xl p-8 md:p-12 border border-transparent dark:border-bg-orange-dark flex flex-col md:flex-row items-center justify-start gap-8 md:gap-12 relative overflow-hidden z-10 transition-colors duration-300">
 
         {/* Left Illustration */}
         <div className="w-36 md:w-44 shrink-0 flex justify-center relative z-10">
