@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import cekKondisiImg from '../assets/images/cek-kondisi.svg';
+import ilustrasiMejaLaptopDark from '../assets/images/ilustrasi-meja-laptop-dark.svg';
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
 
-// Variants Animasi
+// animasi
 const contentContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -47,51 +48,45 @@ const floatingAnimation = {
 export default function CekKondisiPage() {
   return (
     <div className="bg-brand-bg dark:bg-mode-dark min-h-screen relative overflow-hidden flex flex-col justify-center pt-20 font-sans transition-colors duration-300">
-
-      {/* Konten Utama */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 w-full relative z-10 flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center pb-40 md:pb-56">
-
-        {/* Foto Cek Kondisi (Di ATAS pada HP/Tablet <md, di KANAN pada Desktop >=md) */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={imageVariants}
-          className="w-full flex justify-center md:justify-end items-center order-first md:order-last mt-4 md:mt-0"
-        >
+          className="w-full flex justify-center md:justify-end items-center order-first md:order-last mt-4 md:mt-0">
           <img
             src={cekKondisiImg}
-            alt="Cek Kondisi"
-            className="w-full max-w-sm sm:max-w-md lg:max-w-xl object-contain z-10"
-          />
+            alt="Cek Kondisi Light"
+            className="w-full max-w-sm sm:max-w-md lg:max-w-xl object-contain z-10 dark:hidden"/>
+          <img
+            src={ilustrasiMejaLaptopDark}
+            alt="Cek Kondisi Dark"
+            className="w-full max-w-sm sm:max-w-md lg:max-w-xl object-contain z-10 hidden dark:block"/>
         </motion.div>
 
-        {/* Teks Konten (Di BAWAH pada HP/Tablet <md, di KIRI pada Desktop >=md) */}
+        {/* konten */}
         <motion.div
           className="space-y-6 text-center md:text-left order-last md:order-first w-full"
           initial="hidden"
           animate="visible"
-          variants={contentContainerVariants}
-        >
+          variants={contentContainerVariants} >
           <motion.h1
             variants={fadeInUp}
-            className="text-3xl md:text-4xl lg:text-5xl font-header leading-[1.15] tracking-tight"
-          >
+            className="text-3xl md:text-4xl lg:text-5xl font-header leading-[1.15] tracking-tight">
             <span className="text-brand-dark dark:text-white block mb-2">Jawab Pertanyaan,&nbsp;dan</span>
             <span className="text-brand-green block">Dapatkan Solusi</span>
           </motion.h1>
 
           <motion.p
             variants={fadeInUp}
-            className="text-brand-text dark:text-gray-300 font-sans text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0"
-          >
+            className="text-brand-text dark:text-gray-300 font-sans text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
             Lengkapkan informasi mengenai area yang kamu ingin hijaukan, jawabanmu akan membantu kami untuk memberikan hasil yang sesuai.
           </motion.p>
 
           <motion.div variants={fadeInUp} className="pt-2 flex justify-center md:justify-start">
             <Link
               to="/cek-kondisi-form"
-              className="font-sans inline-flex items-center gap-2 bg-brand-orange hover:bg-[#e87f2e] text-white px-8 py-4 rounded-2xl font-medium text-base transition shadow-xs cursor-pointer"
-            >
+              className="font-sans inline-flex items-center gap-2 bg-brand-orange hover:bg-[#e87f2e] text-white px-8 py-4 rounded-2xl font-medium text-base transition shadow-xs cursor-pointer">
               Mulai Analisis <span>&rarr;</span>
             </Link>
           </motion.div>
@@ -99,7 +94,6 @@ export default function CekKondisiPage() {
 
       </div>
 
-      {/* Background Rumput / Ilustrasi */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -108,8 +102,7 @@ export default function CekKondisiPage() {
         <img
           src={ilustrasiRumputPanjang}
           alt="Ilustrasi Rumput"
-          className="w-full h-auto object-cover object-bottom pointer-events-none"
-        />
+          className="w-full h-auto object-cover object-bottom pointer-events-none" />
       </motion.div>
 
     </div>

@@ -12,13 +12,13 @@ import warnTamanBedengImg from '../assets/images/warn-taman-bedeng.svg';
 import circleStarImg from '../assets/images/circle-star.svg';
 import rumputPanjangImg from '../assets/images/ilustrasi-rumput-panjang.svg';
 
-// --- Konfigurasi Variasi Animasi ---
+// --- animasi ---
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] } 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }
   }
 };
 
@@ -46,67 +46,61 @@ const floatingAnimation = {
 export default function BedengTanamTinggiPage() {
   return (
     <div className="relative overflow-hidden min-h-screen bg-brand-bg dark:bg-mode-dark font-sans transition-colors duration-300">
-      
-      {/* Background Polkadots */}
+
+
       <img src={polkadotImg} alt="" className="absolute top-48 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" />
       <img src={polkadotImg} alt="" className="absolute top-1/3 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" />
       <img src={polkadotImg} alt="" className="absolute bottom-1/3 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" />
       <img src={polkadotImg} alt="" className="absolute bottom-16 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" />
 
       <div className="pt-12 pb-48 md:pb-64 px-8 lg:px-16 max-w-7xl mx-auto relative">
-        
-        {/* Tombol Back */}
-        <Link 
-          to="/solusi-teduh" 
-          className="inline-flex items-center justify-center w-10 h-10 bg-brand-light-orange hover:bg-brand-orange text-white rounded-full shadow-sm hover:shadow-md transition-all mb-8 lg:mb-0 lg:absolute lg:left-8 lg:top-12 z-10"
-        >
+
+
+        <Link
+          to="/solusi-teduh"
+          className="inline-flex items-center justify-center w-10 h-10 bg-brand-light-orange hover:bg-brand-orange text-white rounded-full shadow-sm hover:shadow-md transition-all mb-8 lg:mb-0 lg:absolute lg:left-8 lg:top-12 z-10" >
           <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"></path>
           </svg>
         </Link>
 
         <div className="max-w-4xl mx-auto pt-2 lg:pt-0 relative z-10">
-          
-          {/* Judul Utama */}
-          <motion.h1 
+
+
+          <motion.h1
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-5xl font-header text-center mb-10"
-          >
+            className="text-4xl md:text-5xl font-header text-center mb-10">
             <span className="text-brand-dark dark:text-white">Bedeng Tanam</span> <span className="text-brand-green">Tinggi</span>
           </motion.h1>
 
-          {/* Gambar Hero Utama */}
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full rounded-[32px] overflow-hidden shadow-sm mb-16"
-          >
-            <img 
-              src={bedengTanamTinggiImg} 
-              alt="Bedeng Tanam Tinggi" 
-              className="w-full h-auto object-cover"
-            />
+            className="w-full rounded-4xl overflow-hidden shadow-sm mb-16">
+            <img
+              src={bedengTanamTinggiImg}
+              alt="Bedeng Tanam Tinggi"
+              className="w-full h-auto object-cover"/>
           </motion.div>
 
-          {/* Info Cards Container (Staggered Scroll Animation) */}
-          <motion.div 
+
+          <motion.div
             className="space-y-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
-            variants={staggerContainer}
-          >
-            
-            {/* Card 1: Apa itu? */}
-            <motion.div 
+            variants={staggerContainer}>
+
+            {/* bagian apa itu? */}
+            <motion.div
               variants={fadeInUp}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
-            >
-              <div className="flex-shrink-0">
+              className="bg-white dark:bg-card-dark-mode rounded-4xl p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8">
+              <div className="shrink-0">
                 <img src={ilusPot} alt="Apa itu?" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
@@ -119,13 +113,12 @@ export default function BedengTanamTinggiPage() {
               </div>
             </motion.div>
 
-            {/* Card 2: Cocok untuk */}
-            <motion.div 
+            {/* cocok untuk */}
+            <motion.div
               variants={fadeInUp}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
-            >
-              <div className="flex-shrink-0">
+              className="bg-white dark:bg-card-dark-mode rounded-4xl p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8">
+              <div className="shrink-0">
                 <img src={ilusCheck} alt="Cocok untuk" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
@@ -141,13 +134,12 @@ export default function BedengTanamTinggiPage() {
               </div>
             </motion.div>
 
-            {/* Card 3: Manfaat utama */}
-            <motion.div 
+            {/* manfaat utama */}
+            <motion.div
               variants={fadeInUp}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
-            >
-              <div className="flex-shrink-0">
+              className="bg-white dark:bg-card-dark-mode rounded-4xl p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8">
+              <div className="shrink-0">
                 <img src={ilusStar} alt="Manfaat utama" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
@@ -162,13 +154,12 @@ export default function BedengTanamTinggiPage() {
               </div>
             </motion.div>
 
-            {/* Card 4: Cara menerapkan */}
-            <motion.div 
+            {/* cara menerapkan */}
+            <motion.div
               variants={fadeInUp}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
-            >
-              <div className="flex-shrink-0">
+              className="bg-white dark:bg-card-dark-mode rounded-4xl p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8">
+              <div className="shrink-0">
                 <img src={ilusMenu} alt="Cara menerapkan" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
@@ -185,12 +176,11 @@ export default function BedengTanamTinggiPage() {
               </div>
             </motion.div>
 
-            {/* Card 5: Perhatikan (Warning) */}
-            <motion.div 
+            {/* perhatian */}
+            <motion.div
               variants={fadeInUp}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8 justify-between"
-            >
+              className="bg-white dark:bg-card-dark-mode rounded-4xl p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] hover:shadow-[0_8px_30px_-4px_rgba(154,106,57,0.3)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8 justify-between">
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-4">
                   <img src={perhatikanIcon} alt="Perhatikan" className="w-10 md:w-12 h-auto" />
@@ -202,38 +192,35 @@ export default function BedengTanamTinggiPage() {
                   Setelah terisi media dan air, bedeng akan cukup berat dan sulit dipindahkan. Pastikan lokasi telah ditentukan dengan baik.
                 </p>
               </div>
-              <div className="flex-shrink-0 flex justify-center w-full md:w-auto">
+              <div className="shrink-0 flex justify-center w-full md:w-auto">
                 <img src={warnTamanBedengImg} alt="Peringatan Taman Bedeng" className="w-40 md:w-48 h-auto object-contain" />
               </div>
             </motion.div>
-
           </motion.div>
 
-          {/* Video Section Animation */}
-          <motion.div 
+          {/* video */}
+          <motion.div
             className="mt-20 md:mt-28 pb-8 relative z-20"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={fadeInUp}
-          >
+            variants={fadeInUp}>
             <h2 className="text-3xl md:text-4xl font-header text-center mb-12">
               <span className="text-brand-dark dark:text-white">Contoh Penerapan</span> <span className="text-brand-green">Bedeng Tanam Tinggi</span>
             </h2>
             <div className="relative max-w-4xl mx-auto">
-              <img 
-                src={circleStarImg} 
-                alt="" 
-                className="absolute -left-6 md:-left-10 -bottom-2 md:-bottom-4 w-6 md:w-8 z-20 pointer-events-none" 
-              />
+              <img
+                src={circleStarImg}
+                alt=""
+                className="absolute -left-6 md:-left-10 -bottom-2 md:-bottom-4 w-6 md:w-8 z-20 pointer-events-none"/>
               <div className="relative z-10 w-full aspect-video rounded-4xl overflow-hidden shadow-lg border-4 border-white bg-brand-gray/20">
-                <iframe 
-                  width="100%" 
-                  height="100%" 
-                  src="https://www.youtube.com/embed/M_ZWWfsuA78" 
-                  title="YouTube video player" 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/M_ZWWfsuA78"
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen>
                 </iframe>
               </div>
@@ -243,8 +230,8 @@ export default function BedengTanamTinggiPage() {
         </div>
       </div>
 
-      {/* Ilustrasi Rumput Panjang Bawah (Full Screen Width) */}
-      <div 
+      {/* rumput panjang */}
+      <div
         className="absolute bottom-0 left-0 w-full h-24 md:h-32 lg:h-48 pointer-events-none z-10"
         style={{
           backgroundImage: `url(${rumputPanjangImg})`,

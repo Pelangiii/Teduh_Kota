@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { calculateRecommendations } from '../utils/recommendationEngine';
 import { GLOBAL_METADATA, SOLUTIONS } from '../data/recommendationConfig';
 
-// Import Assets
+// asset
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
 import rumahIcon from '../assets/images/rumah.svg';
 import perkantoranIcon from '../assets/images/perkantoran.svg';
@@ -14,7 +14,7 @@ import checkJawabanIcon from '../assets/images/check-jawaban.svg';
 import smileIcon from '../assets/images/smile.svg';
 import tanamanIcon from '../assets/images/tanaman.svg';
 
-// --- Variants Animasi ---
+// animasi
 const pageTransition = {
   hidden: { opacity: 0, x: 20 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: 'easeOut' } },
@@ -27,7 +27,7 @@ const modalTransition = {
   exit: { opacity: 0, scale: 0.95, transition: { duration: 0.15, ease: 'easeIn' } }
 };
 
-// --- Sub-Komponen Radio Option ---
+// komponen radio
 const RadioOption = ({ icon, label, desc, selectedValue, onChange, value }) => {
   const isSelected = selectedValue === value;
   return (
@@ -35,8 +35,7 @@ const RadioOption = ({ icon, label, desc, selectedValue, onChange, value }) => {
       whileHover={{ scale: 1.01 }}
       whileTap={{ scale: 0.99 }}
       className={`flex items-center gap-4 p-4 rounded-2xl border-2 cursor-pointer transition-colors
-        ${isSelected ? 'border-brand-green bg-[#F9FDF5] dark:bg-brand-green/10' : 'border-brand-gray/30 dark:border-line-dark hover:border-brand-gray/60 bg-white dark:bg-card-dark-mode'}`}
-    >
+        ${isSelected ? 'border-brand-green bg-[#F9FDF5] dark:bg-brand-green/10' : 'border-brand-gray/30 dark:border-line-dark hover:border-brand-gray/60 bg-white dark:bg-card-dark-mode'}`}>
       {icon && (
         <div className="w-10 h-10 flex items-center justify-center shrink-0">
           {icon}
@@ -51,13 +50,12 @@ const RadioOption = ({ icon, label, desc, selectedValue, onChange, value }) => {
         value={value}
         checked={isSelected}
         onChange={() => onChange(value)}
-        className="hidden"
-      />
+        className="hidden"/>
     </motion.label>
   );
 };
 
-// --- Sub-Komponen Checkbox Option ---
+// --- checkbox ---
 const CheckboxOption = ({ label, desc, selectedValues, onChange, value, maxAllowed }) => {
   const isSelected = selectedValues.includes(value);
   const isDisabled = !isSelected && selectedValues.length >= maxAllowed;
@@ -75,8 +73,7 @@ const CheckboxOption = ({ label, desc, selectedValues, onChange, value, maxAllow
       onClick={handleClick}
       className={`flex items-center gap-4 p-4 rounded-2xl border-2 cursor-pointer transition-colors
         ${isSelected ? 'border-brand-green bg-[#F9FDF5] dark:bg-brand-green/10' : 'border-brand-gray/30 dark:border-line-dark bg-white dark:bg-card-dark-mode'}
-        ${isDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:border-brand-gray/60'}`}
-    >
+        ${isDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:border-brand-gray/60'}`}>
       <div className="flex flex-col grow">
         <span className="font-bold text-brand-dark dark:text-white text-base">{label}</span>
         {desc && <span className="text-brand-dark/60 dark:text-gray-300 text-xs font-medium">{desc}</span>}
@@ -91,12 +88,12 @@ export default function CekKondisiFormPage() {
   const [showExitModal, setShowExitModal] = useState(false);
   const [showResetModal, setShowResetModal] = useState(false);
 
-  // State Sesi 1
+  // sesi 1
   const [locationType, setLocationType] = useState('');
   const [locationName, setLocationName] = useState('');
   const [customLocationType, setCustomLocationType] = useState('');
 
-  // State Sesi 2
+  // sesi 2
   const [areaType, setAreaType] = useState('');
   const [customAreaType, setCustomAreaType] = useState('');
   const [areaSize, setAreaSize] = useState('');
@@ -106,18 +103,18 @@ export default function CekKondisiFormPage() {
   const [rainCondition, setRainCondition] = useState('');
   const [maintenanceFrequency, setMaintenanceFrequency] = useState('');
 
-  // State Conditional
+  // kondisi
   const [wallSupport, setWallSupport] = useState(null);
   const [treeSpace, setTreeSpace] = useState(null);
   const [roofStructure, setRoofStructure] = useState(null);
 
-  // State Sesi 3
+  // sesi 3
   const [goals, setGoals] = useState([]);
 
-  // State Sesi 4
+  // sesi 4
   const [recommendationResult, setRecommendationResult] = useState(null);
 
-  // Load saved state
+  // save 
   useEffect(() => {
     const savedResult = localStorage.getItem('teduhkota_saved_result');
     const savedForm = localStorage.getItem('teduhkota_saved_form');
@@ -149,7 +146,7 @@ export default function CekKondisiFormPage() {
     }
   }, []);
 
-  // Auto scroll to top instantly whenever step changes
+  // auto scroll
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentStep]);
@@ -286,8 +283,8 @@ export default function CekKondisiFormPage() {
 
       <div className="max-w-7xl mx-auto px-8 lg:px-16 w-full relative z-10 flex flex-col items-center">
 
-        {/* Stepper Container */}
-        <div className="w-full max-w-5xl bg-white dark:bg-card-dark-mode rounded-[32px] p-8 shadow-sm border border-transparent dark:border-line-dark mb-8 flex flex-col md:flex-row justify-between items-stretch gap-6 md:gap-4 transition-colors duration-300">
+        
+        <div className="w-full max-w-5xl bg-white dark:bg-card-dark-mode rounded-4xl p-8 shadow-sm border border-transparent dark:border-line-dark mb-8 flex flex-col md:flex-row justify-between items-stretch gap-6 md:gap-4 transition-colors duration-300">
           {steps.map((step) => {
             const isActive = currentStep === step.num;
             const isPast = currentStep > step.num;
@@ -300,8 +297,7 @@ export default function CekKondisiFormPage() {
                       ? 'bg-brand-green text-white'
                       : isPast
                         ? 'bg-brand-green/50 text-white'
-                        : 'bg-brand-gray/40 text-white'}`}
-                >
+                        : 'bg-brand-gray/40 text-white'}`}>
                   {step.num}
                 </motion.div>
                 <div className="flex flex-col relative pb-3 flex-1">
@@ -309,22 +305,19 @@ export default function CekKondisiFormPage() {
                     {step.title}
                   </span>
                   <span className="text-brand-dark/50 dark:text-gray-400 text-[11px] md:text-xs font-medium">{step.desc}</span>
-                  <div className={`absolute bottom-0 left-0 w-full h-[3px] rounded-full transition-colors ${isActive ? 'bg-brand-green' : isPast ? 'bg-brand-green/50' : 'bg-brand-gray/30'}`}></div>
+                  <div className={`absolute bottom-0 left-0 w-full h-0.75 rounded-full transition-colors ${isActive ? 'bg-brand-green' : isPast ? 'bg-brand-green/50' : 'bg-brand-gray/30'}`}></div>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Main Content Area */}
         <div className="w-full max-w-5xl flex flex-col lg:flex-row gap-8 items-start">
-
-          {/* Form Content */}
-          <div className="w-full lg:w-2/3 bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-10 shadow-sm border border-transparent dark:border-line-dark flex flex-col gap-8 transition-colors duration-300 order-last lg:order-first">
+          <div className="w-full lg:w-2/3 bg-white dark:bg-card-dark-mode rounded-4xl p-8 md:p-10 shadow-sm border border-transparent dark:border-line-dark flex flex-col gap-8 transition-colors duration-300 order-last lg:order-first">
 
             <AnimatePresence mode="wait">
 
-              {/* SESI 1 */}
+              {/* sesi 1 */}
               {currentStep === 1 && (
                 <motion.div key="step1" variants={pageTransition} initial="hidden" animate="visible" exit="exit">
                   <div className="inline-block bg-[#F2FBE9] dark:bg-brand-green/20 text-brand-green font-bold text-xs px-4 py-2 rounded-full mb-6 border border-transparent dark:border-brand-green/30">
@@ -350,18 +343,17 @@ export default function CekKondisiFormPage() {
                           value={customLocationType}
                           onChange={(e) => { setLocationType('other'); setCustomLocationType(e.target.value); }}
                           onClick={(e) => { e.stopPropagation(); setLocationType('other'); }}
-                          className={`w-full bg-white dark:bg-mode-dark text-brand-dark dark:text-white border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 transition-colors ${locationType === 'other' ? 'border-brand-green focus:ring-brand-green' : 'border-brand-gray/40 dark:border-line-dark'}`}
-                        />
+                          className={`w-full bg-white dark:bg-mode-dark text-brand-dark dark:text-white border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 transition-colors ${locationType === 'other' ? 'border-brand-green focus:ring-brand-green' : 'border-brand-gray/40 dark:border-line-dark'}`}/>
                       </div>
                     </label>
                   </div>
                 </motion.div>
               )}
 
-              {/* SESI 2 */}
+              {/* sesi 2 */}
               {currentStep === 2 && (
                 <motion.div key="step2" variants={pageTransition} initial="hidden" animate="visible" exit="exit" className="space-y-12">
-                  {/* Q2 */}
+                  {/* pertanyaan 2 */}
                   <div>
                     <div className="inline-block bg-[#F2FBE9] dark:bg-brand-green/20 text-brand-green font-bold text-xs px-4 py-2 rounded-full mb-4 border border-transparent dark:border-brand-green/30">Pertanyaan 2</div>
                     <h2 className="text-xl font-header text-brand-dark dark:text-white mb-2">Area yang Akan Dihijaukan</h2>
@@ -390,7 +382,7 @@ export default function CekKondisiFormPage() {
                     </div>
                   </div>
 
-                  {/* Conditional Q_Dinding */}
+                  {/* kondisi */}
                   {areaType === 'wall_fence' && (
                     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="bg-brand-gray/10 dark:bg-mode-dark p-6 rounded-2xl border border-brand-gray/20 dark:border-line-dark">
                       <h2 className="text-lg font-bold text-brand-dark dark:text-white mb-2">Pertanyaan Tambahan</h2>
@@ -404,7 +396,7 @@ export default function CekKondisiFormPage() {
                     </motion.div>
                   )}
 
-                  {/* Conditional Q_Atap */}
+                  {/* kondisi */}
                   {areaType === 'rooftop' && (
                     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="bg-brand-gray/10 dark:bg-mode-dark p-6 rounded-2xl border border-brand-gray/20 dark:border-line-dark">
                       <h2 className="text-lg font-bold text-brand-dark dark:text-white mb-2">Pertanyaan Tambahan</h2>
@@ -418,7 +410,7 @@ export default function CekKondisiFormPage() {
                     </motion.div>
                   )}
 
-                  {/* Q3 */}
+                  {/* pertanyaan 3 */}
                   <div>
                     <div className="inline-block bg-[#F2FBE9] dark:bg-brand-green/20 text-brand-green font-bold text-xs px-4 py-2 rounded-full mb-4 border border-transparent dark:border-brand-green/30">Pertanyaan 3</div>
                     <h2 className="text-xl font-header text-brand-dark dark:text-white mb-2">Luas Area</h2>
@@ -431,7 +423,7 @@ export default function CekKondisiFormPage() {
                     </div>
                   </div>
 
-                  {/* Q4 */}
+                  {/* pertanyaan 4 */}
                   <div>
                     <div className="inline-block bg-[#F2FBE9] dark:bg-brand-green/20 text-brand-green font-bold text-xs px-4 py-2 rounded-full mb-4 border border-transparent dark:border-brand-green/30">Pertanyaan 4</div>
                     <h2 className="text-xl font-header text-brand-dark dark:text-white mb-2">Kondisi Permukaan</h2>
@@ -445,7 +437,7 @@ export default function CekKondisiFormPage() {
                     </div>
                   </div>
 
-                  {/* Conditional Q_Pohon */}
+                  {/* kondisi */}
                   {isPohonBerpotensi && (
                     <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="bg-brand-gray/10 dark:bg-mode-dark p-6 rounded-2xl border border-brand-gray/20 dark:border-line-dark">
                       <h2 className="text-lg font-bold text-brand-dark dark:text-white mb-2">Pertanyaan Tambahan</h2>
@@ -459,7 +451,7 @@ export default function CekKondisiFormPage() {
                     </motion.div>
                   )}
 
-                  {/* Q5 */}
+                  {/* pertanyaan 5 */}
                   <div>
                     <div className="inline-block bg-[#F2FBE9] dark:bg-brand-green/20 text-brand-green font-bold text-xs px-4 py-2 rounded-full mb-4 border border-transparent dark:border-brand-green/30">Pertanyaan 5</div>
                     <h2 className="text-xl font-header text-brand-dark dark:text-white mb-2">Paparan Sinar Matahari</h2>
@@ -473,7 +465,7 @@ export default function CekKondisiFormPage() {
                     </div>
                   </div>
 
-                  {/* Q6 */}
+                  {/* pertanyaan 6 */}
                   <div>
                     <div className="inline-block bg-[#F2FBE9] dark:bg-brand-green/20 text-brand-green font-bold text-xs px-4 py-2 rounded-full mb-4 border border-transparent dark:border-brand-green/30">Pertanyaan 6</div>
                     <h2 className="text-xl font-header text-brand-dark dark:text-white mb-2">Akses Air</h2>
@@ -486,7 +478,7 @@ export default function CekKondisiFormPage() {
                     </div>
                   </div>
 
-                  {/* Q7 */}
+                  {/* pertanyaan 7 */}
                   <div>
                     <div className="inline-block bg-[#F2FBE9] dark:bg-brand-green/20 text-brand-green font-bold text-xs px-4 py-2 rounded-full mb-4 border border-transparent dark:border-brand-green/30">Pertanyaan 7</div>
                     <h2 className="text-xl font-header text-brand-dark dark:text-white mb-2">Kondisi Setelah Hujan</h2>
@@ -500,7 +492,7 @@ export default function CekKondisiFormPage() {
                     </div>
                   </div>
 
-                  {/* Q8 */}
+                  {/* pertanyaan 8 */}
                   <div>
                     <div className="inline-block bg-[#F2FBE9] dark:bg-brand-green/20 text-brand-green font-bold text-xs px-4 py-2 rounded-full mb-4 border border-transparent dark:border-brand-green/30">Pertanyaan 8</div>
                     <h2 className="text-xl font-header text-brand-dark dark:text-white mb-2">Kemampuan Perawatan</h2>
@@ -516,7 +508,7 @@ export default function CekKondisiFormPage() {
                 </motion.div>
               )}
 
-              {/* SESI 3 */}
+              {/* sesi 3 */}
               {currentStep === 3 && (
                 <motion.div key="step3" variants={pageTransition} initial="hidden" animate="visible" exit="exit" className="space-y-8">
                   <div>
@@ -542,7 +534,7 @@ export default function CekKondisiFormPage() {
                 </motion.div>
               )}
 
-              {/* SESI 4: HASIL REKOMENDASI */}
+              {/* hasil rekomendasi */}
               {currentStep === 4 && recommendationResult && (
                 <motion.div key="step4" variants={pageTransition} initial="hidden" animate="visible" exit="exit" className="space-y-6">
                   <div className="flex items-center gap-3 bg-[#F2FBE9] dark:bg-brand-green/20 text-brand-green p-4 rounded-2xl border border-transparent dark:border-brand-green/30">
@@ -557,7 +549,7 @@ export default function CekKondisiFormPage() {
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start group">
                       <div className="md:col-span-7 space-y-6">
                         <div>
-                          <div className="inline-block bg-gradient-to-r from-brand-green to-[#8BC34A] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm mb-3">
+                          <div className="inline-block bg-linear-to-r from-brand-green to-[#8BC34A] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm mb-3">
                             {recommendationResult.isFallback ? "Solusi Potensial" : "Rekomendasi Utama"}
                           </div>
                           <h2 className="text-2xl md:text-3xl font-extrabold text-brand-dark dark:text-white tracking-tight">{recommendationResult.primary.title}</h2>
@@ -567,9 +559,8 @@ export default function CekKondisiFormPage() {
                           <img
                             src={SOLUTIONS[recommendationResult.primary.solutionId]?.image || recommendationResult.primary.image}
                             alt="Rekomendasi"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+                          <div className="absolute inset-0 bg-linear-to-r from-black/10 to-transparent pointer-events-none"></div>
                         </div>
 
                         <div className="mb-4">
@@ -578,8 +569,7 @@ export default function CekKondisiFormPage() {
                             <div className="grow h-3 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
                               <div
                                 className="h-full bg-brand-green rounded-full transition-all duration-1000"
-                                style={{ width: `${recommendationResult.primary.score}%` }}
-                              />
+                                style={{ width: `${recommendationResult.primary.score}%` }} />
                             </div>
                             <div className="flex flex-col items-end gap-1 shrink-0">
                               <span className="text-brand-green font-bold text-lg leading-none">{recommendationResult.primary.score}/100</span>
@@ -612,8 +602,7 @@ export default function CekKondisiFormPage() {
                         <div className="flex items-center gap-4 pt-4 flex-wrap">
                           <Link
                             to={`/solusi-teduh/${recommendationResult.primary.link}`}
-                            className="bg-[#FF8A65] hover:bg-[#ff7043] text-white px-6 py-3 rounded-xl text-sm font-medium transition shadow-xs"
-                          >
+                            className="bg-[#FF8A65] hover:bg-[#ff7043] text-white px-6 py-3 rounded-xl text-sm font-medium transition shadow-xs">
                             Lihat Solusi Ini →
                           </Link>
                         </div>
@@ -673,8 +662,7 @@ export default function CekKondisiFormPage() {
                             </div>
                             <Link
                               to={`/solusi-teduh/${alt.link}`}
-                              className="text-brand-orange text-sm font-bold hover:text-[#e87f2e] transition-colors flex items-center gap-1 group/link"
-                            >
+                              className="text-brand-orange text-sm font-bold hover:text-[#e87f2e] transition-colors flex items-center gap-1 group/link">
                               Lihat Detail <span className="transform group-hover/link:translate-x-1 transition-transform">→</span>
                             </Link>
                           </div>
@@ -683,7 +671,7 @@ export default function CekKondisiFormPage() {
                     </div>
                   )}
 
-                  {/* Conditional Suggestions */}
+                  {/* kondisi */}
                   {recommendationResult.conditionalSuggestions?.length > 0 && (
                     <div className="pt-8">
                       <h3 className="text-xl font-bold text-brand-dark dark:text-white mb-4 px-2">
@@ -692,7 +680,7 @@ export default function CekKondisiFormPage() {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {recommendationResult.conditionalSuggestions.map((sugg, idx) => (
                           <div key={idx} className="bg-white dark:bg-card-dark-mode rounded-2xl p-6 border border-gray-100 dark:border-line-dark shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-300 to-amber-500 opacity-50"></div>
+                            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-amber-300 to-amber-500 opacity-50"></div>
                             <div>
                               <div className="flex justify-between items-start mb-3 gap-2">
                                 <h4 className="font-bold text-gray-800 dark:text-white text-lg leading-tight group-hover:text-amber-600 transition-colors">{sugg.title}</h4>
@@ -710,8 +698,7 @@ export default function CekKondisiFormPage() {
                             </div>
                             <Link
                               to={`/solusi-teduh/${sugg.link}`}
-                              className="text-amber-600 dark:text-amber-400 text-sm font-bold hover:text-amber-700 transition-colors flex items-center gap-1 group/link"
-                            >
+                              className="text-amber-600 dark:text-amber-400 text-sm font-bold hover:text-amber-700 transition-colors flex items-center gap-1 group/link">
                               Lihat Detail <span className="transform group-hover/link:translate-x-1 transition-transform">→</span>
                             </Link>
                           </div>
@@ -722,8 +709,7 @@ export default function CekKondisiFormPage() {
 
                   <button
                     onClick={() => setShowResetModal(true)}
-                    className="w-full py-3 text-sm font-bold text-brand-orange hover:underline transition-all"
-                  >
+                    className="w-full py-3 text-sm font-bold text-brand-orange hover:underline transition-all">
                     Hitung Ulang / Mulai dari Awal
                   </button>
                 </motion.div>
@@ -731,12 +717,11 @@ export default function CekKondisiFormPage() {
 
             </AnimatePresence>
 
-            {/* Navigation Buttons */}
+            {/* navigasi */}
             <div className="flex flex-row items-center justify-between gap-3 pt-6 border-t border-brand-gray/20 dark:border-line-dark w-full">
               <button
                 onClick={handleBack}
-                className="px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-brand-dark dark:text-white font-bold text-xs sm:text-sm bg-brand-gray/20 dark:bg-gray-700 hover:bg-brand-gray/30 border border-gray-200 dark:border-gray-600 transition-all whitespace-nowrap shrink-0 cursor-pointer"
-              >
+                className="px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-brand-dark dark:text-white font-bold text-xs sm:text-sm bg-brand-gray/20 dark:bg-gray-700 hover:bg-brand-gray/30 border border-gray-200 dark:border-gray-600 transition-all whitespace-nowrap shrink-0 cursor-pointer">
                 {currentStep === 1 ? 'Batal' : 'Kembali'}
               </button>
 
@@ -749,8 +734,7 @@ export default function CekKondisiFormPage() {
                   className={`px-5 py-2.5 sm:px-8 sm:py-3 rounded-full font-bold text-xs sm:text-sm transition-all whitespace-nowrap shrink-0 cursor-pointer
                     ${isNextDisabled()
                       ? 'bg-brand-gray/40 text-white cursor-not-allowed'
-                      : 'bg-brand-green text-white hover:bg-brand-green/90 shadow-md'}`}
-                >
+                      : 'bg-brand-green text-white hover:bg-brand-green/90 shadow-md'}`}>
                   {currentStep === 3 ? 'Lihat Hasil' : 'Lanjut'}
                 </motion.button>
               )}
@@ -758,15 +742,12 @@ export default function CekKondisiFormPage() {
 
           </div>
 
-          {/* Right Column: Information Sidebar Panels (Di ATAS pada HP/Tablet <lg, di KANAN pada Desktop >=lg) */}
           <div className="w-full lg:w-1/3 flex flex-col gap-6 order-first lg:order-last">
-
-            {/* Card 1: Tips Sebelum Menjawab */}
-            <div className="bg-[#FFFBF5] dark:bg-card-dark-mode rounded-[32px] p-7 shadow-sm border border-brand-gray/20 dark:border-line-dark space-y-6 transition-colors duration-300">
+            <div className="bg-[#FFFBF5] dark:bg-card-dark-mode rounded-4xl p-7 shadow-sm border border-brand-gray/20 dark:border-line-dark space-y-6 transition-colors duration-300">
               <h3 className="font-sans font-bold text-lg text-brand-dark dark:text-white">Tips Sebelum Menjawab</h3>
 
               <div className="space-y-5">
-                {/* Item 1 */}
+                {/* item 1 */}
                 <div className="flex items-start gap-4">
                   <img src={tanamanIcon} alt="Jawab sesuai kondisi" className="w-9 h-9 shrink-0 object-contain mt-0.5" />
                   <div>
@@ -777,7 +758,7 @@ export default function CekKondisiFormPage() {
                   </div>
                 </div>
 
-                {/* Item 2 */}
+                {/* item 2 */}
                 <div className="flex items-start gap-4">
                   <img src={smileIcon} alt="Tidak ada jawaban salah" className="w-9 h-9 shrink-0 object-contain mt-0.5" />
                   <div>
@@ -788,7 +769,7 @@ export default function CekKondisiFormPage() {
                   </div>
                 </div>
 
-                {/* Item 3 */}
+                {/* item 3 */}
                 <div className="flex items-start gap-4">
                   <img src={checkJawabanIcon} alt="Periksa kembali jawaban" className="w-9 h-9 shrink-0 object-contain mt-0.5" />
                   <div>
@@ -801,11 +782,10 @@ export default function CekKondisiFormPage() {
               </div>
             </div>
 
-            {/* Card 2: Butuh Bantuan? */}
+            {/* bantuan */}
             <Link
               to="/kontak"
-              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-7 shadow-sm border border-gray-100 dark:border-line-dark flex items-center justify-between gap-4 cursor-pointer transition-colors duration-300"
-            >
+              className="bg-white dark:bg-card-dark-mode rounded-4xl p-7 shadow-sm border border-gray-100 dark:border-line-dark flex items-center justify-between gap-4 cursor-pointer transition-colors duration-300">
               <div className="space-y-1">
                 <h3 className="font-sans font-bold text-lg text-brand-dark dark:text-white">Butuh Bantuan?</h3>
                 <p className="font-sans text-brand-text dark:text-gray-300 text-xs leading-relaxed">
@@ -823,7 +803,7 @@ export default function CekKondisiFormPage() {
 
       </div>
 
-      {/* Ilustrasi Rumput Bawah */}
+
       <div
         className="absolute bottom-0 left-0 w-full h-24 md:h-32 lg:h-48 pointer-events-none z-10"
         style={{
@@ -831,10 +811,8 @@ export default function CekKondisiFormPage() {
           backgroundRepeat: 'repeat-x',
           backgroundPosition: 'bottom',
           backgroundSize: 'auto 100%'
-        }}
-      ></div>
+        }}></div>
 
-      {/* Exit Modal */}
       <AnimatePresence>
         {showExitModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs">
@@ -850,7 +828,7 @@ export default function CekKondisiFormPage() {
         )}
       </AnimatePresence>
 
-      {/* Reset Modal */}
+
       <AnimatePresence>
         {showResetModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs">

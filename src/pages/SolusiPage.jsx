@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-// Import Assets
+// assets
 import ilustrasiSolusiTeduh from '../assets/images/ilustrasi-solusi-teduh.svg';
 import headerIllustrationDark from '../assets/images/ilustrasi-meja-laptop-dark.svg';
 import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.svg';
@@ -14,7 +14,7 @@ import pohonPeneduhImg from '../assets/images/pohon-peneduh.png';
 import tamanResapanImg from '../assets/images/taman-resapan.png';
 import tamanAtapImg from '../assets/images/taman-atap.png';
 
-// --- Variants Animasi Framer Motion ---
+// --- animasi ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -115,11 +115,11 @@ export default function SolusiPage() {
   const getBadgeStyle = (badgeText) => {
     switch (badgeText) {
       case "Mudah Diterapkan":
-        return "bg-[#ECF7E4] text-[#689B2B]"; // Hijau Muda
+        return "bg-[#ECF7E4] text-[#689B2B]";
       case "Perlu Pengecekan Lokasi":
-        return "bg-[#FFF4E5] text-[#D97706]"; // Oranye Kekuningan
+        return "bg-[#FFF4E5] text-[#D97706]";
       case "Perlu Pemeriksaan Teknis":
-        return "bg-[#FEE2E2] text-[#B91C1C]"; // Merah Muda
+        return "bg-[#FEE2E2] text-[#B91C1C]";
       default:
         return "bg-gray-100 text-gray-700";
     }
@@ -188,28 +188,22 @@ export default function SolusiPage() {
     <div className="bg-brand-bg dark:bg-mode-dark min-h-screen pt-28 md:pt-36 pb-0 relative overflow-x-hidden font-sans flex flex-col justify-between transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 space-y-16 md:space-y-24 relative z-10 w-full pb-48 md:pb-72">
 
-        {/* Header Section */}
+        {/* Header section */}
         <motion.div 
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center pt-2 md:pt-4"
-        >
-          {/* Kanan: Ilustrasi Header (Di ATAS pada HP/Tablet <md) */}
+          className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center pt-2 md:pt-4" >
           <div className="w-full flex justify-center lg:justify-end items-center order-first md:order-last">
             <img
               src={ilustrasiSolusiTeduh}
               alt="Ilustrasi Solusi Teduh Light"
-              className="w-full max-w-md lg:max-w-xl object-contain z-10 dark:hidden"
-            />
+              className="w-full max-w-md lg:max-w-xl object-contain z-10 dark:hidden"/>
             <img
               src={headerIllustrationDark}
               alt="Ilustrasi Solusi Teduh Dark"
-              className="w-full max-w-md lg:max-w-xl object-contain z-10 hidden dark:block"
-            />
+              className="w-full max-w-md lg:max-w-xl object-contain z-10 hidden dark:block"/>
           </div>
-
-          {/* Kiri: Teks Header (Di BAWAH pada HP/Tablet <md) */}
           <div className="space-y-6 text-center md:text-left order-last md:order-first w-full">
             <h1 className="font-header text-4xl md:text-5xl lg:text-6xl font-normal text-brand-dark dark:text-white leading-[1.15] tracking-tight">
               Solusi <span className="text-brand-green">Teduh Kota</span>
@@ -220,11 +214,8 @@ export default function SolusiPage() {
             </p>
           </div>
         </motion.div>
-
-        {/* Slider Cards Section (Geser 2-2) */}
         <div className="relative px-10 sm:px-14 md:px-16">
 
-          {/* Tombol Kiri */}
           <motion.button
             whileHover={canScrollLeft ? { scale: 1.1 } : {}}
             whileTap={canScrollLeft ? { scale: 0.9 } : {}}
@@ -235,17 +226,14 @@ export default function SolusiPage() {
                 ? 'bg-white dark:bg-card-dark-mode text-brand-dark dark:text-white hover:bg-brand-orange dark:hover:bg-brand-orange hover:text-white cursor-pointer opacity-100'
                 : 'bg-gray-200 dark:bg-gray-800 text-gray-400 dark:text-gray-600 opacity-40 pointer-events-none cursor-not-allowed'
             }`}
-            aria-label="Scroll Left"
-          >
+            aria-label="Scroll Left">
             ❮
           </motion.button>
 
-          {/* Container Scroll */}
           <div
             ref={sliderRef}
             className="flex items-stretch overflow-x-auto snap-x snap-mandatory gap-6 pb-8 pt-4 w-full"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             <style>{`
               /* Hide scrollbar for Chrome, Safari and Opera */
               div::-webkit-scrollbar {
@@ -256,20 +244,18 @@ export default function SolusiPage() {
             {solutions.map((item, idx) => (
               <div
                 key={idx}
-                className="w-full md:w-[calc(50%-0.75rem)] flex-none snap-start bg-white dark:bg-card-dark-mode rounded-3xl p-5 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-brand-gray/30 dark:border-line-dark flex flex-col justify-between transition-colors duration-300"
-              >
-                {/* Image & Badge */}
+                className="w-full md:w-[calc(50%-0.75rem)] flex-none snap-start bg-white dark:bg-card-dark-mode rounded-3xl p-5 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-brand-gray/30 dark:border-line-dark flex flex-col justify-between transition-colors duration-300">
+
                 <div className="relative rounded-2xl overflow-hidden h-44 mb-4 shrink-0">
                   <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
-                  {/* Badge Overlay */}
+
                   <div className={`absolute top-3 right-3 px-3 py-1.5 text-xs font-sans font-bold rounded-xl shadow-sm tracking-wide ${getBadgeStyle(item.badge)}`}>
                     {item.badge}
                   </div>
                 </div>
 
-                {/* Content Container */}
+                {/* konten */}
                 <div className="flex flex-col grow justify-between px-1 pb-1">
-                  {/* Title & Subtitle Area */}
                   <div className="mb-2.5">
                     <h3 className="font-header text-xl md:text-2xl text-[#4A4A4A] dark:text-white bg-[#F2FBE9] dark:bg-transparent inline-block px-2 py-0.5 dark:p-0 mb-1 rounded-md self-start">
                       {item.title}
@@ -279,22 +265,17 @@ export default function SolusiPage() {
                     </p>
                   </div>
 
-                  {/* Description Area */}
                   <p className="font-sans text-brand-dark/70 dark:text-gray-300 text-sm leading-relaxed mb-5 grow font-medium">
                     {item.description}
                   </p>
-
-                  {/* Button (Always aligned at bottom) */}
                   <Link
                     to={item.link}
                     onClick={() => sessionStorage.setItem('last_viewed_solusi_index', idx)}
-                    className="w-full mt-auto"
-                  >
+                    className="w-full mt-auto">
                     <motion.div 
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full py-3 rounded-xl border border-brand-orange text-brand-orange bg-white dark:bg-card-dark-mode font-sans font-bold text-sm hover:bg-brand-orange hover:text-white transition-all flex items-center justify-center gap-2 cursor-pointer"
-                    >
+                      className="w-full py-3 rounded-xl border border-brand-orange text-brand-orange bg-white dark:bg-card-dark-mode font-sans font-bold text-sm hover:bg-brand-orange hover:text-white transition-all flex items-center justify-center gap-2 cursor-pointer">
                       Lihat Detail <span className="text-lg font-normal leading-none">&rarr;</span>
                     </motion.div>
                   </Link>
@@ -302,8 +283,6 @@ export default function SolusiPage() {
               </div>
             ))}
           </div>
-
-          {/* Tombol Kanan */}
           <motion.button
             whileHover={canScrollRight ? { scale: 1.1 } : {}}
             whileTap={canScrollRight ? { scale: 0.9 } : {}}
@@ -314,26 +293,21 @@ export default function SolusiPage() {
                 ? 'bg-white dark:bg-card-dark-mode text-brand-dark dark:text-white hover:bg-brand-orange dark:hover:bg-brand-orange hover:text-white cursor-pointer opacity-100'
                 : 'bg-gray-200 dark:bg-gray-800 text-gray-400 dark:text-gray-600 opacity-40 pointer-events-none cursor-not-allowed'
             }`}
-            aria-label="Scroll Right"
-          >
+            aria-label="Scroll Right">
             ❯
           </motion.button>
         </div>
 
       </div>
-
-      {/* Background Ilustrasi Rumput Bawah */}
       <motion.div 
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="absolute bottom-0 left-0 w-full z-0 pointer-events-none"
-      >
+        className="absolute bottom-0 left-0 w-full z-0 pointer-events-none">
         <img
           src={ilustrasiRumputPanjang}
           alt="Ilustrasi Rumput Panjang"
-          className="w-full h-auto object-cover object-bottom transform scale-110 md:scale-125 origin-bottom"
-        />
+          className="w-full h-auto object-cover object-bottom transform scale-110 md:scale-125 origin-bottom"/>
       </motion.div>
 
     </div>
