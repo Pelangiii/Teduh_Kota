@@ -15,19 +15,19 @@ export default function FooterSection() {
 
     const cleanEmail = email.trim().toLowerCase();
 
-    // 1. Validasi jika email kosong
+    // validasi email kosong
     if (!cleanEmail) {
       setError('Email tidak boleh kosong!');
       return;
     }
 
-    // 2. Validasi apakah berakhiran @gmail.com
+    // validasi @gamil.com
     if (!cleanEmail.endsWith('@gmail.com')) {
       setError('Email wajib menggunakan @gmail.com!');
       return;
     }
 
-    // 3. Validasi minimal karakter sebelum @gmail.com
+    // validasi minimal karakter
     const username = cleanEmail.replace('@gmail.com', '');
     if (username.length === 0) {
       setError('Masukkan alamat email Gmail yang valid!');
@@ -86,8 +86,7 @@ export default function FooterSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="w-8 h-8 rounded-full bg-brand-gray/20 flex items-center justify-center cursor-pointer hover:bg-[#0A66C2] text-[#0A66C2] hover:text-white transition"
-            >
+              className="w-8 h-8 rounded-full bg-brand-gray/20 flex items-center justify-center cursor-pointer hover:bg-[#0A66C2] text-[#0A66C2] hover:text-white transition">
               <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 012.063-2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
             </a>
           </div>
@@ -133,25 +132,23 @@ export default function FooterSection() {
                   if (error) setError('');
                 }}
                 placeholder="nama@gmail.com"
-                className={`w-full bg-white dark:bg-card-dark-mode border ${
-                  error ? 'border-red-500' : 'border-brand-orange dark:border-line-dark'
-                } rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-1 ${
-                  error ? 'focus:ring-red-500' : 'focus:ring-brand-orange'
-                } text-brand-dark dark:text-white font-medium transition placeholder-gray-400`}/>
+                className={`w-full bg-white dark:bg-card-dark-mode border ${error ? 'border-red-500' : 'border-brand-orange dark:border-line-dark'
+                  } rounded-xl px-3 py-2 text-xs focus:outline-none focus:ring-1 ${error ? 'focus:ring-red-500' : 'focus:ring-brand-orange'
+                  } text-brand-dark dark:text-white font-medium transition placeholder-gray-400`} />
               <button
                 type="submit"
                 className="bg-brand-orange hover:bg-brand-orange/90 active:scale-95 transition-all w-9 h-9 rounded-xl flex items-center justify-center cursor-pointer shrink-0">
                 <img
                   src={btnSendImg}
                   alt="Kirim Email"
-                  className="w-4 h-4 object-contain block mx-auto"/>
+                  className="w-4 h-4 object-contain block mx-auto" />
               </button>
             </div>
 
             {/* peringatan */}
             {error && (
               <p className="text-[11px] text-red-500 font-semibold pt-0.5 flex items-center gap-1">
-                 {error}
+                {error}
               </p>
             )}
           </form>
@@ -166,10 +163,10 @@ export default function FooterSection() {
         <img
           src={ilustrasiFooter}
           alt="Ilustrasi Footer"
-          className="absolute right-20 sm:right-24 md:right-28 bottom-0 h-6 sm:h-7 md:h-8 object-contain pointer-events-none"/>
+          className="absolute right-20 sm:right-24 md:right-28 bottom-0 h-6 sm:h-7 md:h-8 object-contain pointer-events-none" />
       </div>
 
-      {/* MODAL POP-UP CUSTOM */}
+      {/* popout custom */}
       <AnimatePresence>
         {showModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -178,7 +175,7 @@ export default function FooterSection() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={handleCloseModal}
-              className="fixed inset-0 bg-black/40 backdrop-blur-xs"/>
+              className="fixed inset-0 bg-black/40 backdrop-blur-xs" />
 
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}

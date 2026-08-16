@@ -5,7 +5,7 @@ export const calculateRecommendations = (formData) => {
 
   const results = [];
 
-  // Data Confidence
+  // data
   let confidence = 100;
   if (sunExposure === 'unsure') confidence -= 5;
   if (rainCondition === 'unknown') confidence -= 10;
@@ -15,7 +15,7 @@ export const calculateRecommendations = (formData) => {
     let eligibility = 'INELIGIBLE';
     let verificationMessage = null;
 
-    // 1. ELIGIBILITY RULES
+    // rules eligible
     if (solutionId === 'flexible_pot') {
       if (areaType === 'rooftop') {
         if (roofStructure === 'yes') eligibility = 'ELIGIBLE';
@@ -54,7 +54,7 @@ export const calculateRecommendations = (formData) => {
       else eligibility = 'INELIGIBLE';
     }
     else if (solutionId === 'shade_tree') {
-      const isPotensiActive = (areaSize === 'medium' || areaSize === 'large') && 
+      const isPotensiActive = (areaSize === 'medium' || areaSize === 'large') &&
         (surfaceType === 'soil' || surfaceType === 'mixed') &&
         areaType !== 'wall_fence' &&
         areaType !== 'terrace_balcony' &&
@@ -106,7 +106,7 @@ export const calculateRecommendations = (formData) => {
       }
     }
 
-    // Specific rooftop verification messages for pot/raised_bed
+    // spesifikasi rooftop
     if (areaType === 'rooftop') {
       if (solutionId === 'flexible_pot') {
         if (roofStructure === 'limited') verificationMessage = "Struktur atap memiliki keterbatasan dan perlu dipastikan aman untuk penempatan sistem pot.";
@@ -118,22 +118,21 @@ export const calculateRecommendations = (formData) => {
     }
 
 
-    // 2. SCORING
+    // scoring
     let weightedSum = 0;
     let knownWeight = 0;
     let techSum = 0;
     let techWeight = 0;
-    
+
     const breakdown = {};
 
-    // Helper
+    // helper
     const addScore = (criterion, weight, value, isTech = false) => {
       let fit = FIT_MATRIX[criterion][value]?.[solutionId] || 0;
-      // Goal logic is special
       if (criterion === 'goals') {
         fit = goals.reduce((acc, g) => acc + (FIT_MATRIX.goals[g]?.[solutionId] || 0), 0) / goals.length;
       }
-      
+
       const points = fit * weight;
       weightedSum += points;
       knownWeight += weight;
@@ -145,23 +144,23 @@ export const calculateRecommendations = (formData) => {
       }
     };
 
-    // Calculate
+    // kalkulasi
     addScore('areaType', WEIGHTS.areaType, areaType, true);
     addScore('areaSize', WEIGHTS.areaSize, areaSize, true);
     addScore('surfaceType', WEIGHTS.surfaceType, surfaceType, true);
-    
+
     if (sunExposure !== 'unsure') {
       addScore('sunExposure', WEIGHTS.sunExposure, sunExposure, false);
     }
-    
+
     addScore('waterAccess', WEIGHTS.waterAccess, waterAccess, false);
-    
+
     if (rainCondition !== 'unknown') {
       addScore('rainCondition', WEIGHTS.rainCondition, rainCondition, true);
     }
-    
+
     addScore('maintenanceFrequency', WEIGHTS.maintenanceFrequency, maintenanceFrequency, false);
-    
+
     if (goals && goals.length > 0) {
       addScore('goals', WEIGHTS.goals, null, false);
     }
@@ -170,7 +169,7 @@ export const calculateRecommendations = (formData) => {
     const score = Math.round(rawScore);
     const technicalScore = techWeight > 0 ? (techSum / techWeight) * 100 : 0;
 
-    // CATEGORY
+    // kategori
     let category = "Tidak Cocok";
     if (eligibility === 'ELIGIBLE') {
       if (score >= 85) category = "Sangat Cocok";
@@ -180,7 +179,7 @@ export const calculateRecommendations = (formData) => {
       category = "Potensial — Perlu Verifikasi";
     }
 
-    // MATCHED REASONS
+    // matched
     const matchedReasons = [];
     if (solutionId === 'vertical_trellis') {
       if (areaType === 'wall_fence') matchedReasons.push("Area berupa dinding atau pagar sehingga bidang vertikal dapat dimanfaatkan sebagai ruang tanam.");
@@ -236,7 +235,7 @@ export const calculateRecommendations = (formData) => {
     });
   });
 
-  // RANKING
+  // rank
   const eligible = results.filter(r => r.eligibility === 'ELIGIBLE' && r.score >= 55);
   const conditional = results.filter(r => r.eligibility === 'CONDITIONAL');
 
@@ -253,19 +252,19 @@ export const calculateRecommendations = (formData) => {
   const sortFn = (a, b) => {
     if (b.rawScore !== a.rawScore) return b.rawScore - a.rawScore;
     if (b.technicalScore !== a.technicalScore) return b.technicalScore - a.technicalScore;
-    
+
     const bGoalPoints = b.breakdown.goals?.points || 0;
     const aGoalPoints = a.breakdown.goals?.points || 0;
     if (bGoalPoints !== aGoalPoints) return bGoalPoints - aGoalPoints;
-    
+
     const bAreaPoints = b.breakdown.areaType?.points || 0;
     const aAreaPoints = a.breakdown.areaType?.points || 0;
     if (bAreaPoints !== aAreaPoints) return bAreaPoints - aAreaPoints;
 
-    // Complete tie
+    // complete
     a.isTied = true;
     b.isTied = true;
-    
+
     const aIndex = SOLUTION_ORDER.indexOf(a.solutionId);
     const bIndex = SOLUTION_ORDER.indexOf(b.solutionId);
     return aIndex - bIndex;
@@ -274,7 +273,7 @@ export const calculateRecommendations = (formData) => {
   eligible.sort(sortFn);
   conditional.sort(sortFn);
 
-  // Return Object
+  // balik
   let primary = null;
   let alternatives = [];
   let conditionalSuggestions = [];
@@ -289,7 +288,7 @@ export const calculateRecommendations = (formData) => {
     alternatives = conditional.slice(1, 3);
     conditionalSuggestions = conditional.slice(3);
   }
-  
+
   return {
     primary,
     alternatives,
