@@ -13,7 +13,7 @@ import ilustrasiRumputPanjang from '../assets/images/ilustrasi-rumput-panjang.sv
 import polkadotImg from '../assets/images/polkadot.svg';
 import circleStarImg from '../assets/images/circle-star.svg';
 
-// icon pronlem (light mode)
+// icon problem (light mode)
 import iconKacaPembesar from '../assets/images/icon-kaca-pembesar.svg';
 import iconMatahari from '../assets/images/icon-matahari.svg';
 import iconPeringatan from '../assets/images/icon-peringatan.svg';
@@ -23,7 +23,7 @@ import iconKacaPembesarDark from '../assets/images/icon-kaca-pembesar-dark.svg';
 import iconMatahariDark from '../assets/images/icon-matahari-dark.svg';
 import iconPeringatanDark from '../assets/images/icon-peringatan-dark.svg';
 
-// icon target penggguna (light mode)
+// icon target pengguna (light mode)
 import iconRumah from '../assets/images/icon-rumah.svg';
 import iconGedung from '../assets/images/icon-gedung.svg';
 import iconSekolah from '../assets/images/icon-sekolah.svg';
@@ -128,7 +128,6 @@ export default function AboutPage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }} >
 
-            {/* Menggunakan ilustrasiSolusiTeduh untuk Light & Dark Mode */}
             <motion.img
               src={ilustrasiSolusiTeduh}
               alt="Ilustrasi Solusi Teduh"
@@ -187,7 +186,8 @@ export default function AboutPage() {
             <img
               src={circleStarImg}
               alt=""
-              className="absolute -top-8 -left-10 md:-left-12 w-8 h-auto pointer-events-none" />
+              className="absolute -top-8 -left-10 md:-left-12 w-8 h-auto pointer-events-none"    
+              />
             <motion.h2
               className="font-header text-3xl md:text-4xl font-normal text-brand-dark dark:text-white"
               initial="hidden"
@@ -235,10 +235,7 @@ export default function AboutPage() {
             </p>
           </div>
           <motion.div className="w-44 md:w-56 shrink-0 flex justify-center items-center relative" >
-            <img
-              src={circleStarImg}
-              alt=""
-              className="absolute -top-6 -left-8 md:-left-10 w-7 h-auto pointer-events-none z-20" />
+            {/* Gambar bintang berdiri sendiri dihapus agar tidak double dengan gambar bawaan */}
             <img
               src={ilustrasiTujuan}
               alt="Ilustrasi Tujuan Penghijauan"
