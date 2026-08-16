@@ -194,16 +194,22 @@ export default function SolusiPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 items-center pt-2 md:pt-4" >
+          
           <div className="w-full flex justify-center lg:justify-end items-center order-first md:order-last">
+
             <img
               src={ilustrasiSolusiTeduh}
               alt="Ilustrasi Solusi Teduh Light"
-              className="w-full max-w-md lg:max-w-xl object-contain z-10 dark:hidden"/>
+              className="w-full max-w-md lg:max-w-xl object-contain z-10 block dark:hidden"
+            />
+
             <img
               src={headerIllustrationDark}
               alt="Ilustrasi Solusi Teduh Dark"
-              className="w-full max-w-md lg:max-w-xl object-contain z-10 hidden dark:block"/>
+              className="w-full max-w-md lg:max-w-xl object-contain z-10 hidden dark:block"
+            />
           </div>
+
           <div className="space-y-6 text-center md:text-left order-last md:order-first w-full">
             <h1 className="font-header text-4xl md:text-5xl lg:text-6xl font-normal text-brand-dark dark:text-white leading-[1.15] tracking-tight">
               Solusi <span className="text-brand-green">Teduh Kota</span>
