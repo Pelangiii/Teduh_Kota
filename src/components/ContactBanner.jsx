@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-
 import tanamanTanyaImg from '../assets/images/tanaman-tanya.svg';
 
 const fadeInUp = {
@@ -20,20 +19,18 @@ export default function ContactBanner() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      variants={fadeInUp}
-    >
+      variants={fadeInUp}>
       <div className="bg-brand-peach dark:bg-bg-orange-dark rounded-3xl p-8 md:p-12 border border-transparent dark:border-bg-orange-dark flex flex-col md:flex-row items-center justify-start gap-8 md:gap-12 relative overflow-hidden z-10 transition-colors duration-300">
 
-        {/* Left Illustration */}
+        {/* ilustrasi */}
         <div className="w-36 md:w-44 shrink-0 flex justify-center relative z-10">
           <img
             src={tanamanTanyaImg}
             alt="Masih belum menemukan jawaban"
-            className="w-full h-auto object-contain"
-          />
+            className="w-full h-auto object-contain" />
         </div>
 
-        {/* Text Content */}
+        {/* konten */}
         <div className="space-y-4 text-center md:text-left flex-1 relative z-10">
           <div className="space-y-1.5">
             <h3 className="font-header text-2xl md:text-3xl font-normal text-brand-dark dark:text-white leading-snug">

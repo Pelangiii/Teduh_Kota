@@ -1,8 +1,9 @@
-/* Import Google Fonts */
+/* import google font */
 @import url('https://fonts.googleapis.com/css2?family=Madimi+One&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @import "tailwindcss";
 @variant dark (&:where(.dark, .dark *));
-/* Konfigurasi Warna dan Font Custom */
+
+/* konfigurasi warna dan font */
 @theme {
   /* Font */
   --font-sans: 'Nunito Sans', sans-serif;
@@ -25,7 +26,6 @@
   --color-line-dark: #7A7876;
   --color-font-dark-mode: #FFF9F0;
   --color-bg-orange-dark: #644C3A;
-  /* --color-text-dark-mode: #A6A5A3; */
 
   /* Shadow Soft Card */
   --shadow-brand: 0 12px 35px -6px rgba(154, 106, 57, 0.18);

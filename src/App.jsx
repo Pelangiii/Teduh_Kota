@@ -1,22 +1,15 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-// Import komponen-komponen utama (punya temenmu)
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import WhyTeduh from './components/WhyTeduh';
-import Features from './components/Features';
 import FooterSection from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import FloatingUpButton from './components/FloatingUpButton';
-
-// Import halaman
+import LandingPage from './pages/LandingPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import SolusiPage from './pages/SolusiPage';
 import CekKondisiPage from './pages/CekKondisiPage';
 import CekKondisiFormPage from './pages/CekKondisiFormPage';
-
-// Import Halaman Detail Solusi (punya temenmu)
 import TamanPotFleksibelPage from './pages/TamanPotFleksibelPage';
 import TamanVertikalBertrellisPage from './pages/TamanVertikalBertrellisPage';
 import BedengTanamTinggiPage from './pages/BedengTanamTinggiPage';
@@ -25,41 +18,17 @@ import PohonPeneduhPage from './pages/PohonPeneduhPage';
 import TamanResapanPage from './pages/TamanResapanPage';
 import TamanAtapPage from './pages/TamanAtapPage';
 
-// --- LANDING PAGE PUNYAMU ---
-import LandingPage from './pages/LandingPage'; 
-
-// Komponen gabungan khusus untuk Landing Page versi lama (Punya temenmu)
-function HomePage() {
-  return (
-    <>
-      <Hero />
-      <WhyTeduh />
-      <Features />
-    </>
-  );
-}
-
 export default function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-brand-bg dark:bg-mode-dark text-gray-800 dark:text-gray-100 font-sans flex flex-col justify-between transition-colors duration-300">
-        {/* Navbar tampil di semua halaman */}
+      <div className="min-h-screen dark:bg-mode-dark dark:text-gray-100 font-sans flex flex-col justify-between transition-colors duration-300">
         <Navbar />
 
-        {/* Bagian utama yang berubah tergantung URL */}
         <main className="grow">
           <Routes>
-            {/* 1. KETIKA BUKA http://localhost:5173/ OTO-MATIS REDIRECT KE /beranda */}
             <Route path="/" element={<Navigate to="/beranda" replace />} />
-
-            {/* 2. ROUTE UTAMA LANDING PAGE */}
-            <Route path="/beranda" element={<LandingPage />} /> 
-
-            {/* Optional: Jika halaman lama temanmu masih ingin diakses melalui /home */}
-            <Route path="/home" element={<HomePage />} /> 
-
-            {/* Route Halaman Lainnya */}
+            <Route path="/beranda" element={<LandingPage />} />
             <Route path="/tentang" element={<AboutPage />} />
             <Route path="/kontak" element={<ContactPage />} />
             <Route path="/solusi-teduh" element={<SolusiPage />} />
@@ -75,7 +44,6 @@ export default function App() {
           </Routes>
         </main>
 
-        {/* FooterSection tampil di semua halaman */}
         <FooterSection />
         <FloatingUpButton />
       </div>

@@ -4,29 +4,27 @@ import tanamanLoveImg from '../assets/images/tanaman-love.svg';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.6, ease: "easeOut" } 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
   }
 };
 
 export default function About() {
   return (
-    <motion.section 
+    <motion.section
       className="py-16 md:py-20 px-8 lg:px-16 max-w-7xl mx-auto"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      variants={fadeInUp}
-    >
+      variants={fadeInUp}>
       <div className="bg-white dark:bg-card-dark-mode rounded-3xl p-10 md:p-14 border border-gray-100 dark:border-line-dark shadow-card flex flex-col md:flex-row items-center gap-10 md:gap-14 hover:shadow-md transition duration-300">
         <div className="w-48 md:w-56 shrink-0 flex justify-center">
           <img
             src={tanamanLoveImg}
             alt="Ilustrasi Tanaman Teduh Kota"
-            className="w-full h-auto object-contain"
-          />
+            className="w-full h-auto object-contain" />
         </div>
 
         <div className="space-y-6 text-center md:text-left">
