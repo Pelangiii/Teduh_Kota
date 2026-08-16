@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-// Import Assets
+// assets
 import vertikalBertrellisImg from '../assets/images/vertikal-bertrellis.svg';
 import polkadotImg from '../assets/images/polkadot.svg';
 import ilusPot from '../assets/images/ilus-pot.png';
@@ -13,7 +13,7 @@ import warnVertikalBertrellisImg from '../assets/images/warn-vertikal-bertrellis
 import circleStarImg from '../assets/images/circle-star.svg';
 import rumputPanjangImg from '../assets/images/ilustrasi-rumput-panjang.svg';
 
-// --- Variants Animasi Framer Motion ---
+// --- animasi ---
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { 
@@ -65,30 +65,25 @@ const floatPolkadot = {
 export default function TamanVertikalBertrellisPage() {
   return (
     <div className="relative overflow-hidden min-h-screen bg-brand-bg dark:bg-mode-dark font-sans transition-colors duration-300">
-      {/* Background Polkadots dengan Efek Floating */}
       <img src={polkadotImg} 
         alt="" 
         className="absolute top-48 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" 
       />
       <img src={polkadotImg} 
         alt="" 
-        className="absolute top-1/3 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" 
-      />
+        className="absolute top-1/3 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" />
       <img src={polkadotImg} 
         alt="" 
-        className="absolute bottom-1/3 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" 
-      />
+        className="absolute bottom-1/3 -left-10 md:-left-14 w-20 md:w-28 opacity-80 pointer-events-none" />
       <img src={polkadotImg} 
         alt="" 
-        className="absolute bottom-16 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none" 
-      />
+        className="absolute bottom-16 -right-10 md:-right-14 w-20 md:w-28 opacity-80 pointer-events-none"/>
 
       <div className="pt-12 pb-48 md:pb-64 px-8 lg:px-16 max-w-7xl mx-auto relative">
         {/* Tombol Back */}
         <Link
           to="/solusi-teduh"
-          className="inline-flex items-center justify-center w-10 h-10 bg-brand-light-orange hover:bg-brand-orange text-white rounded-full shadow-sm hover:shadow-md transition-all mb-8 lg:mb-0 lg:absolute lg:left-8 lg:top-12 z-10"
-        >
+          className="inline-flex items-center justify-center w-10 h-10 bg-brand-light-orange hover:bg-brand-orange text-white rounded-full shadow-sm hover:shadow-md transition-all mb-8 lg:mb-0 lg:absolute lg:left-8 lg:top-12 z-10">
           <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"></path></svg>
         </Link>
 
@@ -98,8 +93,7 @@ export default function TamanVertikalBertrellisPage() {
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="text-4xl md:text-5xl font-header text-center mb-10"
-          >
+            className="text-4xl md:text-5xl font-header text-center mb-10">
             <span className="text-brand-dark dark:text-white">Taman Vertikal</span> <span className="text-brand-green">Bertrellis</span>
           </motion.h1>
 
@@ -108,28 +102,24 @@ export default function TamanVertikalBertrellisPage() {
             initial="hidden"
             animate="visible"
             variants={zoomIn}
-            className="w-full rounded-[32px] overflow-hidden shadow-sm mb-16"
-          >
+            className="w-full rounded-4xl] overflow-hidden shadow-sm mb-16">
             <img
               src={vertikalBertrellisImg}
               alt="Taman Vertikal Bertrellis"
-              className="w-full h-auto object-cover"
-            />
+              className="w-full h-auto object-cover"/>
           </motion.div>
 
-          {/* Info Cards */}
           <div className="space-y-8">
 
-            {/* Card 1: Apa itu? */}
+            {/* apa itu */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromLeft}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
-            >
-              <div className="flex-shrink-0">
+              className="bg-white dark:bg-card-dark-mode rounded-4xl p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8">
+              <div className="shrink-0">
                 <img src={ilusPot} alt="Apa itu?" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
@@ -142,16 +132,15 @@ export default function TamanVertikalBertrellisPage() {
               </div>
             </motion.div>
 
-            {/* Card 2: Cocok untuk */}
+            {/* cocok untuk */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromRight}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
-            >
-              <div className="flex-shrink-0">
+              className="bg-white dark:bg-card-dark-mode rounded-4xl p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8">
+              <div className="shrink-0">
                 <img src={ilusCheck} alt="Cocok untuk" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
@@ -167,16 +156,15 @@ export default function TamanVertikalBertrellisPage() {
               </div>
             </motion.div>
 
-            {/* Card 3: Manfaat utama */}
+            {/* manfaat */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromLeft}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8"
-            >
-              <div className="flex-shrink-0">
+              className="bg-white dark:bg-card-dark-mode rounded-4xl p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8">
+              <div className="shrink-0">
                 <img src={ilusStar} alt="Manfaat utama" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
@@ -191,16 +179,15 @@ export default function TamanVertikalBertrellisPage() {
               </div>
             </motion.div>
 
-            {/* Card 4: Cara menerapkan */}
+            {/* cara penerapan */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={slideFromRight}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8"
-            >
-              <div className="flex-shrink-0">
+              className="bg-white dark:bg-card-dark-mode rounded-4xl p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row-reverse items-center gap-8">
+              <div className="shrink-0">
                 <img src={ilusMenu} alt="Cara menerapkan" className="w-28 md:w-36 h-auto" />
               </div>
               <div className="w-full">
@@ -217,15 +204,14 @@ export default function TamanVertikalBertrellisPage() {
               </div>
             </motion.div>
 
-            {/* Card 5: Perhatikan (Warning) */}
+            {/* perhatian */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="bg-white dark:bg-card-dark-mode rounded-[32px] p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8 justify-between"
-            >
+              className="bg-white dark:bg-card-dark-mode rounded-4xl p-8 md:p-12 shadow-[0_4px_20px_-4px_rgba(154,106,57,0.2)] border border-transparent dark:border-line-dark transition-all duration-300 flex flex-col md:flex-row items-center gap-8 justify-between">
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-4">
                   <img src={perhatikanIcon} alt="Perhatikan" className="w-10 md:w-12 h-auto" />
@@ -244,26 +230,23 @@ export default function TamanVertikalBertrellisPage() {
 
           </div>
 
-          {/* Video Section */}
+          {/* video */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="mt-20 md:mt-28 pb-8 relative z-20"
-          >
+            className="mt-20 md:mt-28 pb-8 relative z-20">
             <h2 className="text-3xl md:text-4xl font-header text-center mb-12">
               <span className="text-brand-dark dark:text-white">Contoh Penerapan</span> <span className="text-brand-green">Taman Vertikal Bertrellis</span>
             </h2>
             <div className="relative max-w-4xl mx-auto">
               <img src={circleStarImg} 
                 alt="" 
-                className="absolute -left-6 md:-left-10 -bottom-2 md:-bottom-4 w-6 md:w-8 z-20 pointer-events-none" 
-              />
+                className="absolute -left-6 md:-left-10 -bottom-2 md:-bottom-4 w-6 md:w-8 z-20 pointer-events-none" />
               <motion.div 
                 variants={zoomIn}
-                className="relative z-10 w-full aspect-video rounded-4xl overflow-hidden shadow-lg border-4 border-white bg-brand-gray/20"
-              >
+                className="relative z-10 w-full aspect-video rounded-4xl overflow-hidden shadow-lg border-4 border-white bg-brand-gray/20">
                 <iframe
                   width="100%"
                   height="100%"
@@ -279,7 +262,7 @@ export default function TamanVertikalBertrellisPage() {
         </div>
       </div>
 
-      {/* Ilustrasi Rumput Panjang Bawah (Full Screen Width) */}
+      {/* rumput panjang */}
       <div
         className="absolute bottom-0 left-0 w-full h-24 md:h-32 lg:h-48 pointer-events-none z-10"
         style={{
